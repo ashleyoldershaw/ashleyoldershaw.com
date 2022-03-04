@@ -13,6 +13,17 @@
     "preexport": "npm run build",
     "export": "next export",
     "prestart": "npm run export",
-    "start": "serve out"
+    "start": "serve out",
+    "prepare": "husky install",
+    "format": "prettier --write",
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,json}": "npm run format"
+  },
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.4",
+    "prettier": "^2.5.1"
   }
 }
