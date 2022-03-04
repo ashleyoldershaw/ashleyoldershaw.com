@@ -10,7 +10,7 @@ export default function IndexPage() {
   return (
     <main>
       <PageTitle>Ash Oldershaw</PageTitle>
-      <PageSubtitle>My space.</PageSubtitle>
+      <PageSubtitle>My new website!</PageSubtitle>
     </main>
   );
 }
