@@ -4,7 +4,7 @@ const MyApp = ({ Component, pageProps, auth }) => {
   return (
     <>
       <Head>
-        <title>Ash's site</title>
+        <title>Ash Oldershaw</title>
       </Head>
       <Component {...pageProps} />
     </>
