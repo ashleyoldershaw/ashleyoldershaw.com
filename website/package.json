@@ -12,7 +12,7 @@
     "dev": "next",
     "build": "next build",
     "preexport": "npm run build",
-    "export": "next export",
+    "export": "next export -o out",
     "prestart": "npm run export",
     "start": "serve out"
   }

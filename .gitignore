@@ -8,8 +8,6 @@
 /coverage
 
 # next.js
-/.next/
-/out/
 
 # production
 /build
@@ -37,5 +35,6 @@ package-lock.json
 # extra bits
 node_modules
 .next
+out
 
 yarn.lock
