@@ -1,8 +1,6 @@
 {
   "private": true,
-  "dependencies": {
-    "@sanity/client": "^3.2.0"
-  },
+  "dependencies": {},
   "scripts": {
     "prepare": "husky install",
     "format": "prettier --write",
