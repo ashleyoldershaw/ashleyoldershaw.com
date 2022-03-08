@@ -1,22 +1,34 @@
-import { BodyText, PageSubtitle, PageTitle } from './styling/TextStyles'
+import {
+  BodyText,
+  PageSubtitle,
+  PageTitle,
+  SectionTitle,
+  SubSectionTitle,
+} from "./styling/TextStyles";
 
-export const HomePage = ({ sanity_text }) => {
-  return <>
-    <PageTitle>{sanity_text.title}</PageTitle>
-    <PageSubtitle>{sanity_text.subtitle}</PageSubtitle>
-    <BodyText>
-      {sanity_text.about_me}
-    </BodyText>
-    <div>
-      {/* What I'm good at section */}
-    </div>
+const WhatIDoSection = ({ sanity_input }) => {
+  console.log(sanity_input);
+  return sanity_input.map((section) => (
+    <>
+      <SubSectionTitle>{section.title}</SubSectionTitle>
+      <BodyText>{section.text_body}</BodyText>
+    </>
+  ));
+};
+export const HomePage = ({ sanity_data }) => {
+  return (
+    <>
+      <PageTitle>{sanity_data.title}</PageTitle>
+      <PageSubtitle>{sanity_data.subtitle}</PageSubtitle>
+      <BodyText>{sanity_data.about_me}</BodyText>
+      <div>
+        <SectionTitle>What I do</SectionTitle>
+        <WhatIDoSection sanity_input={sanity_data.what_i_do} />
+      </div>
 
-    <div>
-      {/* What I'm excited about */}
-    </div>
+      <div>{/* <SectionTitle>What I'm good at</SectionTitle> */}</div>
 
-    <div>
-      {/* Interested in my CV */}
-    </div>
-  </>
-}
+      <div>{/* <SectionTitle>What I'm excited about</SectionTitle> */}</div>
+    </>
+  );
+};
