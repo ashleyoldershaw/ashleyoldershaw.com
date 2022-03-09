@@ -3,25 +3,10 @@ import {
   PageSubtitle,
   PageTitle,
   SectionTitle,
-  SubSectionTitle,
 } from "./styling/TextStyles";
+import { WhatIDoSection } from "./WhatIDo";
+import { WhatImGoodAtItems } from "./WhatImGoodAt";
 
-const WhatIDoSection = ({ sanity_input }) => {
-  return sanity_input.map((section) => (
-    <>
-      <SubSectionTitle>{section.title}</SubSectionTitle>
-      <BodyText>{section.text_body}</BodyText>
-    </>
-  ));
-};
-const WhatImGoodAtSection = ({ sanity_input }) => {
-  console.log(sanity_input);
-  return sanity_input.map((section) => (
-    <>
-      <SubSectionTitle>{section.title}</SubSectionTitle>
-    </>
-  ));
-};
 export const HomePage = ({ sanity_data }) => {
   return (
     <>
@@ -35,7 +20,7 @@ export const HomePage = ({ sanity_data }) => {
 
       <div>
         <SectionTitle>What I'm good at</SectionTitle>
-        <WhatImGoodAtSection sanity_input={sanity_data.what_im_good_at} />
+        <WhatImGoodAtItems sanity_input={sanity_data.what_im_good_at} />
       </div>
 
       <div>{/* <SectionTitle>What I'm excited about</SectionTitle> */}</div>
