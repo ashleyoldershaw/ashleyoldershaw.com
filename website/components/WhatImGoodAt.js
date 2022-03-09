@@ -7,18 +7,14 @@ import { dark_mode_text, light_mode_text, text_colour } from "./styling/Themes";
 const ElementStyle = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   @media (prefers-color-scheme: light) {
-    body {
-      border: solid 3px ${light_mode_text};
-    }
+    border: solid 3px ${light_mode_text};
   }
   @media (prefers-color-scheme: dark) {
-    body {
-      border: solid 3px ${dark_mode_text};
-    }
+    border: solid 3px ${dark_mode_text};
   }
-  border: solid 3px ${text_colour};
   padding: 20px;
   border-radius: 25px;
 `;
