@@ -29,6 +29,21 @@ export const home_page = {
         },
       ],
     },
+    {
+      name: "what_im_good_at",
+      title: "What I'm good at",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "title", title: "Title", type: "string" },
+            { name: "url", title: "URL", type: "url" },
+            { name: "thumbnail", title: "Thumbnail", type: "image" },
+          ],
+        },
+      ],
+    },
   ],
   preview: {
     select: {

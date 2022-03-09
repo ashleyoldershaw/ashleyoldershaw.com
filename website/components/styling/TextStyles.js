@@ -27,6 +27,12 @@ export const SubSectionTitle = styled.h3`
   font-weight: 10;
 `;
 
+export const SubSubSectionTitle = styled.h3`
+  font-family: ${sansFontFamily};
+  font-size: 28px;
+  font-weight: 10;
+`;
+
 export const BodyText = styled.p`
   font-family: ${sansFontFamily};
   font-weight: 400;
