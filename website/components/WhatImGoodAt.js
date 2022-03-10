@@ -21,6 +21,7 @@ const ElementStyle = styled.div`
 
 const ComponentStyle = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 1em;
   justify-content: center;
 `;
