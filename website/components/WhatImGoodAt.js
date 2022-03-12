@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import { urlFor } from "./sanity";
-import { SubSectionTitle } from "./styling/TextStyles";
+import { BodyText, SubSectionTitle } from "./styling/TextStyles";
 import { dark_mode_text, light_mode_text, text_colour } from "./styling/Themes";
 
 const ElementStyle = styled.div`
@@ -38,9 +38,7 @@ export const WhatImGoodAtItems = ({ sanity_input }) => {
             objectFit="contain"
             alt={section.alt}
           />
-          <SubSectionTitle style={{ margin: 0 }}>
-            {section.title}
-          </SubSectionTitle>
+          <BodyText style={{ margin: 0 }}>{section.title}</BodyText>
         </ElementStyle>
       ))}
     </ComponentStyle>
