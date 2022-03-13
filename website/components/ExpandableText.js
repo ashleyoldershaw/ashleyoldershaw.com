@@ -23,10 +23,10 @@ const ExpandableTextStyle = styled.div`
     border-color: ${dark_mode_text};
     background-color: ${dark_mode_background};
   }
-  border-style: dashed;
+  border-style: solid;
   border-width: 2px;
-  padding-right: 1em;
-  // border-radius: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
   margin: 5px 0;
   transition: all 0.4s ease;
 `;
@@ -43,13 +43,16 @@ const ExpandButtonStyle = styled.button`
     background-color: ${dark_mode_background};
   }
   // align-self: center;
-  margin: 25px 1em;
-  // border-radius: 5px;
+  margin: 25px 5px;
+  border-radius: 5px;
   width: 25px;
   height: 25px;
   transition: all 0.4s ease;
-  border-style: dashed;
+  border-style: solid;
   border-width: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const ExpandButton = (props) => {
