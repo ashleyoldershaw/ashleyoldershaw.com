@@ -5,7 +5,7 @@ import { sanity } from "../components/sanity";
 export async function getStaticProps() {
   return {
     props: {
-      error_404: await sanity.fetch(`*[_type=='error_500'][0]`),
+      error_500: await sanity.fetch(`*[_type=='error_500'][0]`),
       ...(await getLayoutStaticProps()),
     },
   };
@@ -14,7 +14,7 @@ export async function getStaticProps() {
 export default function Error500({ error_500 }) {
   return (
     <main>
-      <ErrorPage info={error_404} />
+      <ErrorPage info={error_500} />
     </main>
   );
 }
