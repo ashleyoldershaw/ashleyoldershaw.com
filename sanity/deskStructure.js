@@ -18,11 +18,8 @@ export default () =>
       // List out the rest of the document types, but filter out the config type
       ...S.documentTypeListItems().filter(
         (listItem) =>
-          ![
-            "home_page",
-            "career_page",
-            "expandable_text",
-            "navigation_bar",
-          ].includes(listItem.getId())
+          !["home_page", "career_page", "expandable_text", "nav_bar"].includes(
+            listItem.getId()
+          )
       ),
     ]);

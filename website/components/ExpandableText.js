@@ -18,10 +18,12 @@ const ExpandableTextStyle = styled.div`
   @media (prefers-color-scheme: light) {
     border-color: ${light_mode_text};
     background-color: ${light_mode_background};
+    color: ${light_mode_text};
   }
   @media (prefers-color-scheme: dark) {
     border-color: ${dark_mode_text};
     background-color: ${dark_mode_background};
+    color: ${dark_mode_text};
   }
   border-style: solid;
   border-width: 2px;
@@ -37,10 +39,12 @@ const ExpandButtonStyle = styled.button`
   @media (prefers-color-scheme: light) {
     border-color: ${light_mode_text};
     background-color: ${light_mode_background};
+    color: ${light_mode_text};
   }
   @media (prefers-color-scheme: dark) {
     border-color: ${dark_mode_text};
     background-color: ${dark_mode_background};
+    color: ${dark_mode_text};
   }
   // align-self: center;
   margin: 25px 5px;
@@ -66,12 +70,12 @@ const ExpandButtonLabel = styled.div`
 `;
 
 export const ExpandableText = ({ info }) => {
-  return info.map((item) => {
+  return info.map((item, i) => {
     if (item.children) {
       const [toggleClicked, setToggleClicked] = useState(false);
 
       return (
-        <ExpandableTextStyle>
+        <ExpandableTextStyle key={i}>
           <div>
             <ExpandButton onClick={() => setToggleClicked(!toggleClicked)}>
               {toggleClicked ? "-" : "+"}
