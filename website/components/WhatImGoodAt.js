@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { urlFor } from "./sanity";
 import { BodyText, SubSectionTitle } from "./styling/TextStyles";
 import { dark_mode_text, light_mode_text, text_colour } from "./styling/Themes";
+import { SmartLink } from "./utility/SmartLink";
 
 const ElementStyle = styled.div`
   display: flex;
@@ -31,13 +32,15 @@ export const WhatImGoodAtItems = ({ sanity_input }) => {
     <ComponentStyle>
       {sanity_input.map((section, i) => (
         <ElementStyle key={i}>
-          <Image
-            width={120}
-            height={120}
-            src={urlFor(section.thumbnail).url()}
-            objectFit="contain"
-            alt={section.alt}
-          />
+          <SmartLink href={section.url}>
+            <Image
+              width={120}
+              height={120}
+              src={urlFor(section.thumbnail).url()}
+              objectFit="contain"
+              alt={section.alt}
+            />
+          </SmartLink>
           <BodyText style={{ margin: 0 }}>{section.title}</BodyText>
         </ElementStyle>
       ))}
