@@ -23,6 +23,11 @@ export const career_page = {
               of: [{ type: "expandable_text" }],
             },
           ],
+          preview: {
+            select: {
+              title: "name",
+            },
+          },
         },
       ],
     },
