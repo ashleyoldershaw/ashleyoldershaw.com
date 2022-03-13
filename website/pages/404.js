@@ -1,20 +1,20 @@
-import { HomePage } from "../components/HomePage";
+import { ErrorPage } from "../components/ErrorPage";
 import { getStaticProps as getLayoutStaticProps } from "../components/layout";
 import { sanity } from "../components/sanity";
 
 export async function getStaticProps() {
   return {
     props: {
-      home_page: await sanity.fetch(`*[_type=='home_page'][0]`),
+      error_404: await sanity.fetch(`*[_type=='error_404'][0]`),
       ...(await getLayoutStaticProps()),
     },
   };
 }
 
-export default function IndexPage({ home_page }) {
+export default function Error404({ error_404 }) {
   return (
     <main>
-      <HomePage sanity_data={home_page} />
+      <ErrorPage info={error_404} />
     </main>
   );
 }
