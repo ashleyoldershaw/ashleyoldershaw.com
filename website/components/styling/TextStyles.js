@@ -6,6 +6,7 @@ const sansFontFamily = `'Montserrat', sans-serif`;
 export const PageTitle = styled.h1`
   font-family: ${cursiveFontFamily};
   font-size: 64px;
+  font-weight: 100;
 `;
 
 export const PageSubtitle = styled.h2`
