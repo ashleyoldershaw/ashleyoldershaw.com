@@ -1,11 +1,11 @@
-export const home_page = {
-  name: "home_page",
-  title: "Home page",
+export const skills = {
+  name: "skills",
+  title: "Skills",
   type: "document",
   fields: [
     {
-      name: "title",
-      title: "Title",
+      name: "category",
+      title: "Category",
       type: "string",
     },
     {
@@ -13,17 +13,16 @@ export const home_page = {
       title: "Subtitle",
       type: "string",
     },
-    { name: "about_me", title: "About me", type: "text" },
     {
-      name: "what_i_do",
-      title: "What I do",
+      name: "info",
+      title: "Information",
       type: "array",
       of: [
         {
           type: "object",
           fields: [
             { name: "title", title: "Title", type: "string" },
-            { name: "text_body", title: "Text body", type: "text" },
+            { name: "url", title: "URL", type: "url" },
             { name: "thumbnail", title: "Thumbnail", type: "image" },
             { name: "alt", title: "Alt text", type: "string" },
           ],
@@ -33,7 +32,7 @@ export const home_page = {
   ],
   preview: {
     select: {
-      title: "title",
+      title: "category",
     },
   },
 };

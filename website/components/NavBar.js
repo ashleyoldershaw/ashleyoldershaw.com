@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { displays } from "./styling/Display";
 import { BodyText, PageTitle, SectionTitle } from "./styling/TextStyles";
 import { SmartLink } from "./utility/SmartLink";
 
@@ -15,6 +16,10 @@ const NavBarStyle = styled.div`
   p {
     padding: 0;
     margin: 0;
+  }
+
+  @media (max-width: ${displays.tablet}) {
+    display: none;
   }
 `;
 

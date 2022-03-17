@@ -6,15 +6,17 @@ export async function getStaticProps() {
   return {
     props: {
       home_page: await sanity.fetch(`*[_type=='home_page'][0]`),
+      skills: await sanity.fetch(`*[_type=='skills']`),
       ...(await getLayoutStaticProps()),
     },
   };
 }
 
-export default function IndexPage({ home_page }) {
+export default function IndexPage({ home_page, skills }) {
+  console.log(skills);
   return (
     <main>
-      <HomePage sanity_data={home_page} />
+      <HomePage home_page_data={home_page} skills_data={skills} />
     </main>
   );
 }

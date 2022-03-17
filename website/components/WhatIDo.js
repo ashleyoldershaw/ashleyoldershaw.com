@@ -5,6 +5,7 @@ import { BodyText, SubSectionTitle } from "./styling/TextStyles";
 
 const TitleStyle = styled.div`
   display: flex;
+  align-items: center;
   gap: 1em;
 `;
 

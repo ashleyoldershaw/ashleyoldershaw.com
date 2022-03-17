@@ -13,6 +13,7 @@ export default () =>
       S.listItem()
         .title("Navigation bar")
         .child(S.editor().schemaType("nav_bar").documentId("nav_bar")),
+      S.divider(),
       S.listItem()
         .title("Page not found")
         .child(S.editor().schemaType("error_404").documentId("error_404")),

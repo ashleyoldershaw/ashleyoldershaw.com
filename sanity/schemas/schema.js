@@ -5,6 +5,7 @@ import { error_404 } from "./error_404";
 import { error_500 } from "./error_500";
 import { home_page } from "./home_page";
 import { nav_bar } from "./nav_bar";
+import { skills } from "./skills";
 import { expandable_text } from "./types/expandable_text";
 
 export default createSchema({
@@ -16,5 +17,6 @@ export default createSchema({
     nav_bar,
     error_404,
     error_500,
+    skills,
   ]),
 });

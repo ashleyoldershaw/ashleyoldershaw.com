@@ -7,20 +7,20 @@ import {
 import { WhatIDoSection } from "./WhatIDo";
 import { WhatImGoodAtItems } from "./WhatImGoodAt";
 
-export const HomePage = ({ sanity_data }) => {
+export const HomePage = ({ home_page_data, skills_data }) => {
   return (
     <>
-      <PageTitle>{sanity_data.title}</PageTitle>
-      <PageSubtitle>{sanity_data.subtitle}</PageSubtitle>
-      <BodyText>{sanity_data.about_me}</BodyText>
+      <PageTitle>{home_page_data.title}</PageTitle>
+      <PageSubtitle>{home_page_data.subtitle}</PageSubtitle>
+      <BodyText>{home_page_data.about_me}</BodyText>
       <div>
         <SectionTitle>What I do</SectionTitle>
-        <WhatIDoSection sanity_input={sanity_data.what_i_do} />
+        <WhatIDoSection sanity_input={home_page_data.what_i_do} />
       </div>
 
       <div>
-        <SectionTitle>What I'm good at</SectionTitle>
-        <WhatImGoodAtItems sanity_input={sanity_data.what_im_good_at} />
+        <SectionTitle>Key skills</SectionTitle>
+        <WhatImGoodAtItems sanity_input={skills_data} />
       </div>
 
       <div>{/* <SectionTitle>What I'm excited about</SectionTitle> */}</div>

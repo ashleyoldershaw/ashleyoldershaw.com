@@ -24,3 +24,9 @@ export const SmartLink = ({ href, children }) => {
     </LinkStyle>
   );
 };
+
+export const OptionalSmartLink = ({ href, children }) => {
+  if (href) {
+    return <SmartLink href={href}>{children}</SmartLink>;
+  } else return children;
+};
