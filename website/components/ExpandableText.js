@@ -4,6 +4,7 @@ import { BodyText } from "./styling/TextStyles";
 import {
   dark_mode_background,
   dark_mode_text,
+  light_mode_accent,
   light_mode_background,
   light_mode_text,
 } from "./styling/Themes";
@@ -16,8 +17,6 @@ const ExpandableTextStyle = styled.div`
   }
 
   @media (prefers-color-scheme: light) {
-    border-color: ${light_mode_text};
-    background-color: ${light_mode_background};
     color: ${light_mode_text};
   }
   @media (prefers-color-scheme: dark) {
@@ -37,7 +36,7 @@ const ExpandButtonStyle = styled.button`
   border-width: 1px;
 
   @media (prefers-color-scheme: light) {
-    border-color: ${light_mode_text};
+    border-color: ${light_mode_accent};
     background-color: ${light_mode_background};
     color: ${light_mode_text};
   }
