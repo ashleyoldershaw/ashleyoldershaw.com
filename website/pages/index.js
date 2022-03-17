@@ -13,7 +13,6 @@ export async function getStaticProps() {
 }
 
 export default function IndexPage({ home_page, skills }) {
-  console.log(skills);
   return (
     <main>
       <HomePage home_page_data={home_page} skills_data={skills} />
