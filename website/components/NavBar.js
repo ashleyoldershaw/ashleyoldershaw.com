@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import { displays } from "./styling/Display";
-import { BodyText, PageTitle, SectionTitle } from "./styling/TextStyles";
+import { BodyText, SectionTitle } from "./styling/TextStyles";
+import {
+  dark_mode_background,
+  dark_mode_text,
+  light_mode_background,
+  light_mode_text,
+} from "./styling/Themes";
 import { SmartLink } from "./utility/SmartLink";
 
 const NavBarStyle = styled.div`
@@ -18,8 +24,39 @@ const NavBarStyle = styled.div`
     margin: 0;
   }
 
-  @media (max-width: ${displays.tablet}) {
-    display: none;
+  border-width: 1px;
+  border-style: none none solid none;
+
+  @media (prefers-color-scheme: light) {
+    border-color: ${light_mode_text};
+    background-color: ${light_mode_background};
+  }
+  @media (prefers-color-scheme: dark) {
+    border-color: ${dark_mode_text};
+    background-color: ${dark_mode_background};
+  }
+
+  @media (max-width: ${displays.mobileL}) {
+    flex-direction: column;
+
+    z-index: 1;
+
+    gap: 0;
+
+    div {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  @media (min-width: ${displays.mobileL}) {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
   }
 `;
 

@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Footer } from "../components/Footer";
 import { NavBar } from "../components/NavBar";
 import {
+  dark_mode_background,
+  dark_mode_text,
   light_mode_background,
   light_mode_text,
 } from "../components/styling/Themes";
@@ -18,8 +20,8 @@ const AppStyle = styled.div`
     color: ${light_mode_text};
   }
   @media (prefers-color-scheme: dark) {
-    background: #333;
-    color: #fff;
+    background: ${dark_mode_background};
+    color: ${dark_mode_text};
   }
 
   padding: 0 10%;

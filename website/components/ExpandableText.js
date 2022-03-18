@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { displays } from "./styling/Display";
 import { BodyText } from "./styling/TextStyles";
 import {
   dark_mode_background,
@@ -16,6 +17,8 @@ const ExpandableTextStyle = styled.div`
     display: flex;
   }
 
+  justify-content: center;
+
   @media (prefers-color-scheme: light) {
     color: ${light_mode_text};
   }
@@ -25,7 +28,7 @@ const ExpandableTextStyle = styled.div`
     color: ${dark_mode_text};
   }
   border-style: solid;
-  border-width: 2px;
+  border-width: 1px;
   padding-right: 5px;
   border-radius: 5px;
   margin: 5px 0;
@@ -45,7 +48,7 @@ const ExpandButtonStyle = styled.button`
     background-color: ${dark_mode_background};
     color: ${dark_mode_text};
   }
-  // align-self: center;
+  align-self: center;
   margin: 25px 5px;
   border-radius: 5px;
   width: 25px;
@@ -58,6 +61,15 @@ const ExpandButtonStyle = styled.button`
   align-items: center;
 `;
 
+const ExpandableTextChildrenStyle = styled.div`
+  flex-direction: column;
+  margin-left: 35px;
+
+  @media (max-width: ${displays.mobileL}) {
+    margin-left: 5px;
+  }
+`;
+
 const ExpandButton = (props) => {
   return <ExpandButtonStyle {...props} />;
 };
@@ -66,6 +78,7 @@ const ExpandButtonLabel = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  justify-content: center;
 `;
 
 export const ExpandableText = ({ info }) => {
@@ -75,14 +88,18 @@ export const ExpandableText = ({ info }) => {
 
       return (
         <ExpandableTextStyle key={i}>
-          <div>
-            <ExpandButton onClick={() => setToggleClicked(!toggleClicked)}>
-              {toggleClicked ? "-" : "+"}
-            </ExpandButton>
-            <ExpandButtonLabel>
-              <BodyText>{item.text}...</BodyText>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div>
+              <ExpandButton onClick={() => setToggleClicked(!toggleClicked)}>
+                {toggleClicked ? "-" : "+"}
+              </ExpandButton>
+              <ExpandButtonLabel>
+                <BodyText>{item.text}...</BodyText>
+              </ExpandButtonLabel>
+            </div>
+            <ExpandableTextChildrenStyle>
               {toggleClicked ? <ExpandableText info={item.children} /> : ""}
-            </ExpandButtonLabel>
+            </ExpandableTextChildrenStyle>
           </div>
         </ExpandableTextStyle>
       );
