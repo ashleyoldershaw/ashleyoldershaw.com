@@ -4,8 +4,8 @@ export const light_mode_text = "#303C6C";
 export const light_mode_contrast = "#D2FDFF";
 export const light_mode_accent_contrast = "#B4DFE5";
 
-export const dark_mode_background = "#222629";
-export const dark_mode_accent_background = "#474B4F";
-export const dark_mode_text = "#86C232";
-export const dark_mode_contrast = "#61892F";
-export const dark_mode_accent_contrast = "#6B6E70";
+export const dark_mode_background = "#59594A";
+export const dark_mode_accent = "#CDE7B0 ";
+export const dark_mode_text = "#C3CAD5";
+export const dark_mode_contrast = "#FF8966";
+export const dark_mode_accent_contrast = "#4E0250";

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Footer } from "../components/Footer";
 import { NavBar } from "../components/NavBar";
@@ -29,6 +30,19 @@ const AppStyle = styled.div`
 `;
 
 const MyApp = ({ Component, pageProps, auth }) => {
+  const [mq, setMq] = useState(null);
+  useEffect(() => {
+    setMq(window.matchMedia("(prefers-color-scheme: dark)"));
+  }, []);
+
+  const [theme, setTheme] = useState("light");
+  useEffect(() => {
+    // this will become useful later on
+    if (!mq) return;
+    setTheme(mq.matches ? "dark" : "light");
+    console.log(`You prefer ${theme} mode! Good choice :)`);
+  }, [mq]);
+
   return (
     <AppStyle>
       <Head>

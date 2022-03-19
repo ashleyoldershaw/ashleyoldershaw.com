@@ -1,12 +1,17 @@
 import Image from "next/image";
 import styled from "styled-components";
 import { urlFor } from "./sanity";
+import { displays } from "./styling/Display";
 import { BodyText, SubSectionTitle } from "./styling/TextStyles";
 
 const TitleStyle = styled.div`
   display: flex;
   align-items: center;
   gap: 1em;
+
+  @media (max-width: ${displays.mobileL}) {
+    justify-content: center;
+  }
 `;
 
 export const WhatIDoSection = ({ sanity_input }) => {

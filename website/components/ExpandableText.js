@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { displays } from "./styling/Display";
 import { BodyText } from "./styling/TextStyles";
 import {
+  dark_mode_accent,
   dark_mode_background,
   dark_mode_text,
   light_mode_accent,
@@ -44,7 +45,7 @@ const ExpandButtonStyle = styled.button`
     color: ${light_mode_text};
   }
   @media (prefers-color-scheme: dark) {
-    border-color: ${dark_mode_text};
+    border-color: ${dark_mode_accent};
     background-color: ${dark_mode_background};
     color: ${dark_mode_text};
   }
