@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import { urlFor } from "./sanity";
 import { BodyText, SubSubSectionTitle } from "./styling/TextStyles";
-import { dark_mode_text, light_mode_text } from "./styling/Themes";
+import { dark_mode_text, light_mode_text, useTheme } from "./styling/Themes";
 import { OptionalSmartLink } from "./utility/SmartLink";
 
 const ElementStyle = styled.div`
@@ -28,6 +28,8 @@ const ComponentStyle = styled.div`
 `;
 
 export const WhatImGoodAtItems = ({ sanity_input }) => {
+  const theme = useTheme();
+
   return sanity_input.map((skillset, i) => (
     <div key={i}>
       <SubSubSectionTitle>{skillset.category}</SubSubSectionTitle>
@@ -39,7 +41,11 @@ export const WhatImGoodAtItems = ({ sanity_input }) => {
               <Image
                 width={120}
                 height={120}
-                src={urlFor(section.thumbnail).url()}
+                src={urlFor(
+                  theme === "dark"
+                    ? section.dark_thumbnail || section.thumbnail
+                    : section.thumbnail
+                ).url()}
                 objectFit="contain"
                 alt={section.alt}
               />

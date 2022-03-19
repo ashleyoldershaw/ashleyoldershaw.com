@@ -38,9 +38,6 @@ const NavBarStyle = styled.div`
 
   @media (max-width: ${displays.mobileL}) {
     flex-direction: column;
-
-    z-index: 1;
-
     gap: 0;
 
     div {
@@ -54,6 +51,7 @@ const NavBarStyle = styled.div`
   }
 
   @media (min-width: ${displays.mobileL}) {
+    z-index: 1;
     position: -webkit-sticky;
     position: sticky;
     top: 0;

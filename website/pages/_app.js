@@ -8,6 +8,7 @@ import {
   dark_mode_text,
   light_mode_background,
   light_mode_text,
+  ThemeContext,
 } from "../components/styling/Themes";
 import "./app.css";
 
@@ -48,8 +49,10 @@ const MyApp = ({ Component, pageProps, auth }) => {
       <Head>
         <title>Ash Oldershaw</title>
       </Head>
-      <NavBar {...pageProps} />
-      <Component {...pageProps} />
+      <ThemeContext.Provider value={theme}>
+        <NavBar {...pageProps} />
+        <Component {...pageProps} />
+      </ThemeContext.Provider>
       <Footer />
     </AppStyle>
   );
