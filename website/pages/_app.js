@@ -36,13 +36,17 @@ const MyApp = ({ Component, pageProps, auth }) => {
     setMq(window.matchMedia("(prefers-color-scheme: dark)"));
   }, []);
 
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(null);
   useEffect(() => {
     // this will become useful later on
     if (!mq) return;
     setTheme(mq.matches ? "dark" : "light");
-    console.log(`You prefer ${theme} mode! Good choice :)`);
   }, [mq]);
+
+  useEffect(() => {
+    if (!theme) return;
+    console.log(`You prefer ${theme} mode! Good choice :)`);
+  }, [theme]);
 
   return (
     <AppStyle>
