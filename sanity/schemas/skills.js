@@ -30,6 +30,7 @@ export const skills = {
               type: "image",
             },
             { name: "alt", title: "Alt text", type: "string" },
+            { name: "hide", title: "Hidden?", type: "boolean" },
           ],
         },
       ],
