@@ -80,6 +80,10 @@ const ExpandButtonLabel = styled.div`
   flex-direction: column;
   width: 100%;
   justify-content: center;
+
+  p {
+    text-align: left;
+  }
 `;
 
 export const ExpandableText = ({ info }) => {
