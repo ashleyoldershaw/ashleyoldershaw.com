@@ -58,11 +58,12 @@ const getHelperMessage = (guess, options, message) => {
 
   const possible_birds = options.filter(
     (option) =>
-      option.toLowerCase().includes(guess.toLowerCase()) ||
-      guess.toLowerCase().includes(option.toLowerCase())
+      option.toLowerCase() !== guess.toLowerCase() &&
+      (option.toLowerCase().includes(guess.toLowerCase()) ||
+        guess.toLowerCase().includes(option.toLowerCase()))
   );
   console.log(possible_birds);
-  if (!possible_birds) return null;
+  if (possible_birds.length === 0) return null;
   return (
     <div>
       <BodyText>{message}</BodyText>
