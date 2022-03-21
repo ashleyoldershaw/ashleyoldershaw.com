@@ -20,6 +20,9 @@ const StyledNavButton = styled.button`
   }
   border-radius: 5px;
   border-style: solid;
+  border-width: 1px;
+
+  margin: 10px;
 
   :hover {
     text-decoration: underline;
