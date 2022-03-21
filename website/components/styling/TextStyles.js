@@ -3,7 +3,7 @@ import { displays } from "./Display";
 import { dark_mode_accent, light_mode_accent } from "./Themes";
 
 const cursiveFontFamily = `'Caveat', cursive`;
-const sansFontFamily = `'Montserrat', sans-serif`;
+export const sansFontFamily = `'Montserrat', sans-serif`;
 
 export const PageTitle = styled.h1`
   font-family: ${cursiveFontFamily};
