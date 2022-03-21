@@ -1,5 +1,6 @@
 import schemaTypes from "all:part:@sanity/base/schema-type";
 import createSchema from "part:@sanity/base/schema-creator";
+import { birdle } from "./birdle";
 import { career_page } from "./career_page";
 import { error_404 } from "./error_404";
 import { error_500 } from "./error_500";
@@ -18,5 +19,6 @@ export default createSchema({
     error_404,
     error_500,
     skills,
+    birdle,
   ]),
 });

@@ -13,14 +13,9 @@ export default () =>
       S.listItem()
         .title("Navigation bar")
         .child(S.editor().schemaType("nav_bar").documentId("nav_bar")),
-      S.divider(),
       S.listItem()
-        .title("Page not found")
-        .child(S.editor().schemaType("error_404").documentId("error_404")),
-      S.listItem()
-        .title("Internal server error")
-        .child(S.editor().schemaType("error_500").documentId("error_500")),
-      // Add a visual divider (optional)
+        .title("Birdle")
+        .child(S.editor().schemaType("birdle").documentId("birdle")),
       S.divider(),
       // List out the rest of the document types, but filter out the config type
       ...S.documentTypeListItems().filter(
@@ -32,6 +27,15 @@ export default () =>
             "nav_bar",
             "error_404",
             "error_500",
+            "birdle",
           ].includes(listItem.getId())
       ),
+      S.divider(),
+      S.listItem()
+        .title("Page not found")
+        .child(S.editor().schemaType("error_404").documentId("error_404")),
+      S.listItem()
+        .title("Internal server error")
+        .child(S.editor().schemaType("error_500").documentId("error_500")),
+      // Add a visual divider (optional)
     ]);
