@@ -7,14 +7,15 @@ export async function getStaticProps() {
     props: {
       birdle: await sanity.fetch(`*[_type=='birdle'][0]`),
       ...(await getLayoutStaticProps()),
+      time: new Date().valueOf(),
     },
   };
 }
 
-export default function Birdle({ birdle }) {
+export default function Birdle({ birdle, time }) {
   return (
     <main>
-      <BirdlePage birdle={birdle} />
+      <BirdlePage birdle={birdle} time={time} />
     </main>
   );
 }

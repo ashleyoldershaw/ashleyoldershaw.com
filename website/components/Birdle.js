@@ -160,15 +160,14 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
   );
 };
 
-const getTodaysItem = (items) => {
-  var now = new Date();
-  var fullDaysSinceEpoch = Math.floor(now / 8.64e7);
+const getTodaysItem = (items, time) => {
+  var fullDaysSinceEpoch = Math.floor(time / 8.64e7);
   return items[fullDaysSinceEpoch % items.length];
 };
 
-export const BirdlePage = ({ birdle }) => {
-  const todays_bird = getTodaysItem(birdle.birds);
-  const todays_charity = getTodaysItem(birdle.charities);
+export const BirdlePage = ({ birdle, time }) => {
+  const todays_bird = getTodaysItem(birdle.birds, time);
+  const todays_charity = getTodaysItem(birdle.charities, time);
 
   return (
     <>
