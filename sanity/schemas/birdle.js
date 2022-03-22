@@ -34,6 +34,7 @@ export const birdle = {
     { name: "share_button", title: "Share button message", type: "string" },
     { name: "lose_prelude", title: "Lose prelude", type: "text" },
     { name: "helper_message", title: "Helper message", type: "text" },
+    { name: "bad_guess_message", title: "Bad guess message", type: "text" },
     {
       name: "charities",
       title: "Charities",

@@ -42,6 +42,47 @@ const BirdGuesserStyle = styled.div`
   }
 
   align-items: center;
+
+  // thanks to https://erikmartinjordan.com/ for this
+  input.shake {
+    animation: shake 1s infinite;
+  }
+
+  @keyframes shake {
+    0% {
+      transform: translate(2px, 1px) rotate(0deg);
+    }
+    10% {
+      transform: translate(-1px, -2px) rotate(-2deg);
+    }
+    20% {
+      transform: translate(-3px, 0px) rotate(3deg);
+    }
+    30% {
+      transform: translate(0px, 2px) rotate(0deg);
+    }
+    40% {
+      transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+      transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+      transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+      transform: translate(2px, 1px) rotate(-2deg);
+    }
+    80% {
+      transform: translate(-1px, -1px) rotate(4deg);
+    }
+    90% {
+      transform: translate(2px, 2px) rotate(0deg);
+    }
+    100% {
+      transform: translate(1px, -2px) rotate(-1deg);
+    }
+  }
 `;
 const max_guesses = 6;
 const removeBlanks = (text) => text.replace(/\s+/g, " ").trim();
@@ -81,6 +122,9 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
   const [won, setWon] = useState(false);
   const [shareClicked, setShareClicked] = useState(false);
   const [helperMessage, setHelperMessage] = useState(null);
+  const [badGuessMessage, setBadGuessMessage] = useState(null);
+  const [shake, setShake] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -99,6 +143,9 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
       setHelperMessage(
         getHelperMessage(data.guess, options, birdle.helper_message)
       );
+      setBadGuessMessage(<BodyText>{birdle.bad_guess_message}</BodyText>);
+      setShake(true);
+      setTimeout(() => setShake(false), 1000);
     }
     reset();
     e.preventDefault();
@@ -144,7 +191,9 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <BirdGuesserStyle>
+        {badGuessMessage}
         <CustomTextInput
+          className={shake ? `shake` : null}
           register={register}
           placeholder={birdle.placeholder}
           validation={{ required: true, maxLength: 80 }}
