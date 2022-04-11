@@ -126,6 +126,8 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
   const [badGuessMessage, setBadGuessMessage] = useState(null);
   const [shake, setShake] = useState(false);
 
+  const currentSuggestions = getSuggestions(guessInput, options);
+
   const {
     register,
     handleSubmit,
@@ -193,6 +195,7 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <BirdGuesserStyle>
         {badGuessMessage}
+        {currentSuggestions.length > 0 && renderSuggestions(currentSuggestions)}
         <CustomTextInput
           className={shake ? `shake` : null}
           register={register}
@@ -200,9 +203,7 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
           validation={{ required: true, maxLength: 80 }}
           name="guess"
           value={guessInput}
-          onChange={(e) => {
-            setGuessInput(e.target.value);
-          }}
+          onChange={(e) => setGuessInput(e.target.value || "")}
         />
         <NavButton text={birdle.button_text} type="submit"></NavButton>
         <BodyText>
@@ -212,6 +213,29 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
       </BirdGuesserStyle>
     </form>
   );
+};
+
+const renderSuggestions = (suggestions) => {
+  return <ul>{suggestions.map(renderSuggestion)}</ul>;
+};
+
+const renderSuggestion = (suggestion, key) => {
+  return <li key={key}>{suggestion}</li>;
+};
+
+const getSuggestions = (guessText, options) => {
+  if (guessText.length < 3) {
+    return [];
+  }
+  const guessTextLower = guessText.toLowerCase();
+  const birdsThatStartWith = options
+    .filter((option) => option.toLowerCase().startsWith(guessTextLower))
+    .sort();
+  const birdsThatContain = options
+    .filter((option) => option.toLowerCase().includes(guessTextLower))
+    .sort();
+  const uniqueBirds = new Set([...birdsThatStartWith, ...birdsThatContain]);
+  return [...uniqueBirds];
 };
 
 const getTodaysItem = (items, time) => {
