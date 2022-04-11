@@ -49,6 +49,8 @@ export const CustomTextInput = ({
   validation = {},
   name,
   className = "",
+  onChange = () => {},
+  value = "",
 }) => {
   return (
     <InputStyle
@@ -56,6 +58,8 @@ export const CustomTextInput = ({
       type="text"
       placeholder={placeholder}
       {...register(name, validation)}
+      value={value}
+      onChange={onChange}
     />
   );
 };

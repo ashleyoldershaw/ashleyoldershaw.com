@@ -120,6 +120,7 @@ const getHelperMessage = (guess, options, message) => {
 const BirdGuesser = ({ options, answer, birdle, charity }) => {
   const [guesses, setGuesses] = useState(1);
   const [won, setWon] = useState(false);
+  const [guessInput, setGuessInput] = useState("");
   const [shareClicked, setShareClicked] = useState(false);
   const [helperMessage, setHelperMessage] = useState(null);
   const [badGuessMessage, setBadGuessMessage] = useState(null);
@@ -198,6 +199,10 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
           placeholder={birdle.placeholder}
           validation={{ required: true, maxLength: 80 }}
           name="guess"
+          value={guessInput}
+          onChange={(e) => {
+            setGuessInput(e.target.value);
+          }}
         />
         <NavButton text={birdle.button_text} type="submit"></NavButton>
         <BodyText>
