@@ -166,12 +166,15 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
     />
   );
 
+  const dedication = <BodyText>{birdle.dedication}</BodyText>;
+
   if (won) {
     return (
       <BirdGuesserStyle>
         <BodyText>{birdle.win_message}</BodyText>
         {share_button}
         {charity_button}
+        {dedication}
       </BirdGuesserStyle>
     );
   }
@@ -184,6 +187,7 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
         </BodyText>
         {share_button}
         {charity_button}
+        {dedication}
       </BirdGuesserStyle>
     );
   }
