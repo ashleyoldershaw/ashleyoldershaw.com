@@ -32,6 +32,16 @@ export const skills = {
             { name: "alt", title: "Alt text", type: "string" },
             { name: "hide", title: "Hidden?", type: "boolean" },
           ],
+          preview: {
+            select: { title: "title", thumbnail: "thumbnail", hide: "hide" },
+            prepare({ title, thumbnail, hide }) {
+              return {
+                title,
+                subtitle: hide ? "Hidden" : "",
+                media: thumbnail,
+              };
+            },
+          },
         },
       ],
     },
