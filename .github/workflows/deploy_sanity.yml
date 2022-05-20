@@ -18,8 +18,8 @@ jobs:
           node-version: 14
       - name: Install dependencies
         run: |
-          yarn
+          npm install
       - name: Deploy Sanity
         run: |
           set -e
-          SANITY_AUTH_TOKEN="${{ secrets.SANITY_DEPLOY_KEY }}" yarn sanity deploy
+          SANITY_AUTH_TOKEN="${{ secrets.SANITY_DEPLOY_KEY }}" npx sanity deploy
