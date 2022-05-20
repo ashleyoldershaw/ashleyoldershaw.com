@@ -13,14 +13,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node.js environment
-        uses: actions/setup-node@v1.4.2
+        uses: actions/setup-node@v3
         with:
-          node-version: 12.x
+          node-version: 14
       - name: Install dependencies
         run: |
           yarn
       - name: Deploy Sanity
         run: |
           set -e
-
           SANITY_AUTH_TOKEN="${{ secrets.SANITY_DEPLOY_KEY }}" yarn sanity deploy
