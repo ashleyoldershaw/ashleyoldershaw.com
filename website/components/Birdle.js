@@ -103,7 +103,6 @@ const getHelperMessage = (guess, options, message) => {
       (option.toLowerCase().includes(guess.toLowerCase()) ||
         guess.toLowerCase().includes(option.toLowerCase()))
   );
-  console.log(possible_birds);
   if (possible_birds.length === 0) return null;
   return (
     <div>
@@ -133,6 +132,7 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
   } = useForm();
 
   const onSubmit = (data, e) => {
+    e.preventDefault();
     if (
       removeBlanks(data.guess.toLowerCase()) ===
       removeBlanks(answer.toLowerCase())
@@ -148,7 +148,6 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
       setTimeout(() => setShake(false), 1000);
     }
     reset();
-    e.preventDefault();
   };
 
   const charity_button = (
