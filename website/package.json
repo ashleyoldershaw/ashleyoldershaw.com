@@ -14,6 +14,7 @@
     "dev": "next",
     "build": "next build",
     "preexport": "npm run build",
+    "pre-commit": "npm run lint",
     "export": "next export -o out",
     "lint": "next lint --max-warnings 0",
     "prestart": "npm run export",
