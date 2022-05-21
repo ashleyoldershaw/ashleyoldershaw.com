@@ -17,7 +17,7 @@ export const SmartLink = ({ href, children }) => {
   }
   return (
     <LinkStyle>
-      <a href={href} target="_blank">
+      <a href={href} target="_blank" rel='noreferrer'>
         {children}
       </a>
     </LinkStyle>

@@ -8,7 +8,6 @@ const FooterStyle = styled.div`
 export const Footer = () => {
   return (
     <FooterStyle>
-      {" "}
       <BodyText>&copy; {new Date().getFullYear()} Ashley Oldershaw</BodyText>
     </FooterStyle>
   );

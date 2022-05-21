@@ -98,10 +98,14 @@ const getHelperMessage = (guess, options, message) => {
   if (guess.length < 3) return null;
 
   const possible_birds = options.filter(
-    (option) =>
-      option.toLowerCase() !== guess.toLowerCase() &&
-      (option.toLowerCase().includes(guess.toLowerCase()) ||
-        guess.toLowerCase().includes(option.toLowerCase()))
+    (option) => {
+      const lower_option = option.toLowerCase()
+      const lower_guess = guess.toLowerCase()
+
+      return lower_option !== lower_guess &&
+        (lower_option.includes(lower_guess) ||
+          lower_guess.includes(lower_option))
+    }
   );
   if (possible_birds.length === 0) return null;
   return (
@@ -152,7 +156,7 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
 
   const charity_button = (
     <SmartLink href={charity.url}>
-      <NavButton text={`${birdle.charity_prelude} ${charity.name}`} />
+      <NavButton text={`${birdle.charity_prelude} ${charity.name}`}  />
     </SmartLink>
   );
   const share_button = (
