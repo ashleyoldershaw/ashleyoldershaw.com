@@ -131,7 +131,6 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
     reset,
   } = useForm();
 
