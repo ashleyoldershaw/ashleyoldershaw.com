@@ -29,9 +29,9 @@ const StyledNavButton = styled.button`
   }
 `;
 
-export const NavButton = ({ text, onClick }) => {
+export const NavButton = ({ text, onClick=()=>{},type='button' }) => {
   return (
-    <StyledNavButton onClick={onClick}>
+    <StyledNavButton onClick={onClick} type={type}>
       <BodyText style={{ margin: "15px" }}>{text}</BodyText>
     </StyledNavButton>
   );

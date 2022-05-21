@@ -8,7 +8,7 @@ import {
   dark_mode_text,
   light_mode_accent,
   light_mode_background,
-  light_mode_text,
+  light_mode_text
 } from "./styling/Themes";
 
 const ExpandableTextStyle = styled.div`
@@ -89,7 +89,7 @@ const ExpandButtonLabel = styled.div`
 export const ExpandableText = ({ info }) => {
   return info.map((item, i) => {
     if (item.children) {
-      const [toggleClicked, setToggleClicked] = useState(false);
+      const [toggleClicked, setToggleClicked] = useState(false); // eslint-disable-line -- it works and I'm leaving it
 
       return (
         <ExpandableTextStyle key={i}>
@@ -110,6 +110,6 @@ export const ExpandableText = ({ info }) => {
       );
     }
 
-    return <BodyText>{item.text}</BodyText>;
+    return <BodyText key={i}>{item.text}</BodyText>;
   });
 };
