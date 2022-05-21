@@ -156,7 +156,7 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
 
   const charity_button = (
     <SmartLink href={charity.url}>
-      <NavButton text={`${birdle.charity_prelude} ${charity.name}`} onClick={()=>{}} />
+      <NavButton text={`${birdle.charity_prelude} ${charity.name}`}  />
     </SmartLink>
   );
   const share_button = (
