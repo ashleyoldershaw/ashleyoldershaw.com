@@ -1,26 +1,12 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import styled from "styled-components";
-import { urlFor } from "./sanity";
-import { NavButton } from "./styling/Buttons";
-import { displays } from "./styling/Display";
-import { CustomTextInput } from "./styling/Inputs";
-import { BodyText, PageTitle } from "./styling/TextStyles";
-import { SmartLink } from "./utility/SmartLink";
+import { urlFor } from "../sanity";
+import { NavButton } from "../styling/Buttons";
+import { CustomTextInput } from "../styling/Inputs";
+import { BodyText, PageTitle } from "../styling/TextStyles";
+import { SmartLink } from "../utility/SmartLink";
+import { BirdDisplayStyle, BirdGuesserStyle, BirdImage } from "./Birdle.style";
 
-const BirdImage = styled.img`
-  border-radius: 10px;
-  max-width: 80%;
-  max-height: 50vh;
-
-  @media (max-width: ${displays.mobileL}) {
-    max-width: 100%;
-  }
-`;
-const BirdDisplayStyle = styled.div`
-  display: flex;
-  justify-content: center;
-`;
 const BirdDisplay = ({ bird }) => {
   return (
     <BirdDisplayStyle>
@@ -29,63 +15,8 @@ const BirdDisplay = ({ bird }) => {
   );
 };
 
-const BirdGuesserStyle = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: ${displays.laptop}) {
-    width: 50%;
-    margin: auto;
-  }
-  p {
-    text-align: center;
-  }
-
-  align-items: center;
-
-  // thanks to https://erikmartinjordan.com/ for this
-  input.shake {
-    animation: shake 1s infinite;
-  }
-
-  @keyframes shake {
-    0% {
-      transform: translate(2px, 1px) rotate(0deg);
-    }
-    10% {
-      transform: translate(-1px, -2px) rotate(-2deg);
-    }
-    20% {
-      transform: translate(-3px, 0px) rotate(3deg);
-    }
-    30% {
-      transform: translate(0px, 2px) rotate(0deg);
-    }
-    40% {
-      transform: translate(1px, -1px) rotate(1deg);
-    }
-    50% {
-      transform: translate(-1px, 2px) rotate(-1deg);
-    }
-    60% {
-      transform: translate(-3px, 1px) rotate(0deg);
-    }
-    70% {
-      transform: translate(2px, 1px) rotate(-2deg);
-    }
-    80% {
-      transform: translate(-1px, -1px) rotate(4deg);
-    }
-    90% {
-      transform: translate(2px, 2px) rotate(0deg);
-    }
-    100% {
-      transform: translate(1px, -2px) rotate(-1deg);
-    }
-  }
-`;
 const max_guesses = 6;
-const removeBlanks = (text) => text.replace(/\s+/g, " ").trim();
+export const removeBlanks = (text) => text.replace(/\s+/g, " ").trim();
 
 const getShareMessage = (guesses) => {
   return `Birdle!
@@ -120,6 +51,11 @@ const getHelperMessage = (guess, options, message) => {
   );
 };
 
+export const hasWon = (guess, answer) => {
+  return removeBlanks(guess.toLowerCase()) ===
+    removeBlanks(answer.toLowerCase())
+}
+
 const BirdGuesser = ({ options, answer, birdle, charity }) => {
   const [guesses, setGuesses] = useState(1);
   const [won, setWon] = useState(false);
@@ -135,17 +71,16 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
     reset,
   } = useForm();
 
-  const onSubmit = (data, e) => {
+  const onSubmit = ({ guess }, e) => {
     e.preventDefault();
     if (
-      removeBlanks(data.guess.toLowerCase()) ===
-      removeBlanks(answer.toLowerCase())
+      hasWon(guess, answer)
     ) {
       setWon(true);
     } else {
       setGuesses(guesses + 1);
       setHelperMessage(
-        getHelperMessage(data.guess, options, birdle.helper_message)
+        getHelperMessage(guess, options, birdle.helper_message)
       );
       setBadGuessMessage(<BodyText>{birdle.bad_guess_message}</BodyText>);
       setShake(true);
@@ -156,7 +91,7 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
 
   const charity_button = (
     <SmartLink href={charity.url}>
-      <NavButton text={`${birdle.charity_prelude} ${charity.name}`}  />
+      <NavButton text={`${birdle.charity_prelude} ${charity.name}`} />
     </SmartLink>
   );
   const share_button = (
