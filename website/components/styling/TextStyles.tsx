@@ -113,7 +113,6 @@ export const Emphasis = styled.p`
   font-family: ${titleFontFamily};
   font-size: 32px;
   font-weight: 400;
-    text-align: center;
-    font-style: italic;
-
+  text-align: center;
+  font-style: italic;
 `;

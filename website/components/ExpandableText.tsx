@@ -8,7 +8,7 @@ import {
   dark_mode_text,
   light_mode_accent,
   light_mode_background,
-  light_mode_text
+  light_mode_text,
 } from "./styling/Themes";
 
 const ExpandableTextStyle = styled.div`

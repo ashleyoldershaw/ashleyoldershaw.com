@@ -48,8 +48,7 @@ const MyApp = ({ Component, pageProps, auth }) => {
     console.log(`You prefer ${theme} mode! Good choice :)`);
   }, [theme]);
 
-
-  if(Object.keys(pageProps).length===0) return null
+  if (Object.keys(pageProps).length === 0) return null;
 
   return (
     <AppStyle>
