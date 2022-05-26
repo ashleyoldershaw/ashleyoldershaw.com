@@ -98,3 +98,22 @@ export const BodyText = styled.p`
     text-align: center;
   }
 `;
+
+export const TextDetail = styled.p`
+  font-family: ${titleFontFamily};
+  font-size: 12px;
+  font-weight: 400;
+
+  @media (max-width: ${displays.mobileL}) {
+    text-align: center;
+  }
+`;
+
+export const Emphasis = styled.p`
+  font-family: ${titleFontFamily};
+  font-size: 32px;
+  font-weight: 400;
+    text-align: center;
+    font-style: italic;
+
+`;
