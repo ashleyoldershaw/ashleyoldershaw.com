@@ -8,7 +8,7 @@ const Article = ({ blog_post }) => {
 
 export async function getStaticPaths() {
   const paths = await sanity.fetch(
-    `*[_type == "post" && defined(slug.current)][].slug.current`
+    `*[_type == "blog" && defined(slug.current)][].slug.current`
   );
 
   return {
