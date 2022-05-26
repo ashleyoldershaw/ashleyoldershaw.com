@@ -1,11 +1,12 @@
-import { urlFor } from "../components/sanity";
+import { urlFor } from "../sanity";
 import {
   BodyText,
   Emphasis,
   PageSubtitle,
   PageTitle,
   TextDetail,
-} from "../components/styling/TextStyles";
+} from "../styling/TextStyles";
+import { formatDate } from "../utility/formatting";
 import {
   StyledArticle,
   StyledBlogImage,
@@ -46,12 +47,8 @@ export const BlogPost = ({ content }) => {
       <PageTitle>{content.title}</PageTitle>
       <PageSubtitle>{content.subtitle}</PageSubtitle>
       <TimingSection>
-        <TextDetail>
-          Created at: {new Date(content._createdAt).toLocaleString()}
-        </TextDetail>
-        <TextDetail>
-          Last updated: {new Date(content._updatedAt).toLocaleString()}
-        </TextDetail>
+        <TextDetail>Created at: {formatDate(content._createdAt)}</TextDetail>
+        <TextDetail>Last updated: {formatDate(content._updatedAt)}</TextDetail>
       </TimingSection>
       {content.content.map((item) => (
         <BlogContent key={item._Îkey} item={item} />

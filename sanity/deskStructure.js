@@ -8,11 +8,14 @@ export default () =>
         .title("Home page")
         .child(S.editor().schemaType("home_page").documentId("home_page")),
       S.listItem()
+        .title("Navigation bar")
+        .child(S.editor().schemaType("nav_bar").documentId("nav_bar")),
+      S.listItem()
         .title("Career page")
         .child(S.editor().schemaType("career_page").documentId("career_page")),
       S.listItem()
-        .title("Navigation bar")
-        .child(S.editor().schemaType("nav_bar").documentId("nav_bar")),
+        .title("Blog home page")
+        .child(S.editor().schemaType("blog_home").documentId("blog_home")),
       S.listItem()
         .title("Birdle")
         .child(S.editor().schemaType("birdle").documentId("birdle")),
@@ -28,6 +31,7 @@ export default () =>
             "error_404",
             "error_500",
             "birdle",
+            "blog_home",
           ].includes(listItem.getId())
       ),
       S.divider(),

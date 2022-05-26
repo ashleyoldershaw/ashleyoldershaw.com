@@ -1,6 +1,6 @@
-import { sanity } from "../../components/sanity";
+import { BlogPost } from "../../components/BlogPost/BlogPost";
 import { getStaticProps as getLayoutStaticProps } from "../../components/layout";
-import { BlogPost } from "../../BlogPost/BlogPost";
+import { sanity } from "../../components/sanity";
 
 const Article = ({ blog_post }) => {
   return <BlogPost content={blog_post} />;
