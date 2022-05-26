@@ -28,16 +28,15 @@ https://ashleyoldershaw.com/games/birdle`;
 const getHelperMessage = (guess, options, message) => {
   if (guess.length < 3) return null;
 
-  const possible_birds = options.filter(
-    (option) => {
-      const lower_option = option.toLowerCase()
-      const lower_guess = guess.toLowerCase()
+  const possible_birds = options.filter((option) => {
+    const lower_option = option.toLowerCase();
+    const lower_guess = guess.toLowerCase();
 
-      return lower_option !== lower_guess &&
-        (lower_option.includes(lower_guess) ||
-          lower_guess.includes(lower_option))
-    }
-  );
+    return (
+      lower_option !== lower_guess &&
+      (lower_option.includes(lower_guess) || lower_guess.includes(lower_option))
+    );
+  });
   if (possible_birds.length === 0) return null;
   return (
     <div>
@@ -52,9 +51,10 @@ const getHelperMessage = (guess, options, message) => {
 };
 
 export const hasWon = (guess, answer) => {
-  return removeBlanks(guess.toLowerCase()) ===
-    removeBlanks(answer.toLowerCase())
-}
+  return (
+    removeBlanks(guess.toLowerCase()) === removeBlanks(answer.toLowerCase())
+  );
+};
 
 const BirdGuesser = ({ options, answer, birdle, charity }) => {
   const [guesses, setGuesses] = useState(1);
@@ -73,15 +73,11 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
 
   const onSubmit = ({ guess }, e) => {
     e.preventDefault();
-    if (
-      hasWon(guess, answer)
-    ) {
+    if (hasWon(guess, answer)) {
       setWon(true);
     } else {
       setGuesses(guesses + 1);
-      setHelperMessage(
-        getHelperMessage(guess, options, birdle.helper_message)
-      );
+      setHelperMessage(getHelperMessage(guess, options, birdle.helper_message));
       setBadGuessMessage(<BodyText>{birdle.bad_guess_message}</BodyText>);
       setShake(true);
       setTimeout(() => setShake(false), 1000);
