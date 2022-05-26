@@ -1,0 +1,26 @@
+name: Deploy Sanity
+on:
+  push:
+    branches: [main]
+    paths: [sanity/**, .github/workflows/deploy_sanity.yml]
+
+defaults:
+  run:
+    working-directory: ./sanity
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: |
+          npm install
+      - name: Deploy Sanity
+        run: |
+          set -e
+          SANITY_AUTH_TOKEN="${{ secrets.SANITY_DEPLOY_KEY }}" npx sanity deploy

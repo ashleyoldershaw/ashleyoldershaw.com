@@ -57,6 +57,7 @@ export const birdle = {
         },
       ],
     },
+    { name: "dedication", title: "Dedication message", type: "text" },
   ],
   preview: {
     select: {
