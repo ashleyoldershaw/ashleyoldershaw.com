@@ -1,8 +1,12 @@
-import Image from "next/image";
 import styled from "styled-components";
 
-export const StyledBlogImage = styled(Image)`
-  justify-self: center;
+export const StyledBlogImageWrapper = styled.div`
+  span {
+    width: 80% !important;
+  }
+  display: flex;
+  justify-content: center;
+  margin: 30px 0px;
 `;
 
 export const StyledArticle = styled.article`

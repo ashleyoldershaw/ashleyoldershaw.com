@@ -1,3 +1,5 @@
+import { resizeImage } from "next/dist/server/image-optimizer";
+import Image from "next/image";
 import { urlFor } from "../sanity";
 import {
   BodyText,
@@ -9,20 +11,27 @@ import {
 import { formatDate } from "../utility/formatting";
 import {
   StyledArticle,
-  StyledBlogImage,
+  StyledBlogImageWrapper,
   TimingSection,
 } from "./BlogPost.style";
 
-const getBlogImageDimensions = () => {
-  return { height: "400px", width: "400px" };
+const getBlogImageDimensions = (url) => {
+  const [width, height] = url
+    .match(/[0-9]+x[0-9]+/g)[0]
+    .split("x")
+    .map((value) => parseInt(value));
+  return { height: `${height}px`, width: `${width}px` };
 };
 const BlogImage = ({ image, alt }) => (
-  <StyledBlogImage
-    {...getBlogImageDimensions()}
-    src={urlFor(image).url()}
-    objectFit="contain"
-    alt={alt}
-  />
+  <StyledBlogImageWrapper>
+    <Image
+      {...getBlogImageDimensions(urlFor(image).url())}
+      src={urlFor(image).url()}
+      objectFit="contain"
+      alt={alt}
+      className="next-image"
+    />
+  </StyledBlogImageWrapper>
 );
 
 const BlogContent = ({ item }) => {
