@@ -1,4 +1,3 @@
-import { resizeImage } from "next/dist/server/image-optimizer";
 import Image from "next/image";
 import { urlFor } from "../sanity";
 import {
@@ -6,6 +5,7 @@ import {
   Emphasis,
   PageSubtitle,
   PageTitle,
+  SubSectionTitle,
   TextDetail,
 } from "../styling/TextStyles";
 import { formatDate } from "../utility/formatting";
@@ -22,6 +22,7 @@ const getBlogImageDimensions = (url) => {
     .map((value) => parseInt(value));
   return { height: `${height}px`, width: `${width}px` };
 };
+
 const BlogImage = ({ image, alt }) => (
   <StyledBlogImageWrapper>
     <Image
@@ -42,6 +43,8 @@ const BlogContent = ({ item }) => {
       return <Emphasis>{item.emphasis_quote}</Emphasis>;
     case "image_component":
       return <BlogImage image={item.image} alt={item.alt_text} />;
+    case "section_title":
+      return <SubSectionTitle>{item.section_title}</SubSectionTitle>;
     default:
       break;
   }

@@ -7,7 +7,7 @@ export async function getStaticProps() {
     props: {
       blog_home: await sanity.fetch(`*[_type=='blog_home'][0]`),
       blog_posts: await sanity.fetch(
-        `*[_type=='blog']{'slug': slug.current, title, subtitle, 'created': _createdAt}`
+        `*[_type=='blog']{'slug': slug.current, title, subtitle, 'created': _createdAt} | order(created desc)`
       ),
       ...(await getLayoutStaticProps()),
     },

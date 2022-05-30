@@ -3,6 +3,7 @@ import { BodyText } from "./styling/TextStyles";
 
 const FooterStyle = styled.div`
   margin-top: auto;
+  padding-top: 20px;
 `;
 
 export const Footer = () => {

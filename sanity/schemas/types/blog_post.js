@@ -41,6 +41,17 @@ export const blog = {
           ],
         },
         {
+          name: "section_title",
+          type: "object",
+          fields: [
+            {
+              name: "section_title",
+              type: "string",
+              title: "Section title",
+            },
+          ],
+        },
+        {
           name: "image_component",
           type: "object",
           fields: [
@@ -56,7 +67,7 @@ export const blog = {
             },
           ],
           preview: {
-            select: { title: "alt_text", thumbnail: "thumbnail" },
+            select: { title: "alt_text", thumbnail: "image" },
             prepare({ title, thumbnail }) {
               return {
                 title: `Image: ${title}`,
