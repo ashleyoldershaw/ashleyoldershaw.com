@@ -16,8 +16,12 @@ const ElementStyle = styled.div`
   @media (prefers-color-scheme: dark) {
     border: solid 3px ${dark_mode_text};
   }
-  padding: 20px;
+  padding: 20px 0;
   border-radius: 25px;
+  p {
+    width: 130px;
+    text-align: center;
+  }
 `;
 
 const ComponentStyle = styled.div`
@@ -39,8 +43,8 @@ export const WhatImGoodAtItems = ({ sanity_input }) => {
           <ElementStyle key={i}>
             <OptionalSmartLink href={section.url}>
               <Image
-                width={120}
-                height={120}
+                width={80}
+                height={80}
                 src={urlFor(
                   theme === "dark"
                     ? section.dark_thumbnail || section.thumbnail
