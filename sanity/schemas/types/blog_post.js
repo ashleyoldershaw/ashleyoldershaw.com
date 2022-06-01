@@ -14,6 +14,11 @@ export const blog = {
       },
     },
     {
+      title: "Publish date",
+      name: "publish_date",
+      type: "date",
+    },
+    {
       title: "Content",
       name: "content",
       type: "array",

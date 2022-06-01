@@ -53,13 +53,12 @@ const BlogContent = ({ item }) => {
 };
 
 export const BlogPost = ({ content }) => {
-  console.log(content);
   return (
     <StyledArticle>
       <PageTitle>{content.title}</PageTitle>
       <PageSubtitle>{content.subtitle}</PageSubtitle>
       <TimingSection>
-        <TextDetail>Created at: {formatDate(content._createdAt)}</TextDetail>
+        <TextDetail>Created at: {formatDate(content.publish_date)}</TextDetail>
         <TextDetail>Last updated: {formatDate(content._updatedAt)}</TextDetail>
       </TimingSection>
       {content.content.map((item) => (
