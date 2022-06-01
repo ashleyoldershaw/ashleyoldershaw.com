@@ -23,7 +23,7 @@ const getBlogImageDimensions = (url) => {
   return { height: `${height}px`, width: `${width}px` };
 };
 
-const BlogImage = ({ image, alt }) => (
+const BlogImage = ({ image, alt, caption }) => (
   <StyledBlogImageWrapper>
     <Image
       {...getBlogImageDimensions(urlFor(image).url())}
@@ -32,6 +32,7 @@ const BlogImage = ({ image, alt }) => (
       alt={alt}
       className="next-image"
     />
+    {caption && <TextDetail>{caption}</TextDetail>}
   </StyledBlogImageWrapper>
 );
 
@@ -42,7 +43,13 @@ const BlogContent = ({ item }) => {
     case "emphasis_quote":
       return <Emphasis>{item.emphasis_quote}</Emphasis>;
     case "image_component":
-      return <BlogImage image={item.image} alt={item.alt_text} />;
+      return (
+        <BlogImage
+          image={item.image}
+          alt={item.alt_text}
+          caption={item.caption}
+        />
+      );
     case "section_title":
       return <SubSectionTitle>{item.section_title}</SubSectionTitle>;
     default:
@@ -58,11 +65,15 @@ export const BlogPost = ({ content }) => {
       <PageTitle>{content.title}</PageTitle>
       <PageSubtitle>{content.subtitle}</PageSubtitle>
       <TimingSection>
-        <TextDetail>Created at: {formatDate(content.publish_date)}</TextDetail>
-        <TextDetail>Last updated: {formatDate(content._updatedAt)}</TextDetail>
+        <TextDetail>Published: {formatDate(content.publish_date)}</TextDetail>
+        {content._updatedAt > content.publish_date && (
+          <TextDetail>
+            Last updated: {formatDate(content._updatedAt)}
+          </TextDetail>
+        )}
       </TimingSection>
       {content.content.map((item) => (
-        <BlogContent key={item._Îkey} item={item} />
+        <BlogContent key={item._key} item={item} />
       ))}
     </StyledArticle>
   );

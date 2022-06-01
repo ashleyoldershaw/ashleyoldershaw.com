@@ -5,8 +5,9 @@ export const StyledBlogImageWrapper = styled.div`
     width: 80% !important;
   }
   display: flex;
-  justify-content: center;
+  align-items: center;
   margin: 30px 0px;
+  flex-direction: column;
 `;
 
 export const StyledArticle = styled.article`

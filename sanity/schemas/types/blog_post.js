@@ -66,6 +66,11 @@ export const blog = {
               title: "Image",
             },
             {
+              name: "caption",
+              type: "string",
+              title: "Caption",
+            },
+            {
               name: "alt_text",
               type: "string",
               title: "Alt text",
