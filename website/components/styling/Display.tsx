@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 export const displays = {
   mobileS: "320px",
   mobileM: "375px",
@@ -7,3 +9,8 @@ export const displays = {
   laptopL: "1440px",
   desktop: "2560px",
 };
+
+export const TextBasedWidth = styled.div`
+  max-width: 60em;
+  margin: auto;
+`;

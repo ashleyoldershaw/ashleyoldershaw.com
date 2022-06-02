@@ -1,8 +1,8 @@
+import { TextBasedWidth } from "../styling/Display";
 import {
   BodyText,
   PageSubtitle,
   PageTitle,
-  SubSectionTitle,
   SubSubSectionTitle,
   TextDetail,
 } from "../styling/TextStyles";
@@ -24,7 +24,7 @@ export const BlogPostPreview = ({ post }) => {
 
 export const BlogHomePage = ({ blog_home, blog_posts }) => {
   return (
-    <>
+    <TextBasedWidth>
       <PageTitle>{blog_home.title}</PageTitle>
       <PageSubtitle>{blog_home.subtitle}</PageSubtitle>
       <BlogPostList>
@@ -32,6 +32,6 @@ export const BlogHomePage = ({ blog_home, blog_posts }) => {
           <BlogPostPreview key={i} post={post} />
         ))}
       </BlogPostList>
-    </>
+    </TextBasedWidth>
   );
 };

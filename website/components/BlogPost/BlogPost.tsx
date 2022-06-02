@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { urlFor } from "../sanity";
+import { NavButton } from "../styling/Buttons";
+import { TextBasedWidth } from "../styling/Display";
 import {
   BodyText,
   Emphasis,
@@ -9,6 +11,7 @@ import {
   TextDetail,
 } from "../styling/TextStyles";
 import { formatDate } from "../utility/formatting";
+import { SmartLink } from "../utility/SmartLink";
 import {
   StyledArticle,
   StyledBlogImageWrapper,
@@ -59,22 +62,27 @@ const BlogContent = ({ item }) => {
   return <>{item._type}</>;
 };
 
-export const BlogPost = ({ content }) => {
+export const BlogPost = ({ content, meta_info }) => {
   return (
-    <StyledArticle>
-      <PageTitle>{content.title}</PageTitle>
-      <PageSubtitle>{content.subtitle}</PageSubtitle>
-      <TimingSection>
-        <TextDetail>Published: {formatDate(content.publish_date)}</TextDetail>
-        {content._updatedAt > content.publish_date && (
-          <TextDetail>
-            Last updated: {formatDate(content._updatedAt)}
-          </TextDetail>
-        )}
-      </TimingSection>
-      {content.content.map((item) => (
-        <BlogContent key={item._key} item={item} />
-      ))}
-    </StyledArticle>
+    <TextBasedWidth>
+      <StyledArticle>
+        <PageTitle>{content.title}</PageTitle>
+        <PageSubtitle>{content.subtitle}</PageSubtitle>
+        <TimingSection>
+          <TextDetail>Published: {formatDate(content.publish_date)}</TextDetail>
+          {content._updatedAt > content.publish_date && (
+            <TextDetail>
+              Last updated: {formatDate(content._updatedAt)}
+            </TextDetail>
+          )}
+        </TimingSection>
+        {content.content.map((item) => (
+          <BlogContent key={item._key} item={item} />
+        ))}
+        <SmartLink href={meta_info.back_to_menu.url}>
+          <NavButton text={meta_info.back_to_menu.text} />
+        </SmartLink>
+      </StyledArticle>
+    </TextBasedWidth>
   );
 };

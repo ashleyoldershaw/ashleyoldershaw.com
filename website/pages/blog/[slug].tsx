@@ -2,8 +2,8 @@ import { BlogPost } from "../../components/BlogPost/BlogPost";
 import { getStaticProps as getLayoutStaticProps } from "../../components/layout";
 import { sanity } from "../../components/sanity";
 
-const Article = ({ blog_post }) => {
-  return <BlogPost content={blog_post} />;
+const Article = ({ blog_post, meta_info }) => {
+  return <BlogPost content={blog_post} meta_info={meta_info} />;
 };
 
 export async function getStaticPaths() {
@@ -26,9 +26,11 @@ export async function getStaticProps(context) {
   `,
     { slug }
   );
+  const meta_info = await sanity.fetch(`*[_type=="blog_meta"][0]`);
   return {
     props: {
       blog_post,
+      meta_info,
       ...(await getLayoutStaticProps()),
     },
   };

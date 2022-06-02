@@ -11,10 +11,8 @@ export const StyledBlogImageWrapper = styled.div`
 `;
 
 export const StyledArticle = styled.article`
-  margin: auto;
   display: flex;
   flex-direction: column;
-  max-width: 60em;
 `;
 
 export const TimingSection = styled.div`

@@ -17,6 +17,9 @@ export default () =>
         .title("Blog home page")
         .child(S.editor().schemaType("blog_home").documentId("blog_home")),
       S.listItem()
+        .title("Blog meta")
+        .child(S.editor().schemaType("blog_meta").documentId("blog_meta")),
+      S.listItem()
         .title("Birdle")
         .child(S.editor().schemaType("birdle").documentId("birdle")),
       S.divider(),
@@ -32,6 +35,7 @@ export default () =>
             "error_500",
             "birdle",
             "blog_home",
+            "blog_meta",
           ].includes(listItem.getId())
       ),
       S.divider(),
@@ -41,5 +45,4 @@ export default () =>
       S.listItem()
         .title("Internal server error")
         .child(S.editor().schemaType("error_500").documentId("error_500")),
-      // Add a visual divider (optional)
     ]);
