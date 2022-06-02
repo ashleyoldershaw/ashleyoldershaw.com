@@ -60,8 +60,9 @@ const NavBarStyle = styled.div`
 
 const NavBarLinks = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex-grow: 1;
-  gap: 5%;
+  gap: 1em 5%;
   p {
     margin: 0 10px;
   }

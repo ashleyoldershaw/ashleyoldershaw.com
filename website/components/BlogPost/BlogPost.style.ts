@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledBlogImageWrapper = styled.div`
   span {
-    width: 80% !important;
+    width: 100% !important;
   }
   display: flex;
   align-items: center;
@@ -11,12 +11,15 @@ export const StyledBlogImageWrapper = styled.div`
 `;
 
 export const StyledArticle = styled.article`
+  margin: auto;
   display: flex;
   flex-direction: column;
+  max-width: 60em;
 `;
 
 export const TimingSection = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 0 2em;
 `;

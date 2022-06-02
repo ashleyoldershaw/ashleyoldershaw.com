@@ -9,6 +9,7 @@ export const PageTitle = styled.h1`
   font-family: ${titleFontFamily};
   font-size: 4em;
   font-weight: 100;
+
   @media (max-width: ${displays.tablet}) {
     font-size: 3em;
   }
@@ -16,6 +17,7 @@ export const PageTitle = styled.h1`
   @media (prefers-color-scheme: light) {
     color: ${light_mode_accent};
   }
+
   @media (prefers-color-scheme: dark) {
     color: ${dark_mode_accent};
   }
