@@ -7,7 +7,11 @@ export async function getStaticProps() {
     props: {
       blog_home: await sanity.fetch(`*[_type=='blog_home'][0]`),
       blog_posts: await sanity.fetch(
-        `*[_type=='blog' && publish_date <= now()]{'slug': slug.current, title, subtitle, 'created': publish_date} | order(created desc)`
+        `*[_type=='blog'${
+          process.env.NODE_ENV === "development"
+            ? ""
+            : " && publish_date <= now()"
+        }]{'slug': slug.current, title, subtitle, 'created': publish_date} | order(created desc)`
       ),
       ...(await getLayoutStaticProps()),
     },

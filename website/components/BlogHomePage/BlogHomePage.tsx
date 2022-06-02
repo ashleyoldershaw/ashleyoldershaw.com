@@ -28,8 +28,8 @@ export const BlogHomePage = ({ blog_home, blog_posts }) => {
       <PageTitle>{blog_home.title}</PageTitle>
       <PageSubtitle>{blog_home.subtitle}</PageSubtitle>
       <BlogPostList>
-        {blog_posts.map((post) => (
-          <BlogPostPreview post={post} />
+        {blog_posts.map((post, i) => (
+          <BlogPostPreview key={i} post={post} />
         ))}
       </BlogPostList>
     </>
