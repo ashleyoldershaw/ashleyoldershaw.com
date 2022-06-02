@@ -7,10 +7,10 @@ export const sansFontFamily = `'Merriweather+Sans', sans-serif`;
 
 export const PageTitle = styled.h1`
   font-family: ${titleFontFamily};
-  font-size: 64px;
+  font-size: 4em;
   font-weight: 100;
   @media (max-width: ${displays.tablet}) {
-    font-size: 48px;
+    font-size: 3em;
   }
 
   @media (prefers-color-scheme: light) {
@@ -27,7 +27,7 @@ export const PageTitle = styled.h1`
 
 export const PageSubtitle = styled.h2`
   font-family: ${titleFontFamily};
-  font-size: 32px;
+  font-size: 2em;
   font-weight: 100;
   @media (max-width: ${displays.mobileL}) {
     text-align: center;
@@ -36,7 +36,7 @@ export const PageSubtitle = styled.h2`
 
 export const SectionTitle = styled.h2`
   font-family: ${titleFontFamily};
-  font-size: 42px;
+  font-size: 2.5em;
   font-weight: 100;
 
   @media (prefers-color-scheme: light) {
@@ -53,7 +53,7 @@ export const SectionTitle = styled.h2`
 
 export const SubSectionTitle = styled.h3`
   font-family: ${titleFontFamily};
-  font-size: 32px;
+  font-size: 2em;
   font-weight: 100;
 
   @media (prefers-color-scheme: light) {
@@ -70,7 +70,7 @@ export const SubSectionTitle = styled.h3`
 
 export const SubSubSectionTitle = styled.h3`
   font-family: ${titleFontFamily};
-  font-size: 28px;
+  font-size: 1.75em;
   font-weight: 100;
 
   @media (prefers-color-scheme: light) {
@@ -81,7 +81,7 @@ export const SubSubSectionTitle = styled.h3`
   }
 
   @media (max-width: ${displays.mobileL}) {
-    font-size: 22px;
+    font-size: 1.5em;
   }
 
   @media (max-width: ${displays.mobileL}) {
@@ -91,7 +91,7 @@ export const SubSubSectionTitle = styled.h3`
 
 export const BodyText = styled.p`
   font-family: ${sansFontFamily};
-  font-size: 20px;
+  font-size: 1.25em;
   font-weight: 400;
 
   @media (max-width: ${displays.mobileL}) {
@@ -101,7 +101,7 @@ export const BodyText = styled.p`
 
 export const TextDetail = styled.p`
   font-family: ${titleFontFamily};
-  font-size: 12px;
+  font-size: 0.75em;
   font-weight: 400;
 
   @media (max-width: ${displays.mobileL}) {
@@ -111,7 +111,7 @@ export const TextDetail = styled.p`
 
 export const Emphasis = styled.p`
   font-family: ${titleFontFamily};
-  font-size: 32px;
+  font-size: 2em;
   font-weight: 400;
   text-align: center;
   font-style: italic;

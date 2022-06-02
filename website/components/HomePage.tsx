@@ -4,7 +4,7 @@ import {
   PageTitle,
   SectionTitle,
 } from "./styling/TextStyles";
-import { WhatIDoSection } from "./WhatIDo";
+import { WhatIDoSection } from "./WhatIDo/WhatIDo";
 import { WhatImGoodAtItems } from "./WhatImGoodAt";
 
 export const HomePage = ({ home_page_data, skills_data }) => {
