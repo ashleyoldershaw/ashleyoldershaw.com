@@ -3,7 +3,7 @@ import { displays } from "./Display";
 import { dark_mode_accent, light_mode_accent } from "./Themes";
 
 const titleFontFamily = `'Merriweather', serif`;
-export const sansFontFamily = `'Merriweather+Sans', sans-serif`;
+export const sansFontFamily = `'Merriweather Sans', sans-serif`;
 
 export const PageTitle = styled.h1`
   font-family: ${titleFontFamily};
@@ -94,7 +94,7 @@ export const SubSubSectionTitle = styled.h3`
 export const BodyText = styled.p`
   font-family: ${sansFontFamily};
   font-size: 1.25em;
-  font-weight: 400;
+  font-weight: 200;
 
   @media (max-width: ${displays.mobileL}) {
     text-align: center;

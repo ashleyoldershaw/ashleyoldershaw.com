@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { urlFor } from "../sanity";
-import { BodyText } from "../styling/TextStyles";
+import { BodyText, SubSubSectionTitle } from "../styling/TextStyles";
 import { TitleStyle, WhatIDoStyle } from "./WhatIDo.style";
 
 export const WhatIDoSection = ({ sanity_input }) => {
@@ -15,7 +15,10 @@ export const WhatIDoSection = ({ sanity_input }) => {
           alt={section.alt}
         />
       </TitleStyle>
-      <BodyText>{section.text_body}</BodyText>
+      <div>
+        <SubSubSectionTitle>{section.job_title}</SubSubSectionTitle>
+        <BodyText>{section.text_body}</BodyText>
+      </div>
     </WhatIDoStyle>
   ));
 };

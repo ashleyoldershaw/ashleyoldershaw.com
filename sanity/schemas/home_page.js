@@ -23,6 +23,7 @@ export const home_page = {
           type: "object",
           fields: [
             { name: "title", title: "Title", type: "string" },
+            { name: "job_title", title: "Job title", type: "string" },
             { name: "text_body", title: "Text body", type: "text" },
             { name: "thumbnail", title: "Thumbnail", type: "image" },
             { name: "alt", title: "Alt text", type: "string" },
