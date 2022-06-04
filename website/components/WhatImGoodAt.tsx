@@ -19,7 +19,7 @@ const ElementStyle = styled.div`
   padding: 20px 0;
   border-radius: 25px;
   p {
-    width: 130px;
+    width: 6.5em;
     text-align: center;
   }
 `;

@@ -1,5 +1,3 @@
-import Image from "next/image";
-import { urlFor } from "../sanity";
 import { NavButton } from "../styling/Buttons";
 import { TextBasedWidth } from "../styling/Display";
 import {
@@ -12,32 +10,8 @@ import {
 } from "../styling/TextStyles";
 import { formatDate } from "../utility/formatting";
 import { SmartLink } from "../utility/SmartLink";
-import {
-  StyledArticle,
-  StyledBlogImageWrapper,
-  TimingSection,
-} from "./BlogPost.style";
-
-const getBlogImageDimensions = (url) => {
-  const [width, height] = url
-    .match(/[0-9]+x[0-9]+/g)[0]
-    .split("x")
-    .map((value) => parseInt(value));
-  return { height: `${height}px`, width: `${width}px` };
-};
-
-const BlogImage = ({ image, alt, caption }) => (
-  <StyledBlogImageWrapper>
-    <Image
-      {...getBlogImageDimensions(urlFor(image).url())}
-      src={urlFor(image).url()}
-      objectFit="contain"
-      alt={alt}
-      className="next-image"
-    />
-    {caption && <TextDetail>{caption}</TextDetail>}
-  </StyledBlogImageWrapper>
-);
+import { BlogImage } from "./BlogImage";
+import { StyledArticle, TimingSection } from "./BlogPost.style";
 
 const BlogContent = ({ item }) => {
   switch (item._type) {

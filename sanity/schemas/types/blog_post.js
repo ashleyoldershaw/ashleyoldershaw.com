@@ -16,7 +16,7 @@ export const blog = {
     {
       title: "Publish date",
       name: "publish_date",
-      type: "date",
+      type: "datetime",
     },
     {
       title: "Content",
