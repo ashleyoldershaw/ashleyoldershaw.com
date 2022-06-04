@@ -16,7 +16,9 @@ export const BlogPostPreview = ({ post }) => {
       <BlogpostPreviewStyle>
         <SubSubSectionTitle>{post.title}</SubSubSectionTitle>
         <BodyText>{post.subtitle}</BodyText>
-        <TextDetail>{formatDate(post.created)}</TextDetail>
+        <TextDetail>
+          {post.created ? formatDate(post.created) : "Unpublished"}
+        </TextDetail>
       </BlogpostPreviewStyle>
     </SmartLink>
   );

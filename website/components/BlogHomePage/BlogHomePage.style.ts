@@ -1,20 +1,21 @@
 import styled from "styled-components";
 import {
+  dark_mode_accent,
   dark_mode_text,
   light_mode_accent,
-  light_mode_accent_contrast,
-  light_mode_text,
 } from "../styling/Themes";
 
 export const BlogPostList = styled.div`
   margin: auto;
+  padding: 5px;
   div {
-    border-bottom: 1px solid red;
+    padding-bottom: 10px;
+    border-bottom: 3px solid red;
     @media (prefers-color-scheme: light) {
-      border-color: ${light_mode_accent};
+      border-color: ${light_mode_accent}80;
     }
     @media (prefers-color-scheme: dark) {
-      border-color: ${dark_mode_text};
+      border-color: ${dark_mode_accent}80;
     }
   }
   div:last-child {

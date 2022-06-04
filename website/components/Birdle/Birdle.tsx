@@ -129,7 +129,11 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <BirdGuesserStyle>
+        <BodyText>
+          Guess {guesses} of {max_guesses}
+        </BodyText>
         {badGuessMessage}
+        {helperMessage}
         <CustomTextInput
           className={shake ? `shake` : null}
           register={register}
@@ -138,10 +142,6 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
           name="guess"
         />
         <NavButton text={birdle.button_text} type="submit"></NavButton>
-        <BodyText>
-          Guess {guesses} of {max_guesses}
-        </BodyText>
-        {helperMessage}
       </BirdGuesserStyle>
     </form>
   );
