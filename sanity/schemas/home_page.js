@@ -31,6 +31,8 @@ export const home_page = {
         },
       ],
     },
+    { name: "favicon_light", title: "Light logo", type: "image" },
+    { name: "favicon_dark", title: "Dark logo", type: "image" },
   ],
   preview: {
     select: {

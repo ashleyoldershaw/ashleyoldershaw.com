@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Footer } from "../components/Footer";
 import { NavBar } from "../components/NavBar";
+import { urlFor } from "../components/sanity";
 import {
   dark_mode_background,
   dark_mode_text,
@@ -50,10 +51,39 @@ const MyApp = ({ Component, pageProps, auth }) => {
 
   if (Object.keys(pageProps).length === 0) return null;
 
+  console.log(urlFor(pageProps.layout_props.favicons.favicon_light).url());
   return (
     <AppStyle>
       <Head>
         <title>Ash Oldershaw</title>
+        {theme === "light" && (
+          <>
+            <link
+              rel="icon"
+              type="image/svg"
+              sizes="32x32"
+              href={urlFor(pageProps.layout_props.favicons.favicon_light).url()}
+            />
+            <link
+              rel="shortcut icon"
+              href={urlFor(pageProps.layout_props.favicons.favicon_light).url()}
+            />
+          </>
+        )}
+        {theme === "dark" && (
+          <>
+            <link
+              rel="icon"
+              type="image/svg"
+              sizes="32x32"
+              href={urlFor(pageProps.layout_props.favicons.favicon_dark).url()}
+            />
+            <link
+              rel="shortcut icon"
+              href={urlFor(pageProps.layout_props.favicons.favicon_dark).url()}
+            />
+          </>
+        )}
       </Head>
       <ThemeContext.Provider value={theme}>
         <NavBar {...pageProps} />

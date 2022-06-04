@@ -1,9 +1,5 @@
 import styled from "styled-components";
-import {
-  dark_mode_accent,
-  dark_mode_text,
-  light_mode_accent,
-} from "../styling/Themes";
+import { dark_mode_accent, light_mode_accent } from "../styling/Themes";
 
 export const BlogPostList = styled.div`
   margin: auto;

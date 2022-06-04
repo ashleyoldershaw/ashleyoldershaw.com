@@ -5,10 +5,7 @@ import { OptionalSmartLink } from "../utility/SmartLink";
 import { StyledBlogImageWrapper } from "./BlogPost.style";
 
 const getBlogImageDimensions = (url) => {
-  const [width, height] = url
-    .match(/[0-9]+x[0-9]+/g)[0]
-    .split("x")
-    .map((value) => parseInt(value));
+  const [width, height] = url.match(/[0-9]+x[0-9]+/g)[0].split("x");
   return { height: `${height}px`, width: `${width}px` };
 };
 
