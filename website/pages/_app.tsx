@@ -33,8 +33,10 @@ const AppStyle = styled.div`
 
 const MyApp = ({ Component, pageProps, auth }) => {
   const [mq, setMq] = useState(null);
+  const [ready, setReady] = useState(false);
   useEffect(() => {
     setMq(window.matchMedia("(prefers-color-scheme: dark)"));
+    setReady(true);
   }, []);
 
   const [theme, setTheme] = useState(null);
@@ -50,6 +52,7 @@ const MyApp = ({ Component, pageProps, auth }) => {
   }, [theme]);
 
   if (Object.keys(pageProps).length === 0) return null;
+  if (!ready) return null;
 
   console.log(urlFor(pageProps.layout_props.favicons.favicon_light).url());
   return (
