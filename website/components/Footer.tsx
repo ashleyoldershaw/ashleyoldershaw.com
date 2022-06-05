@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BodyText } from "./styling/TextStyles";
+import { TextDetail } from "./styling/TextStyles";
 
 const FooterStyle = styled.div`
   margin-top: auto;
@@ -9,7 +9,9 @@ const FooterStyle = styled.div`
 export const Footer = () => {
   return (
     <FooterStyle>
-      <BodyText>&copy; {new Date().getFullYear()} Ashley Oldershaw</BodyText>
+      <TextDetail>
+        &copy; {new Date().getFullYear()} Ashley Oldershaw
+      </TextDetail>
     </FooterStyle>
   );
 };
