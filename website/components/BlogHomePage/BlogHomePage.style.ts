@@ -4,7 +4,7 @@ import { dark_mode_accent, light_mode_accent } from "../styling/Themes";
 export const BlogPostList = styled.div`
   margin: auto;
   padding: 5px;
-  div {
+  > div {
     padding-bottom: 10px;
     border-bottom: 3px solid red;
     @media (prefers-color-scheme: light) {
@@ -14,7 +14,7 @@ export const BlogPostList = styled.div`
       border-color: ${dark_mode_accent}80;
     }
   }
-  div:last-child {
+  > div:last-child {
     border-bottom: none;
   }
 `;
