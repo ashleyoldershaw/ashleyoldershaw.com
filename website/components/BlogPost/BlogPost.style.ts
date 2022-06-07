@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledBlogImageWrapper = styled.div`
   span {
     width: 100% !important;
+    max-height: 75vh;
   }
   display: flex;
   align-items: center;

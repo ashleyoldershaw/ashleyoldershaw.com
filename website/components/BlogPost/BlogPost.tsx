@@ -50,6 +50,16 @@ export const BlogPost = ({ content, meta_info }) => {
             </TextDetail>
           )}
         </TimingSection>
+        <TextDetail>
+          {content.content
+            .map((item) => item.text_body?.trim().split(/\s+/).length)
+            .reduce(
+              (previousValue, currentValue) =>
+                currentValue ? previousValue + currentValue : previousValue,
+              0
+            )}{" "}
+          words
+        </TextDetail>
         {content.content.map((item) => (
           <BlogContent key={item._key} item={item} />
         ))}
