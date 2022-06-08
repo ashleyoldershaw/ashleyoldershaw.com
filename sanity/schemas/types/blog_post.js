@@ -1,3 +1,5 @@
+import React from "react";
+
 export const blog = {
   name: "blog",
   title: "Blog posts",
@@ -92,6 +94,18 @@ export const blog = {
   preview: {
     select: {
       title: "title",
+      publish_date: "publish_date",
+    },
+    prepare({ title, publish_date }) {
+      return {
+        title,
+        subtitle: publish_date
+          ? new Date(publish_date).toLocaleDateString()
+          : "",
+        media: (
+          <span style={{ fontSize: "2em" }}>{publish_date ? "🔊" : "🚧"}</span>
+        ),
+      };
     },
   },
 };
