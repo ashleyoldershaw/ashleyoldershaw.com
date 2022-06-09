@@ -25,7 +25,9 @@ const NavBarStyle = styled.div`
   }
 
   border-width: 1px;
-  border-style: none none solid none;
+  border-style: none solid solid solid;
+  padding-left: 5px;
+  padding-right: 5px;
 
   @media (prefers-color-scheme: light) {
     border-color: ${light_mode_text};

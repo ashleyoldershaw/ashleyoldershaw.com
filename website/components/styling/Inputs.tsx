@@ -12,7 +12,6 @@ import {
 const InputStyle = styled.input`
   font-family: ${sansFontFamily};
   font-size: 25px;
-  border-radius: 10px;
   height: 35px;
 
   background-color: unset;

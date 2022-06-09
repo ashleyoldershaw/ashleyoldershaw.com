@@ -31,7 +31,6 @@ const ExpandableTextStyle = styled.div`
   border-style: solid;
   border-width: 1px;
   padding-right: 5px;
-  border-radius: 5px;
   margin: 5px 0;
   transition: all 0.4s ease;
 `;
@@ -51,12 +50,11 @@ const ExpandButtonStyle = styled.button`
   }
   align-self: center;
   margin: 25px 5px;
-  border-radius: 5px;
   width: 25px;
   height: 25px;
   transition: all 0.4s ease;
   border-style: solid;
-  border-width: 2px;
+  border-width: 1px;
   display: flex;
   justify-content: center;
   align-items: center;

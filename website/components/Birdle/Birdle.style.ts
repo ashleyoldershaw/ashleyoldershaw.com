@@ -58,7 +58,6 @@ export const BirdGuesserStyle = styled.div`
 `;
 
 export const BirdImage = styled.img`
-  border-radius: 10px;
   max-width: 80%;
   max-height: 50vh;
 

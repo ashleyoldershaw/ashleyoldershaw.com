@@ -18,7 +18,6 @@ const StyledNavButton = styled.button`
     background-color: ${dark_mode_background};
     color: ${dark_mode_text};
   }
-  border-radius: 5px;
   border-style: solid;
   border-width: 1px;
 

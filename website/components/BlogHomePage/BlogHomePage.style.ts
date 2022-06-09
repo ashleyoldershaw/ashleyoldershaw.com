@@ -1,21 +1,29 @@
 import styled from "styled-components";
-import { dark_mode_accent, light_mode_accent } from "../styling/Themes";
+import { dark_mode_text, light_mode_text } from "../styling/Themes";
 
 export const BlogPostList = styled.div`
   margin: auto;
-  padding: 5px;
+
   > div {
+    padding: 5px;
     padding-bottom: 10px;
-    border-bottom: 3px solid red;
+    border-bottom: 1px solid red;
     @media (prefers-color-scheme: light) {
-      border-color: ${light_mode_accent}80;
+      border-color: ${light_mode_text};
     }
     @media (prefers-color-scheme: dark) {
-      border-color: ${dark_mode_accent}80;
+      border-color: ${dark_mode_text};
     }
   }
   > div:last-child {
     border-bottom: none;
+  }
+  border: 1px solid red;
+  @media (prefers-color-scheme: light) {
+    border-color: ${light_mode_text};
+  }
+  @media (prefers-color-scheme: dark) {
+    border-color: ${dark_mode_text};
   }
 `;
 

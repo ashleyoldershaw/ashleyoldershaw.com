@@ -1,4 +1,4 @@
-import { HomePage } from "../components/HomePage";
+import { HomePage } from "../components/HomePage/HomePage";
 import { getStaticProps as getLayoutStaticProps } from "../components/layout";
 import { sanity } from "../components/sanity";
 
