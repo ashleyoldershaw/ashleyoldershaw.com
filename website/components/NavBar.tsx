@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { displays } from "./styling/Display";
+import { horizontalMargin } from "./styling/Layout";
 import { BodyText, SectionTitle } from "./styling/TextStyles";
 import {
   dark_mode_background,
@@ -17,7 +18,7 @@ const NavBarStyle = styled.div`
     color: unset;
     text-decoration: unset;
   }
-  padding: 10px 0;
+  padding: 10px ${horizontalMargin};
   h2,
   p {
     padding: 0;
@@ -25,9 +26,7 @@ const NavBarStyle = styled.div`
   }
 
   border-width: 1px;
-  border-style: none solid solid solid;
-  padding-left: 5px;
-  padding-right: 5px;
+  border-style: none none solid none;
 
   @media (prefers-color-scheme: light) {
     border-color: ${light_mode_text};

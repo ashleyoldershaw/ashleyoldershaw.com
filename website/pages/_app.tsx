@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Footer } from "../components/Footer";
 import { NavBar } from "../components/NavBar";
 import { urlFor } from "../components/sanity";
+import { horizontalMargin } from "../components/styling/Layout";
 import {
   dark_mode_background,
   dark_mode_text,
@@ -27,8 +28,11 @@ const AppStyle = styled.div`
     color: ${dark_mode_text};
   }
 
-  padding: 0 10%;
   margin: 0;
+`;
+
+const BodyStyle = styled.div`
+  margin: 0 ${horizontalMargin};
 `;
 
 const MyApp = ({ Component, pageProps, auth }) => {
@@ -90,7 +94,9 @@ const MyApp = ({ Component, pageProps, auth }) => {
       </Head>
       <ThemeContext.Provider value={theme}>
         <NavBar {...pageProps} />
-        <Component {...pageProps} />
+        <BodyStyle>
+          <Component {...pageProps} />
+        </BodyStyle>
       </ThemeContext.Provider>
       <Footer />
     </AppStyle>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { horizontalMargin } from "../styling/Layout";
 import { dark_mode_text, light_mode_text } from "../styling/Themes";
 
 export const BlogPostList = styled.div`
@@ -31,4 +32,5 @@ export const BlogpostPreviewStyle = styled.div`
   h3:hover {
     text-decoration: underline;
   }
+    padding ${horizontalMargin}; 
 `;
