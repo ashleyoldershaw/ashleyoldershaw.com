@@ -1,4 +1,4 @@
-import { ExpandableText } from "../components/ExpandableText";
+import { ExpandableText } from "../components/ExpandableText/ExpandableText";
 import { getStaticProps as getLayoutStaticProps } from "../components/layout";
 import { sanity } from "../components/sanity";
 import {

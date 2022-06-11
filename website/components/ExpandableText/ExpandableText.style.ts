@@ -1,7 +1,6 @@
-import { useState } from "react";
 import styled from "styled-components";
-import { displays } from "./styling/Display";
-import { BodyText } from "./styling/TextStyles";
+import { displays } from "../styling/Display";
+import { horizontalMargin } from "../styling/Layout";
 import {
   dark_mode_accent,
   dark_mode_background,
@@ -9,9 +8,9 @@ import {
   light_mode_accent,
   light_mode_background,
   light_mode_text,
-} from "./styling/Themes";
+} from "../styling/Themes";
 
-const ExpandableTextStyle = styled.div`
+export const ExpandableTextStyle = styled.div`
   display: flex;
   flex-direction: column;
   div {
@@ -30,12 +29,13 @@ const ExpandableTextStyle = styled.div`
   }
   border-style: solid;
   border-width: 1px;
+  padding: ${horizontalMargin} 0;
   padding-right: 5px;
   margin: 5px 0;
   transition: all 0.4s ease;
 `;
 
-const ExpandButtonStyle = styled.button`
+export const ExpandButton = styled.button`
   border-width: 1px;
 
   @media (prefers-color-scheme: light) {
@@ -60,7 +60,7 @@ const ExpandButtonStyle = styled.button`
   align-items: center;
 `;
 
-const ExpandableTextChildrenStyle = styled.div`
+export const ExpandableTextChildrenStyle = styled.div`
   flex-direction: column;
   margin-left: 35px;
 
@@ -69,45 +69,12 @@ const ExpandableTextChildrenStyle = styled.div`
   }
 `;
 
-const ExpandButton = (props) => {
-  return <ExpandButtonStyle {...props} />;
-};
-
-const ExpandButtonLabel = styled.div`
+export const ExpandButtonLabel = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   justify-content: center;
-
   p {
     text-align: left;
   }
 `;
-
-export const ExpandableText = ({ info }) => {
-  return info.map((item, i) => {
-    if (item.children) {
-      const [toggleClicked, setToggleClicked] = useState(false); // eslint-disable-line -- it works and I'm leaving it
-
-      return (
-        <ExpandableTextStyle key={i}>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div>
-              <ExpandButton onClick={() => setToggleClicked(!toggleClicked)}>
-                {toggleClicked ? "-" : "+"}
-              </ExpandButton>
-              <ExpandButtonLabel>
-                <BodyText>{item.text}...</BodyText>
-              </ExpandButtonLabel>
-            </div>
-            <ExpandableTextChildrenStyle>
-              {toggleClicked ? <ExpandableText info={item.children} /> : ""}
-            </ExpandableTextChildrenStyle>
-          </div>
-        </ExpandableTextStyle>
-      );
-    }
-
-    return <BodyText key={i}>{item.text}</BodyText>;
-  });
-};
