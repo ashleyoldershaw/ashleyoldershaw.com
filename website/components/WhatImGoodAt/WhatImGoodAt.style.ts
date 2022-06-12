@@ -1,5 +1,11 @@
 import styled from "styled-components";
+import { horizontalMargin } from "../styling/Layout";
 import { dark_mode_text, light_mode_text } from "../styling/Themes";
+
+export const WhatImGoodAtSectionStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export const SkillDiv = styled.div`
   display: flex;
@@ -20,6 +26,7 @@ export const SkillDiv = styled.div`
 `;
 
 export const SkillsetCollection = styled.div`
+  margin-top: ${horizontalMargin};
   display: flex;
   flex-wrap: wrap;
   gap: 1em;

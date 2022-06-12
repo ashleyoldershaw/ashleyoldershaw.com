@@ -3,15 +3,21 @@ import { urlFor } from "../sanity";
 import { BodyText, SubSubSectionTitle } from "../styling/TextStyles";
 import { useTheme } from "../styling/Themes";
 import { OptionalSmartLink } from "../utility/SmartLink";
-import { SkillsetCollection, SkillDiv } from "./WhatImGoodAt.style";
+import {
+  SkillsetCollection,
+  SkillDiv,
+  WhatImGoodAtSectionStyle,
+} from "./WhatImGoodAt.style";
 
 export const WhatImGoodAtItems = ({ sanity_input }) => {
   const theme = useTheme();
 
   return sanity_input.map((skillset, i) => (
-    <div key={i}>
-      <SubSubSectionTitle>{skillset.category}</SubSubSectionTitle>
-      <BodyText>{skillset.subtitle}</BodyText>
+    <WhatImGoodAtSectionStyle key={i}>
+      <div>
+        <SubSubSectionTitle>{skillset.category}</SubSubSectionTitle>
+        <BodyText>{skillset.subtitle}</BodyText>
+      </div>
       <SkillsetCollection>
         {skillset.info.map((section, i) => (
           <SkillDiv key={i}>
@@ -32,6 +38,6 @@ export const WhatImGoodAtItems = ({ sanity_input }) => {
           </SkillDiv>
         ))}
       </SkillsetCollection>
-    </div>
+    </WhatImGoodAtSectionStyle>
   ));
 };
