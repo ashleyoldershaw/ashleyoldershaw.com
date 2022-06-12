@@ -1,3 +1,4 @@
+// tslint:disable:ordered-imports
 import React from "react";
 
 export const blog = {

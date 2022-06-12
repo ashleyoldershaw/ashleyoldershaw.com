@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { urlFor } from "../sanity";
 import { TextDetail } from "../styling/TextStyles";
-import { OptionalSmartLink } from "../utility/SmartLink";
 import { StyledBlogImageWrapper } from "./BlogPost.style";
 
 const getBlogImageDimensions = (url) => {

@@ -3,8 +3,8 @@ import { BodyText } from "../styling/TextStyles";
 import {
   ExpandableTextChildrenStyle,
   ExpandableTextStyle,
-  ExpandButtonLabel,
   ExpandButton,
+  ExpandButtonLabel,
 } from "./ExpandableText.style";
 
 export const ExpandableText = ({ info }) => {

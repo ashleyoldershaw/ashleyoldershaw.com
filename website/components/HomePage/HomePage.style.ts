@@ -1,6 +1,6 @@
-import { dark_mode_text, light_mode_text } from "../styling/Themes";
 import styled from "styled-components";
 import { horizontalMargin } from "../styling/Layout";
+import { dark_mode_text, light_mode_text } from "../styling/Themes";
 
 export const HomepageSectionStyle = styled.div`
   border: 1px solid red;

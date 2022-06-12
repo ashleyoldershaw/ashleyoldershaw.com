@@ -58,7 +58,6 @@ const MyApp = ({ Component, pageProps, auth }) => {
   if (Object.keys(pageProps).length === 0) return null;
   if (!ready) return null;
 
-  console.log(urlFor(pageProps.layout_props.favicons.favicon_light).url());
   return (
     <AppStyle>
       <Head>

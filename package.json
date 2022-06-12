@@ -1,6 +1,5 @@
 {
   "private": true,
-  "dependencies": {},
   "scripts": {
     "prepare": "husky install",
     "format": "prettier --write",
@@ -12,6 +11,7 @@
   "devDependencies": {
     "husky": "^7.0.4",
     "lint-staged": "^12.3.4",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "prettier-plugin-organize-imports": "^2.3.4"
   }
 }

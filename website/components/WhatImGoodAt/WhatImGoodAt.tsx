@@ -4,8 +4,8 @@ import { BodyText, SubSubSectionTitle } from "../styling/TextStyles";
 import { useTheme } from "../styling/Themes";
 import { OptionalSmartLink } from "../utility/SmartLink";
 import {
-  SkillsetCollection,
   SkillDiv,
+  SkillsetCollection,
   WhatImGoodAtSectionStyle,
 } from "./WhatImGoodAt.style";
 
