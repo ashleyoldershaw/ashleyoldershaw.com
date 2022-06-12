@@ -12,6 +12,7 @@ import { formatDate } from "../utility/formatting";
 import { SmartLink } from "../utility/SmartLink";
 import { BlogImage } from "./BlogImage";
 import { StyledArticle, TimingSection } from "./BlogPost.style";
+import { Bullets } from "./Bullets/Bullets";
 
 const BlogContent = ({ item }) => {
   switch (item._type) {
@@ -29,11 +30,26 @@ const BlogContent = ({ item }) => {
       );
     case "section_title":
       return <SubSectionTitle>{item.section_title}</SubSectionTitle>;
+    case "bullets":
+      return <Bullets item={item} />;
     default:
       break;
   }
 
-  return <>{item._type}</>;
+  return null;
+};
+
+const getWordCount = (input) => {
+  if (!input) return 0;
+  return input.trim().split(/\s+/).length;
+};
+
+const sumList = (input) => {
+  if (!input) return 0;
+  console.log(input);
+  return input.reduce(
+    (previousValue, currentValue) => previousValue + currentValue
+  );
 };
 
 export const BlogPost = ({ content, meta_info }) => {
@@ -51,12 +67,13 @@ export const BlogPost = ({ content, meta_info }) => {
           )}
         </TimingSection>
         <TextDetail>
-          {content.content
-            .map((item) => item.text_body?.trim().split(/\s+/).length)
-            .reduce(
-              (previousValue, currentValue) =>
-                currentValue ? previousValue + currentValue : previousValue,
-              0
+          {sumList(
+            content.content.map((item) => getWordCount(item.text_body))
+          ) +
+            sumList(
+              content.content.map((item) =>
+                sumList(item.points?.map((point) => getWordCount(point.text)))
+              )
             )}{" "}
           words
         </TextDetail>

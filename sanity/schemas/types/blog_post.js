@@ -29,6 +29,7 @@ export const blog = {
         {
           name: "text_body",
           type: "object",
+          icon: () => "t",
           fields: [
             {
               name: "text_body",
@@ -36,10 +37,14 @@ export const blog = {
               title: "Text Body",
             },
           ],
+          preview: {
+            select: { title: "text_body" },
+          },
         },
         {
           name: "emphasis_quote",
           type: "object",
+          icon: () => "e",
           fields: [
             {
               name: "emphasis_quote",
@@ -51,6 +56,7 @@ export const blog = {
         {
           name: "section_title",
           type: "object",
+          icon: () => "S",
           fields: [
             {
               name: "section_title",
@@ -58,6 +64,14 @@ export const blog = {
               title: "Section title",
             },
           ],
+          preview: {
+            select: { title: "section_title" },
+            prepare({ title }) {
+              return {
+                title: `${title}`,
+              };
+            },
+          },
         },
         {
           name: "image_component",
@@ -85,6 +99,47 @@ export const blog = {
               return {
                 title: `Image: ${title}`,
                 media: thumbnail,
+              };
+            },
+          },
+        },
+        {
+          name: "bullets",
+          type: "object",
+          icon: () => "li",
+          fields: [
+            { name: "title", type: "string", title: "Bullet title" },
+            {
+              name: "numbered",
+              type: "boolean",
+              title: "Numbered?",
+            },
+            {
+              name: "points",
+              type: "array",
+              of: [
+                {
+                  type: "object",
+                  fields: [
+                    {
+                      name: "text",
+                      type: "string",
+                      title: "Bullet text",
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+          initialValue: { numbered: false },
+          preview: {
+            select: { title: "title", numbered: "numbered", points: "points" },
+            prepare({ title, numbered, points = [] }) {
+              return {
+                title: `${numbered ? "List" : "Bullets"}: ${title}`,
+                subtitle: `${
+                  points.length !== 1 ? `${points.length} points` : "1 point"
+                }`,
               };
             },
           },
