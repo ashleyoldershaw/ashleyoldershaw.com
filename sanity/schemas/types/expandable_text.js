@@ -1,4 +1,4 @@
-const countChildren = (children) => {
+export const countChildren = (children) => {
   const getChildrenCount = (item) =>
     item.children
       ? item.children.length +
@@ -25,16 +25,20 @@ export const expandable_text = {
   preview: {
     select: { text: "text", children: "children" },
     prepare({ text, children }) {
-      return {
-        title: text,
-        subtitle: children
-          ? `${
-              children.length === 1
-                ? `${children.length} branch`
-                : `${children.length} branches`
-            }, ${countChildren(children)} total`
-          : "Leaf",
-      };
+      const totalChildren = countChildren(children);
+      const ret = { title: text };
+      if (children) {
+        if (children.length === totalChildren) {
+          ret.subtitle = `${
+            children.length === 1 ? `1 branch` : `${children.length} branches`
+          }`;
+        } else {
+          ret.subtitle = `${
+            children.length === 1 ? `1 branch` : `${children.length} branches`
+          }, ${totalChildren} total`;
+        }
+      }
+      return ret;
     },
   },
 };

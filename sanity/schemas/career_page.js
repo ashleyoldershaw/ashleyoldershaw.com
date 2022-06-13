@@ -1,3 +1,5 @@
+import { countChildren } from "./types/expandable_text";
+
 export const career_page = {
   name: "career_page",
   title: "Career page",
@@ -26,6 +28,23 @@ export const career_page = {
           preview: {
             select: {
               title: "name",
+              body: "body",
+            },
+            prepare({ title, body }) {
+              const totalChildren = countChildren(body);
+              const ret = { title };
+              if (body) {
+                if (body.length === totalChildren) {
+                  ret.subtitle = `${
+                    body.length === 1 ? `1 branch` : `${body.length} branches`
+                  }`;
+                } else {
+                  ret.subtitle = `${
+                    body.length === 1 ? `1 branch` : `${body.length} branches`
+                  }, ${totalChildren} total`;
+                }
+              }
+              return ret;
             },
           },
         },
