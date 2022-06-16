@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { urlFor } from "../sanity";
 import { NavButton } from "../styling/Buttons";
-import { CustomTextInput } from "../styling/Inputs";
+import { CustomTextInput } from "../styling/Inputs/Inputs";
 import { BodyText, PageTitle } from "../styling/TextStyles";
 import { SmartLink } from "../utility/SmartLink";
 import { BirdDisplayStyle, BirdGuesserStyle, BirdImage } from "./Birdle.style";

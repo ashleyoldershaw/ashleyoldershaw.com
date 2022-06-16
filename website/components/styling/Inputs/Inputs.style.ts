@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { sansFontFamily } from "./TextStyles";
+import { sansFontFamily } from "../TextStyles";
 import {
   dark_mode_accent,
   dark_mode_contrast,
@@ -7,12 +7,13 @@ import {
   light_mode_accent,
   light_mode_contrast,
   light_mode_text,
-} from "./Themes";
+} from "../Themes";
 
-const InputStyle = styled.input`
+export const InputStyle = styled.input`
   font-family: ${sansFontFamily};
-  font-size: 25px;
-  height: 35px;
+  font-size: 1.5em;
+  height: 2em;
+  padding: 0 .5em;
 
   background-color: unset;
   border-style: solid;
@@ -41,21 +42,3 @@ const InputStyle = styled.input`
     }
   }
 `;
-
-export const CustomTextInput = ({
-  placeholder = "",
-  register,
-  validation = {},
-  name,
-  type = "text",
-  className = "",
-}) => {
-  return (
-    <InputStyle
-      className={className}
-      type={type}
-      placeholder={placeholder}
-      {...register(name, validation)}
-    />
-  );
-};
