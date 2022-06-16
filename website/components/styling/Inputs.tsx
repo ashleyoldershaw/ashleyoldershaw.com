@@ -47,12 +47,13 @@ export const CustomTextInput = ({
   register,
   validation = {},
   name,
+  type = "text",
   className = "",
 }) => {
   return (
     <InputStyle
       className={className}
-      type="text"
+      type={type}
       placeholder={placeholder}
       {...register(name, validation)}
     />
