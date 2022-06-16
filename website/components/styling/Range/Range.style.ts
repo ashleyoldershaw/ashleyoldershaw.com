@@ -1,14 +1,12 @@
-import { useWatch } from "react-hook-form";
 import styled from "styled-components";
-import { BodyText } from "./TextStyles";
 import {
   dark_mode_accent,
   dark_mode_accent_contrast,
   light_mode_accent,
   light_mode_accent_contrast,
-} from "./Themes";
+} from "../Themes";
 
-const CustomRangeStyle = styled.input`
+export const CustomRangeStyle = styled.input`
   width: 100%;
   -webkit-appearance: none; /* Override default CSS styles */
   appearance: none;
@@ -60,7 +58,7 @@ const CustomRangeStyle = styled.input`
   }
 `;
 
-const CustomRangeWrapper = styled.div`
+export const CustomRangeWrapper = styled.div`
   display: flex;
   width: 16em;
   align-items: center;
@@ -75,30 +73,3 @@ const CustomRangeWrapper = styled.div`
     width: 3em;
   }
 `;
-
-export const CustomRange = ({
-  register,
-  control,
-  name,
-  min = 0.0,
-  max = 1.0,
-  step = 0.01,
-}) => {
-  const value = useWatch({
-    control,
-    name,
-  });
-
-  return (
-    <CustomRangeWrapper>
-      <CustomRangeStyle
-        type="range"
-        min={min}
-        max={max}
-        step={step}
-        {...register(name)}
-      />
-      <BodyText>{value}</BodyText>
-    </CustomRangeWrapper>
-  );
-};
