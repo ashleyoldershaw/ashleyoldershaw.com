@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { displays } from "../styling/Display";
-import { horizontalMargin } from "../styling/Layout";
+import { borderRadius } from "../styling/Layout";
 import {
   dark_mode_background,
   dark_mode_contrast,
@@ -19,10 +19,36 @@ export const ExpandableTextStyle = styled.div`
     display: flex;
   }
 
+  margin: 25px 25px 25px 25px;
+  @media (max-width: ${displays.mobileL}) {
+    margin: 3%;
+  }
+  > div {
+    border-top: 1px solid red;
+    flex-direction: column;
+    @media (prefers-color-scheme: light) {
+      border-color: ${light_mode_contrast};
+    }
+    @media (prefers-color-scheme: dark) {
+      border-color: ${dark_mode_contrast};
+    }
+    p {
+      padding-right: 25px;
+    }
+  }
+  > div:first-of-type {
+    border-top: none;
+  }
+
+  > p {
+    padding: 0 25px;
+  }
+
   justify-content: center;
 
   @media (prefers-color-scheme: light) {
-    color: ${light_mode_contrast};
+    border-color: ${light_mode_contrast};
+    color: ${light_mode_text};
     background-color: ${light_mode_secondary_background};
   }
   @media (prefers-color-scheme: dark) {
@@ -32,9 +58,7 @@ export const ExpandableTextStyle = styled.div`
   }
   border-style: solid;
   border-width: 1px;
-  padding: ${horizontalMargin} 0;
-  padding-right: 5px;
-  margin: 5px 0;
+  border-radius: ${borderRadius};
   transition: all 0.4s ease;
 `;
 
@@ -51,8 +75,9 @@ export const ExpandButton = styled.button`
     background-color: ${dark_mode_background};
     color: ${dark_mode_text};
   }
+  border-radius: ${borderRadius};
   align-self: center;
-  margin: 25px 5px;
+  margin: 25px;
   width: 25px;
   height: 25px;
   transition: all 0.4s ease;
@@ -61,6 +86,10 @@ export const ExpandButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: ${displays.mobileL}) {
+    margin-left: 5px;
+  }
 `;
 
 export const ExpandableTextChildrenStyle = styled.div`
@@ -69,6 +98,9 @@ export const ExpandableTextChildrenStyle = styled.div`
 
   @media (max-width: ${displays.mobileL}) {
     margin-left: 5px;
+  }
+  p {
+    text-align: left;
   }
 `;
 

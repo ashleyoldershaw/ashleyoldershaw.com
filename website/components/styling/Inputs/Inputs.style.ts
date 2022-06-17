@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { borderRadius } from "../Layout";
 import { sansFontFamily } from "../TextStyles";
 import {
   dark_mode_accent,
@@ -20,6 +21,7 @@ export const InputStyle = styled.input`
   background-color: unset;
   border-style: solid;
   border-width: 1px;
+  border-radius: ${borderRadius};
 
   width: 100%;
 

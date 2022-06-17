@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { horizontalMargin } from "../styling/Layout";
+import { borderRadius, horizontalMargin } from "../styling/Layout";
 import {
   dark_mode_contrast,
   dark_mode_secondary_background,
@@ -8,6 +8,7 @@ import {
 } from "../styling/Themes";
 
 export const HomepageSectionStyle = styled.div`
+  border-radius: ${borderRadius};
   border: 1px solid red;
   @media (prefers-color-scheme: light) {
     border-color: ${light_mode_contrast};

@@ -50,7 +50,6 @@ const getWordCount = (input) => {
 
 const sumList = (input) => {
   if (!input) return 0;
-  console.log(input);
   return input.reduce(
     (previousValue, currentValue) => previousValue + currentValue
   );

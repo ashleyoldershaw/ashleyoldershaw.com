@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { displays } from "./styling/Display";
-import { horizontalMargin } from "./styling/Layout";
+import { borderRadius, horizontalMargin } from "./styling/Layout";
 import { BodyText, SectionTitle } from "./styling/TextStyles";
 import {
   dark_mode_contrast,
@@ -51,6 +51,7 @@ const NavBarStyle = styled.div`
     }
   }
 
+  border-radius: 0 0 ${borderRadius} ${borderRadius};
   @media (min-width: ${displays.mobileL}) {
     z-index: 1;
     position: -webkit-sticky;

@@ -25,6 +25,7 @@ export const SkillDiv = styled.div`
     width: 6.5em;
     text-align: center;
   }
+  border-radius: 30px;
 `;
 
 export const SkillsetCollection = styled.div`

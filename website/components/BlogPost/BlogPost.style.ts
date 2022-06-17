@@ -20,9 +20,13 @@ export const StyledBlogImageWrapper = styled.div`
 export const StyledArticle = styled.article`
   display: flex;
   flex-direction: column;
+  p {
+    text-align: left;
+  }
 `;
 
 export const StyledBlogContent = styled.div`
+  border-radius: 30px;
   border: 1px solid red;
   @media (prefers-color-scheme: light) {
     border-color: ${light_mode_contrast};

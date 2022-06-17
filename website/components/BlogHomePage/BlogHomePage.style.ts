@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { horizontalMargin } from "../styling/Layout";
+import { borderRadius, horizontalMargin } from "../styling/Layout";
 import {
   dark_mode_contrast,
   dark_mode_secondary_background,
@@ -9,6 +9,7 @@ import {
 
 export const BlogPostList = styled.div`
   margin: auto;
+  border-radius: ${borderRadius};
 
   @media (prefers-color-scheme: light) {
     background-color: ${light_mode_secondary_background};
