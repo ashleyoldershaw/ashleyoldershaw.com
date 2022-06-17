@@ -3,14 +3,15 @@ import {
   dark_mode_contrast,
   dark_mode_secondary_background,
   dark_mode_text,
-  light_mode_background,
+  light_mode_contrast,
+  light_mode_secondary_background,
   light_mode_text,
 } from "../Themes";
 
 export const StyledNavButton = styled.button`
   @media (prefers-color-scheme: light) {
-    border-color: ${light_mode_text};
-    background-color: ${light_mode_background};
+    border-color: ${light_mode_contrast};
+    background-color: ${light_mode_secondary_background};
     color: ${light_mode_text};
   }
   @media (prefers-color-scheme: dark) {

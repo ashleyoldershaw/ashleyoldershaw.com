@@ -5,8 +5,8 @@ import { BodyText, SectionTitle } from "./styling/TextStyles";
 import {
   dark_mode_contrast,
   dark_mode_secondary_background,
-  light_mode_background,
-  light_mode_text,
+  light_mode_contrast,
+  light_mode_secondary_background,
 } from "./styling/Themes";
 import { SmartLink } from "./utility/SmartLink";
 
@@ -29,8 +29,8 @@ const NavBarStyle = styled.div`
   border-style: none none solid none;
 
   @media (prefers-color-scheme: light) {
-    border-color: ${light_mode_text};
-    background-color: ${light_mode_background};
+    border-color: ${light_mode_contrast};
+    background-color: ${light_mode_secondary_background};
   }
   @media (prefers-color-scheme: dark) {
     border-color: ${dark_mode_contrast};

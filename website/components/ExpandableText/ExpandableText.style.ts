@@ -7,7 +7,8 @@ import {
   dark_mode_secondary_background,
   dark_mode_text,
   light_mode_accent,
-  light_mode_background,
+  light_mode_contrast,
+  light_mode_secondary_background,
   light_mode_text,
 } from "../styling/Themes";
 
@@ -21,7 +22,8 @@ export const ExpandableTextStyle = styled.div`
   justify-content: center;
 
   @media (prefers-color-scheme: light) {
-    color: ${light_mode_text};
+    color: ${light_mode_contrast};
+    background-color: ${light_mode_secondary_background};
   }
   @media (prefers-color-scheme: dark) {
     border-color: ${dark_mode_contrast};
@@ -41,7 +43,7 @@ export const ExpandButton = styled.button`
 
   @media (prefers-color-scheme: light) {
     border-color: ${light_mode_accent};
-    background-color: ${light_mode_background};
+    background-color: ${light_mode_secondary_background};
     color: ${light_mode_text};
   }
   @media (prefers-color-scheme: dark) {

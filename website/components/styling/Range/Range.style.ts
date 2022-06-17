@@ -3,7 +3,7 @@ import {
   dark_mode_accent,
   dark_mode_secondary_background,
   light_mode_accent,
-  light_mode_accent_contrast,
+  light_mode_secondary_background,
 } from "../Themes";
 
 export const CustomRangeStyle = styled.input`
@@ -13,7 +13,7 @@ export const CustomRangeStyle = styled.input`
   width: 100%; /* Full-width */
   height: 0.5em; /* Specified height */
   @media (prefers-color-scheme: light) {
-    background: ${light_mode_accent_contrast};
+    background: ${light_mode_secondary_background};
   }
   @media (prefers-color-scheme: dark) {
     background: ${dark_mode_secondary_background};

@@ -7,6 +7,7 @@ import {
   dark_mode_text,
   light_mode_accent,
   light_mode_contrast,
+  light_mode_secondary_background,
   light_mode_text,
 } from "../Themes";
 
@@ -25,7 +26,8 @@ export const InputStyle = styled.input`
   margin: 10px;
 
   @media (prefers-color-scheme: light) {
-    border-color: ${light_mode_accent};
+    border-color: ${light_mode_contrast};
+    background-color: ${light_mode_secondary_background};
     color: ${light_mode_text};
   }
   @media (prefers-color-scheme: dark) {
@@ -36,6 +38,7 @@ export const InputStyle = styled.input`
 
   ::placeholder {
     @media (prefers-color-scheme: light) {
+      color: ${light_mode_contrast};
     }
     @media (prefers-color-scheme: dark) {
       color: ${dark_mode_contrast};
@@ -45,7 +48,7 @@ export const InputStyle = styled.input`
   :focus {
     outline: none;
     @media (prefers-color-scheme: light) {
-      border-color: ${light_mode_contrast};
+      border-color: ${light_mode_accent};
     }
     @media (prefers-color-scheme: dark) {
       border-color: ${dark_mode_accent};

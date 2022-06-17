@@ -1,10 +1,10 @@
 import { createContext, useContext } from "react";
 
-export const light_mode_background = "#F7F9FB";
-export const light_mode_accent = "#CF5C36";
-export const light_mode_text = "#303C6C";
-export const light_mode_contrast = "#D2FDFF";
-export const light_mode_accent_contrast = "#B4DFE5";
+export const light_mode_background = "#EDC7B7";
+export const light_mode_accent = "#AC3B61";
+export const light_mode_text = "#123C69";
+export const light_mode_contrast = "#BAB2B5";
+export const light_mode_secondary_background = "#EEE2DC";
 
 export const dark_mode_background = "#0B3C5D";
 export const dark_mode_accent = "#D9B310";
