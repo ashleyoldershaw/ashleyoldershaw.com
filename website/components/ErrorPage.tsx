@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { NavButton } from "./styling/Buttons";
+import { NavButton } from "./styling/Buttons/Buttons";
 import { BodyText, PageSubtitle, PageTitle } from "./styling/TextStyles";
 
 export const ErrorPage = ({ info }) => {

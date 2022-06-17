@@ -1,4 +1,4 @@
-import { NavButton } from "../styling/Buttons";
+import { NavButton } from "../styling/Buttons/Buttons";
 import { TextBasedWidth } from "../styling/Display";
 import {
   BodyText,
@@ -11,7 +11,11 @@ import {
 import { formatDate } from "../utility/formatting";
 import { SmartLink } from "../utility/SmartLink";
 import { BlogImage } from "./BlogImage";
-import { StyledArticle, TimingSection } from "./BlogPost.style";
+import {
+  StyledArticle,
+  StyledBlogContent,
+  TimingSection,
+} from "./BlogPost.style";
 import { Bullets } from "./Bullets/Bullets";
 
 const BlogContent = ({ item }) => {
@@ -77,12 +81,14 @@ export const BlogPost = ({ content, meta_info }) => {
             )}{" "}
           words
         </TextDetail>
-        {content.content.map((item) => (
-          <BlogContent key={item._key} item={item} />
-        ))}
-        <SmartLink href={meta_info.back_to_menu.url}>
-          <NavButton text={meta_info.back_to_menu.text} />
-        </SmartLink>
+        <StyledBlogContent>
+          {content.content.map((item) => (
+            <BlogContent key={item._key} item={item} />
+          ))}
+          <SmartLink href={meta_info.back_to_menu.url}>
+            <NavButton text={meta_info.back_to_menu.text} />
+          </SmartLink>
+        </StyledBlogContent>
       </StyledArticle>
     </TextBasedWidth>
   );

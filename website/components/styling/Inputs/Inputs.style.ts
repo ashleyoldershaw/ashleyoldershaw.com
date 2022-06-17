@@ -3,6 +3,7 @@ import { sansFontFamily } from "../TextStyles";
 import {
   dark_mode_accent,
   dark_mode_contrast,
+  dark_mode_secondary_background,
   dark_mode_text,
   light_mode_accent,
   light_mode_contrast,
@@ -13,7 +14,7 @@ export const InputStyle = styled.input`
   font-family: ${sansFontFamily};
   font-size: 1.5em;
   height: 2em;
-  padding: 0 .5em;
+  padding: 0 0.5em;
 
   background-color: unset;
   border-style: solid;
@@ -28,8 +29,17 @@ export const InputStyle = styled.input`
     color: ${light_mode_text};
   }
   @media (prefers-color-scheme: dark) {
-    border-color: ${dark_mode_accent};
+    border-color: ${dark_mode_contrast};
+    background-color: ${dark_mode_secondary_background};
     color: ${dark_mode_text};
+  }
+
+  ::placeholder {
+    @media (prefers-color-scheme: light) {
+    }
+    @media (prefers-color-scheme: dark) {
+      color: ${dark_mode_contrast};
+    }
   }
 
   :focus {
@@ -38,7 +48,7 @@ export const InputStyle = styled.input`
       border-color: ${light_mode_contrast};
     }
     @media (prefers-color-scheme: dark) {
-      border-color: ${dark_mode_contrast};
+      border-color: ${dark_mode_accent};
     }
   }
 `;

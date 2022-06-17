@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { horizontalMargin } from "../styling/Layout";
-import { dark_mode_text, light_mode_text } from "../styling/Themes";
+import {
+  dark_mode_contrast,
+  dark_mode_secondary_background,
+  light_mode_text,
+} from "../styling/Themes";
 
 export const HomepageSectionStyle = styled.div`
   border: 1px solid red;
@@ -8,7 +12,13 @@ export const HomepageSectionStyle = styled.div`
     border-color: ${light_mode_text};
   }
   @media (prefers-color-scheme: dark) {
-    border-color: ${dark_mode_text};
+    border-color: ${dark_mode_contrast};
+  }
+
+  @media (prefers-color-scheme: light) {
+  }
+  @media (prefers-color-scheme: dark) {
+    background-color: ${dark_mode_secondary_background};
   }
 
   margin: ${horizontalMargin} 0;
@@ -21,7 +31,7 @@ export const HomepageSectionStyle = styled.div`
       border-color: ${light_mode_text};
     }
     @media (prefers-color-scheme: dark) {
-      border-color: ${dark_mode_text};
+      border-color: ${dark_mode_contrast};
     }
   }
   > *:first-child {

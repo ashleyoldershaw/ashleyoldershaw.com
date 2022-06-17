@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {
   dark_mode_accent,
-  dark_mode_accent_contrast,
+  dark_mode_secondary_background,
   light_mode_accent,
   light_mode_accent_contrast,
 } from "../Themes";
@@ -16,7 +16,7 @@ export const CustomRangeStyle = styled.input`
     background: ${light_mode_accent_contrast};
   }
   @media (prefers-color-scheme: dark) {
-    background: ${dark_mode_accent_contrast};
+    background: ${dark_mode_secondary_background};
   }
   outline: none; /* Remove outline */
   opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */

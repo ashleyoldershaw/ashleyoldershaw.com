@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { displays } from "../styling/Display";
-import { dark_mode_text, light_mode_text } from "../styling/Themes";
+import { dark_mode_contrast, light_mode_text } from "../styling/Themes";
 
 export const BirdGuesserStyle = styled.div`
   display: flex;
@@ -68,7 +68,7 @@ export const BirdImage = styled.img`
     border-color: ${light_mode_text};
   }
   @media (prefers-color-scheme: dark) {
-    border-color: ${dark_mode_text};
+    border-color: ${dark_mode_contrast};
   }
 
   @media (max-width: ${displays.mobileL}) {

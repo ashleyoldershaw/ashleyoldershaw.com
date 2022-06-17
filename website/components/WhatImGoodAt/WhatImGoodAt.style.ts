@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { horizontalMargin } from "../styling/Layout";
-import { dark_mode_text, light_mode_text } from "../styling/Themes";
+import { dark_mode_contrast, light_mode_text } from "../styling/Themes";
 
 export const WhatImGoodAtSectionStyle = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ export const SkillDiv = styled.div`
     border: solid 1px ${light_mode_text};
   }
   @media (prefers-color-scheme: dark) {
-    border: solid 1px ${dark_mode_text};
+    border: solid 1px ${dark_mode_contrast};
   }
   padding: 20px 5px;
   p {

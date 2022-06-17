@@ -3,8 +3,8 @@ import { displays } from "./styling/Display";
 import { horizontalMargin } from "./styling/Layout";
 import { BodyText, SectionTitle } from "./styling/TextStyles";
 import {
-  dark_mode_background,
-  dark_mode_text,
+  dark_mode_contrast,
+  dark_mode_secondary_background,
   light_mode_background,
   light_mode_text,
 } from "./styling/Themes";
@@ -33,8 +33,8 @@ const NavBarStyle = styled.div`
     background-color: ${light_mode_background};
   }
   @media (prefers-color-scheme: dark) {
-    border-color: ${dark_mode_text};
-    background-color: ${dark_mode_background};
+    border-color: ${dark_mode_contrast};
+    background-color: ${dark_mode_secondary_background};
   }
 
   @media (max-width: ${displays.mobileL}) {
