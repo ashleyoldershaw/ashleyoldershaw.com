@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BodyText } from "../styling/TextStyles";
 import {
   dark_mode_contrast,
   dark_mode_secondary_background,
@@ -20,7 +21,7 @@ export const StyledBlogImageWrapper = styled.div`
 export const StyledArticle = styled.article`
   display: flex;
   flex-direction: column;
-  p {
+  ${BodyText} {
     text-align: left;
   }
 `;
