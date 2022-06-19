@@ -2,10 +2,16 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { urlFor } from "../sanity";
 import { NavButton } from "../styling/Buttons/Buttons";
+import { TextBasedWidth } from "../styling/Display";
 import { CustomTextInput } from "../styling/Inputs/Inputs";
 import { BodyText, PageTitle } from "../styling/TextStyles";
 import { SmartLink } from "../utility/SmartLink";
-import { BirdDisplayStyle, BirdGuesserStyle, BirdImage } from "./Birdle.style";
+import {
+  BirdDisplayStyle,
+  BirdGuesserStyle,
+  BirdImage,
+  BirdleStyling,
+} from "./Birdle.style";
 
 const BirdDisplay = ({ bird }) => {
   return (
@@ -161,14 +167,18 @@ export const BirdlePage = ({ birdle, time }) => {
       <PageTitle>{birdle.title}</PageTitle>
       <BodyText>{birdle.subtitle}</BodyText>
 
-      <BirdDisplay bird={todays_bird} />
+      <TextBasedWidth>
+        <BirdleStyling>
+          <BirdDisplay bird={todays_bird} />
 
-      <BirdGuesser
-        options={birdle.birds.map((bird) => bird.name).sort()}
-        answer={todays_bird.name}
-        birdle={birdle}
-        charity={todays_charity}
-      />
+          <BirdGuesser
+            options={birdle.birds.map((bird) => bird.name).sort()}
+            answer={todays_bird.name}
+            birdle={birdle}
+            charity={todays_charity}
+          />
+        </BirdleStyling>
+      </TextBasedWidth>
     </>
   );
 };

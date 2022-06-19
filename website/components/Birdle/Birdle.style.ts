@@ -1,6 +1,25 @@
 import styled from "styled-components";
 import { displays } from "../styling/Display";
-import { dark_mode_contrast, light_mode_contrast } from "../styling/Themes";
+import {
+  dark_mode_contrast,
+  dark_mode_secondary_background,
+  light_mode_contrast,
+  light_mode_secondary_background,
+} from "../styling/Themes";
+
+export const BirdleStyling = styled.div`
+  border-radius: 30px;
+  border: 1px solid red;
+  @media (prefers-color-scheme: light) {
+    border-color: ${light_mode_contrast};
+    background-color: ${light_mode_secondary_background};
+  }
+  @media (prefers-color-scheme: dark) {
+    background-color: ${dark_mode_secondary_background};
+    border-color: ${dark_mode_contrast};
+  }
+  padding: 1em;
+`;
 
 export const BirdGuesserStyle = styled.div`
   display: flex;

@@ -19,8 +19,8 @@ const ListWrapper = ({ children, numbered }) => {
 export const Bullets = ({ item }) => {
   return (
     <ListWrapper numbered={item.numbered}>
-      {item.points.map((point) => (
-        <BulletPoint point={point} />
+      {item.points.map((point, i) => (
+        <BulletPoint key={i} point={point} />
       ))}
     </ListWrapper>
   );
