@@ -39,5 +39,7 @@ export const HomepageSectionStyle = styled.div`
   }
   > *:first-child {
     border-top: none;
+    padding-top: min(${horizontalMargin}, 1em);
+    padding-bottom: min(${horizontalMargin}, 1em);
   }
 `;

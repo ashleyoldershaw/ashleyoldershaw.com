@@ -29,6 +29,9 @@ export const StyledArticle = styled.article`
 export const StyledBlogContent = styled.div`
   border-radius: 30px;
   border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
   @media (prefers-color-scheme: light) {
     border-color: ${light_mode_contrast};
     background-color: ${light_mode_secondary_background};
