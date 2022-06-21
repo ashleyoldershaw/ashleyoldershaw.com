@@ -1,8 +1,11 @@
+import { orderRankField } from "@sanity/orderable-document-list";
+
 export const skills = {
   name: "skills",
   title: "Skills",
   type: "document",
   fields: [
+    orderRankField({ type: "skills" }),
     {
       name: "category",
       title: "Category",

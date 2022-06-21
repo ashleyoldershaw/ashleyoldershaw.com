@@ -1,4 +1,5 @@
 import S from "@sanity/desk-tool/structure-builder";
+import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 
 export default () =>
   S.list()
@@ -24,6 +25,10 @@ export default () =>
         .child(S.editor().schemaType("birdle").documentId("birdle")),
       S.divider(),
       // List out the rest of the document types, but filter out the config type
+      orderableDocumentListDeskItem({
+        type: "skills",
+        title: "Skills",
+      }),
       ...S.documentTypeListItems().filter(
         (listItem) =>
           ![
@@ -36,6 +41,7 @@ export default () =>
             "birdle",
             "blog_home",
             "blog_meta",
+            "skills",
           ].includes(listItem.getId())
       ),
       S.divider(),

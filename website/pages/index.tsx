@@ -7,7 +7,7 @@ export async function getStaticProps() {
     props: {
       home_page: await sanity.fetch(`*[_type=='home_page'][0]`),
       skills: await sanity.fetch(
-        `*[_type=='skills']{category, info[hide != true], subtitle}`
+        `*[_type=='skills']|order(orderRank){category, info[hide != true], subtitle}`
       ),
       ...(await getLayoutStaticProps()),
     },
