@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { urlFor } from "../sanity";
@@ -134,6 +135,9 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <Head>
+        <title>{birdle.title}</title>
+      </Head>
       <BirdGuesserStyle>
         <BodyText>
           Guess {guesses} of {max_guesses}

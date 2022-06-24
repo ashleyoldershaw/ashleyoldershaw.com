@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { NavButton } from "../styling/Buttons/Buttons";
 import { TextBasedWidth } from "../styling/Display";
 import {
@@ -59,6 +60,9 @@ export const BlogPost = ({ content, meta_info }) => {
   return (
     <TextBasedWidth>
       <StyledArticle>
+        <Head>
+          <title>{content.title}</title>
+        </Head>
         <PageTitle>{content.title}</PageTitle>
         <PageSubtitle>{content.subtitle}</PageSubtitle>
         <TimingSection>

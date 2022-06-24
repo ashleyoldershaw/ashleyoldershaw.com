@@ -44,7 +44,7 @@ export const blog = {
         {
           name: "emphasis_quote",
           type: "object",
-          icon: () => "e",
+          icon: () => "E",
           fields: [
             {
               name: "emphasis_quote",
@@ -52,6 +52,14 @@ export const blog = {
               title: "Emphasis quote",
             },
           ],
+          preview: {
+            select: { title: "emphasis_quote" },
+            prepare({ title }) {
+              return {
+                title: `${title}`,
+              };
+            },
+          },
         },
         {
           name: "section_title",

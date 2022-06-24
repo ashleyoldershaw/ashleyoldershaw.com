@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { TextBasedWidth } from "../styling/Display";
 import {
   BodyText,
@@ -27,6 +28,9 @@ export const BlogPostPreview = ({ post }) => {
 export const BlogHomePage = ({ blog_home, blog_posts }) => {
   return (
     <TextBasedWidth>
+      <Head>
+        <title>{blog_home.title}</title>
+      </Head>
       <PageTitle>{blog_home.title}</PageTitle>
       <PageSubtitle>{blog_home.subtitle}</PageSubtitle>
       <BlogPostList>

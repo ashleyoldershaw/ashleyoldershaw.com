@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { ExpandableText } from "../components/ExpandableText/ExpandableText";
 import { getStaticProps as getLayoutStaticProps } from "../components/layout";
 import { sanity } from "../components/sanity";
@@ -19,6 +20,9 @@ export async function getStaticProps() {
 export default function CareerPage({ career_page }) {
   return (
     <main>
+      <Head>
+        <title>{career_page.title}</title>
+      </Head>
       <PageTitle>{career_page.title}</PageTitle>
       <BodyText>{career_page.intro}</BodyText>
       {career_page.career_info.map((workplace, i) => (
