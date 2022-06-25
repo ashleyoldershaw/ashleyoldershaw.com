@@ -6,9 +6,10 @@ import {
   Emphasis,
   PageSubtitle,
   PageTitle,
-  SubSectionTitle,
+  SectionTitle,
   TextDetail,
 } from "../styling/TextStyles";
+import { useTheme } from "../styling/Themes";
 import { formatDate } from "../utility/formatting";
 import { SmartLink } from "../utility/SmartLink";
 import { BlogImage } from "./BlogImage";
@@ -19,7 +20,7 @@ import {
 } from "./BlogPost.style";
 import { Bullets } from "./Bullets/Bullets";
 
-const BlogContent = ({ item }) => {
+const BlogContent = ({ item, theme }) => {
   switch (item._type) {
     case "text_body":
       return <BodyText>{item.text_body}</BodyText>;
@@ -28,13 +29,13 @@ const BlogContent = ({ item }) => {
     case "image_component":
       return (
         <BlogImage
-          image={item.image}
+          image={theme === "dark" ? item.dark_image || item.image : item.image}
           alt={item.alt_text}
           caption={item.caption}
         />
       );
     case "section_title":
-      return <SubSectionTitle>{item.section_title}</SubSectionTitle>;
+      return <SectionTitle>{item.section_title}</SectionTitle>;
     case "bullets":
       return <Bullets item={item} />;
     default:
@@ -57,6 +58,7 @@ const sumList = (input) => {
 };
 
 export const BlogPost = ({ content, meta_info }) => {
+  const theme = useTheme();
   return (
     <TextBasedWidth>
       <StyledArticle>
@@ -86,7 +88,7 @@ export const BlogPost = ({ content, meta_info }) => {
         </TextDetail>
         <StyledBlogContent>
           {content.content.map((item) => (
-            <BlogContent key={item._key} item={item} />
+            <BlogContent key={item._key} item={item} theme={theme} />
           ))}
           <SmartLink href={meta_info.back_to_menu.url}>
             <NavButton text={meta_info.back_to_menu.text} />

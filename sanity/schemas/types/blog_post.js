@@ -91,6 +91,11 @@ export const blog = {
               title: "Image",
             },
             {
+              name: "dark_image",
+              type: "image",
+              title: "Dark mode image (optional)",
+            },
+            {
               name: "caption",
               type: "string",
               title: "Caption",

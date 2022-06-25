@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Footer } from "../components/Footer";
 import { NavBar } from "../components/NavBar";
 import { urlFor } from "../components/sanity";
+import { displays } from "../components/styling/Display";
 import { horizontalMargin } from "../components/styling/Layout";
 import {
   dark_mode_background,
@@ -33,6 +34,9 @@ const AppStyle = styled.div`
 
 const BodyStyle = styled.div`
   margin: 0 ${horizontalMargin};
+  @media (max-width: ${displays.mobileL}) {
+    margin: 0;
+  }
 `;
 
 const MyApp = ({ Component, pageProps, auth }) => {

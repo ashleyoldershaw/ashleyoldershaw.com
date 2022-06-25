@@ -98,6 +98,7 @@ export const BodyText = styled.p`
 
   @media (max-width: ${displays.mobileL}) {
     text-align: center;
+    font-size: 1em;
   }
 `;
 
