@@ -82,6 +82,26 @@ export const blog = {
           },
         },
         {
+          name: "subsection_title",
+          type: "object",
+          icon: () => "Ss",
+          fields: [
+            {
+              name: "subsection_title",
+              type: "string",
+              title: "Subsection title",
+            },
+          ],
+          preview: {
+            select: { title: "subsection_title" },
+            prepare({ title }) {
+              return {
+                title: `${title}`,
+              };
+            },
+          },
+        },
+        {
           name: "image_component",
           type: "object",
           fields: [

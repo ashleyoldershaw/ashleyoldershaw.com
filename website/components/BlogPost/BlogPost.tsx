@@ -7,6 +7,7 @@ import {
   PageSubtitle,
   PageTitle,
   SectionTitle,
+  SubSectionTitle,
   TextDetail,
 } from "../styling/TextStyles";
 import { useTheme } from "../styling/Themes";
@@ -36,6 +37,8 @@ const BlogContent = ({ item, theme }) => {
       );
     case "section_title":
       return <SectionTitle>{item.section_title}</SectionTitle>;
+    case "subsection_title":
+      return <SubSectionTitle>{item.subsection_title}</SubSectionTitle>;
     case "bullets":
       return <Bullets item={item} />;
     default:
