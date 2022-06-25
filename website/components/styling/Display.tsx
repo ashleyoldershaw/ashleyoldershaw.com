@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { horizontalMargin } from "./Layout";
 
 export const displays = {
   mobileS: "320px",
@@ -13,4 +14,10 @@ export const displays = {
 export const TextBasedWidth = styled.div`
   max-width: 60em;
   margin: auto;
+`;
+
+export const PageTitleStyle = styled.div`
+  @media (max-width: ${displays.mobileL}) {
+    padding: 0 ${horizontalMargin};
+  }
 `;

@@ -14,6 +14,10 @@ export const PageTitle = styled.h1`
     font-size: 3em;
   }
 
+  @media (max-width: ${displays.mobileL}) {
+    font-size: 2.5em;
+  }
+
   @media (prefers-color-scheme: light) {
     color: ${light_mode_accent};
   }
@@ -33,6 +37,7 @@ export const PageSubtitle = styled.h2`
   font-weight: 100;
   @media (max-width: ${displays.mobileL}) {
     text-align: center;
+    font-size: 1.5em;
   }
 `;
 
@@ -50,6 +55,7 @@ export const SectionTitle = styled.h2`
 
   @media (max-width: ${displays.mobileL}) {
     text-align: center;
+    font-size: 2em;
   }
 `;
 
@@ -65,7 +71,7 @@ export const SubSectionTitle = styled.h3`
     color: ${dark_mode_accent};
   }
   @media (max-width: ${displays.mobileL}) {
-    font-size: 26px;
+    font-size: 1.5em;
     text-align: center;
   }
 `;
@@ -118,4 +124,8 @@ export const Emphasis = styled.p`
   font-weight: 400;
   text-align: center;
   font-style: italic;
+  @media (max-width: ${displays.mobileL}) {
+    text-align: center;
+    font-size: 1.5em;
+  }
 `;

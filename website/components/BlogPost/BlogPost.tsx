@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { NavButton } from "../styling/Buttons/Buttons";
-import { TextBasedWidth } from "../styling/Display";
+import { PageTitleStyle, TextBasedWidth } from "../styling/Display";
 import {
   BodyText,
   Emphasis,
@@ -68,27 +68,31 @@ export const BlogPost = ({ content, meta_info }) => {
         <Head>
           <title>{content.title}</title>
         </Head>
-        <PageTitle>{content.title}</PageTitle>
-        <PageSubtitle>{content.subtitle}</PageSubtitle>
-        <TimingSection>
-          <TextDetail>Published: {formatDate(content.publish_date)}</TextDetail>
-          {content._updatedAt > content.publish_date && (
+        <PageTitleStyle>
+          <PageTitle>{content.title}</PageTitle>
+          <PageSubtitle>{content.subtitle}</PageSubtitle>
+          <TimingSection>
             <TextDetail>
-              Last updated: {formatDate(content._updatedAt)}
+              Published: {formatDate(content.publish_date)}
             </TextDetail>
-          )}
-        </TimingSection>
-        <TextDetail>
-          {sumList(
-            content.content.map((item) => getWordCount(item.text_body))
-          ) +
-            sumList(
-              content.content.map((item) =>
-                sumList(item.points?.map((point) => getWordCount(point.text)))
-              )
-            )}{" "}
-          words
-        </TextDetail>
+            {content._updatedAt > content.publish_date && (
+              <TextDetail>
+                Last updated: {formatDate(content._updatedAt)}
+              </TextDetail>
+            )}
+          </TimingSection>
+          <TextDetail>
+            {sumList(
+              content.content.map((item) => getWordCount(item.text_body))
+            ) +
+              sumList(
+                content.content.map((item) =>
+                  sumList(item.points?.map((point) => getWordCount(point.text)))
+                )
+              )}{" "}
+            words
+          </TextDetail>
+        </PageTitleStyle>
         <StyledBlogContent>
           {content.content.map((item) => (
             <BlogContent key={item._key} item={item} theme={theme} />

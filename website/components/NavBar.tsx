@@ -37,9 +37,15 @@ const NavBarStyle = styled.div`
     background-color: ${dark_mode_secondary_background};
   }
 
+  z-index: 1;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
   @media (max-width: ${displays.mobileL}) {
     flex-direction: column;
     gap: 0;
+    position: relative;
 
     div {
       flex-direction: column;
@@ -52,12 +58,6 @@ const NavBarStyle = styled.div`
   }
 
   border-radius: 0 0 ${borderRadius} ${borderRadius};
-  @media (min-width: ${displays.mobileL}) {
-    z-index: 1;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-  }
 `;
 
 const NavBarLinks = styled.div`
