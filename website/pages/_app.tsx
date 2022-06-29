@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Footer } from "../components/Footer";
-import { NavBar } from "../components/NavBar";
+import { NavBar } from "../components/NavBar/Navbar";
 import { urlFor } from "../components/sanity";
 import { displays } from "../components/styling/Display";
 import { horizontalMargin } from "../components/styling/Layout";
