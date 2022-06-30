@@ -170,7 +170,9 @@ export const BirdlePage = ({ birdle, time }) => {
     <>
       <PageTitleStyle>
         <PageTitle>{birdle.title}</PageTitle>
-        <BodyText>{birdle.subtitle}</BodyText>
+        <TextBasedWidth>
+          <BodyText>{birdle.subtitle}</BodyText>
+        </TextBasedWidth>
       </PageTitleStyle>
 
       <TextBasedWidth>

@@ -2,7 +2,7 @@ import Head from "next/head";
 import { ExpandableText } from "../components/ExpandableText/ExpandableText";
 import { getStaticProps as getLayoutStaticProps } from "../components/layout";
 import { sanity } from "../components/sanity";
-import { PageTitleStyle } from "../components/styling/Display";
+import { PageTitleStyle, TextBasedWidth } from "../components/styling/Display";
 import {
   BodyText,
   PageTitle,
@@ -26,7 +26,9 @@ export default function CareerPage({ career_page }) {
       </Head>
       <PageTitleStyle>
         <PageTitle>{career_page.title}</PageTitle>
-        <BodyText>{career_page.intro}</BodyText>
+        <TextBasedWidth>
+          <BodyText>{career_page.intro}</BodyText>
+        </TextBasedWidth>
       </PageTitleStyle>
       {career_page.career_info.map((workplace, i) => (
         <div key={i}>

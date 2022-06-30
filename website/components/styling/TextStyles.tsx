@@ -9,6 +9,11 @@ export const PageTitle = styled.h1`
   font-family: ${titleFontFamily};
   font-size: 4em;
   font-weight: 100;
+  text-align: center;
+
+  @media (min-width: ${displays.desktop}) {
+    font-size: 10em;
+  }
 
   @media (max-width: ${displays.tablet}) {
     font-size: 3em;
@@ -35,9 +40,13 @@ export const PageSubtitle = styled.h2`
   font-family: ${titleFontFamily};
   font-size: 2em;
   font-weight: 100;
+  text-align: center;
   @media (max-width: ${displays.mobileL}) {
-    text-align: center;
     font-size: 1.5em;
+  }
+
+  @media (min-width: ${displays.desktop}) {
+    font-size: 5em;
   }
 `;
 

@@ -12,6 +12,7 @@ export const NavBarStyle = styled.div`
   display: flex;
   align-items: center;
   gap: 10%;
+  padding: 1em ${horizontalMargin};
   a {
     color: unset;
     text-decoration: unset;
@@ -24,7 +25,7 @@ export const NavBarStyle = styled.div`
   border-width: 1px;
   border-style: none none solid none;
 
-  @media (max-width: ${displays.desktop}) {
+  @media (min-width: ${displays.desktop}) {
     padding: 2em ${horizontalMargin};
 
     h2 {
@@ -33,10 +34,6 @@ export const NavBarStyle = styled.div`
     p {
       font-size: 1.5em;
     }
-  }
-
-  @media (max-width: ${displays.laptopL}) {
-    padding: 1em ${horizontalMargin};
   }
 
   @media (max-width: ${displays.mobileL}) {

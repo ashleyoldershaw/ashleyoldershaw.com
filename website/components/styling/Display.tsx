@@ -17,7 +17,7 @@ export const TextBasedWidth = styled.div`
 `;
 
 export const PageTitleStyle = styled.div`
-  @media (max-width: ${displays.mobileL}) {
+  @media (max-width: ${displays.tablet}) {
     padding: 0 ${horizontalMargin};
   }
 `;
