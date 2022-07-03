@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Footer } from "../components/Footer";
-import { NavBar } from "../components/NavBar";
+import { NavBar } from "../components/NavBar/Navbar";
 import { urlFor } from "../components/sanity";
 import { displays } from "../components/styling/Display";
 import { horizontalMargin } from "../components/styling/Layout";
@@ -34,7 +34,7 @@ const AppStyle = styled.div`
 
 const BodyStyle = styled.div`
   margin: 0 ${horizontalMargin};
-  @media (max-width: ${displays.mobileL}) {
+  @media (max-width: ${displays.tablet}) {
     margin: 0;
   }
 `;

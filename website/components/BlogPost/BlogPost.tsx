@@ -63,14 +63,16 @@ const sumList = (input) => {
 export const BlogPost = ({ content, meta_info }) => {
   const theme = useTheme();
   return (
-    <TextBasedWidth>
-      <StyledArticle>
-        <Head>
-          <title>{content.title}</title>
-        </Head>
+    <StyledArticle>
+      <Head>
+        <title>{content.title}</title>
+      </Head>
+      <PageTitleStyle>
+        <PageTitle>{content.title}</PageTitle>
+        <PageSubtitle>{content.subtitle}</PageSubtitle>
+      </PageTitleStyle>
+      <TextBasedWidth>
         <PageTitleStyle>
-          <PageTitle>{content.title}</PageTitle>
-          <PageSubtitle>{content.subtitle}</PageSubtitle>
           <TimingSection>
             <TextDetail>
               Published: {formatDate(content.publish_date)}
@@ -101,7 +103,7 @@ export const BlogPost = ({ content, meta_info }) => {
             <NavButton text={meta_info.back_to_menu.text} />
           </SmartLink>
         </StyledBlogContent>
-      </StyledArticle>
-    </TextBasedWidth>
+      </TextBasedWidth>
+    </StyledArticle>
   );
 };

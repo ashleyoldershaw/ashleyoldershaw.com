@@ -27,7 +27,7 @@ export const BlogPostPreview = ({ post }) => {
 
 export const BlogHomePage = ({ blog_home, blog_posts }) => {
   return (
-    <TextBasedWidth>
+    <>
       <Head>
         <title>{blog_home.title}</title>
       </Head>
@@ -35,11 +35,13 @@ export const BlogHomePage = ({ blog_home, blog_posts }) => {
         <PageTitle>{blog_home.title}</PageTitle>
         <PageSubtitle>{blog_home.subtitle}</PageSubtitle>
       </PageTitleStyle>
-      <BlogPostList>
-        {blog_posts.map((post, i) => (
-          <BlogPostPreview key={i} post={post} />
-        ))}
-      </BlogPostList>
-    </TextBasedWidth>
+      <TextBasedWidth>
+        <BlogPostList>
+          {blog_posts.map((post, i) => (
+            <BlogPostPreview key={i} post={post} />
+          ))}
+        </BlogPostList>
+      </TextBasedWidth>
+    </>
   );
 };
