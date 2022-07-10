@@ -15,6 +15,7 @@ export const home_page = {
     },
     { name: "about_me", title: "About me", type: "text" },
     { name: "what_i_do_title", title: "What I do title", type: "string" },
+    { name: "key_skills_title", title: "Key Skills Title", type: "string" },
     {
       name: "what_i_do",
       title: "What I do",

@@ -25,7 +25,7 @@ export const HomePage = ({ home_page_data, skills_data }) => {
           <WhatIDoSection sanity_input={home_page_data.what_i_do} />
         </HomepageSectionStyle>
         <HomepageSectionStyle>
-          <SectionTitle>Key skills</SectionTitle>
+          <SectionTitle>{home_page_data.key_skills_title}</SectionTitle>
           <WhatImGoodAtItems sanity_input={skills_data} />
         </HomepageSectionStyle>
       </TextBasedWidth>
