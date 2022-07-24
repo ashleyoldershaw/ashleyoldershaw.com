@@ -12,18 +12,16 @@ import {
   light_mode_text,
 } from "../Themes";
 
-export const InputStyle = styled.input`
+const TextInputStyle = `
   font-family: ${sansFontFamily};
   font-size: 1.5em;
-  height: 2em;
-  padding: 0 0.5em;
+  padding-left:  0.5em;
+  padding-right:  0.5em;
 
   background-color: unset;
   border-style: solid;
   border-width: 1px;
   border-radius: ${borderRadius};
-
-  width: 100%;
 
   margin: 10px;
 
@@ -56,4 +54,16 @@ export const InputStyle = styled.input`
       border-color: ${dark_mode_accent};
     }
   }
+`;
+
+export const InputStyle = styled.input`
+  ${TextInputStyle}
+  height: 2em;
+`;
+
+export const TextAreaStyle = styled.textarea`
+  ${TextInputStyle}
+  min-height: 4em;
+  overflow: auto;
+  padding-top: 0.5em;
 `;

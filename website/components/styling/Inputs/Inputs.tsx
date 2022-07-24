@@ -1,4 +1,4 @@
-import { InputStyle } from "./Inputs.style";
+import { InputStyle, TextAreaStyle } from "./Inputs.style";
 
 export const CustomTextInput = ({
   placeholder = "",
@@ -15,5 +15,16 @@ export const CustomTextInput = ({
       placeholder={placeholder}
       {...register(name, validation)}
     />
+  );
+};
+
+export const CustomTextArea = ({
+  placeholder = "",
+  register,
+  validation = {},
+  name,
+}) => {
+  return (
+    <TextAreaStyle placeholder={placeholder} {...register(name, validation)} />
   );
 };
