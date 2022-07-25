@@ -34,7 +34,7 @@ export async function onRequestPost(context) {
       personalizations: [
         {
           to: [{ email }],
-          dynamic_template_data: { validationKey, name },
+          dynamic_template_data: { validationKey, name: name.split(" ")[0] },
         },
       ],
       from: { email: "ash@ashleyoldershaw.com" },
