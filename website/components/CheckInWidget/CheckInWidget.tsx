@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { HomepageSectionStyle } from "../HomePage/HomePage.style";
 import { NavButton } from "../styling/Buttons/Buttons";
@@ -7,15 +8,26 @@ import { BodyText, SubSectionTitle } from "../styling/TextStyles";
 
 export const CheckInWidget = () => {
   const { register, handleSubmit, formState, reset } = useForm();
+  const [checkedIn, setCheckedIn] = useState(false);
 
   const onSubmit = (data) => {
     axios
       .post("/api/check-in", data)
       .then(() => {
+        setCheckedIn(true);
         reset();
       })
       .catch(() => {});
   };
+
+  if (checkedIn) {
+    return (
+      <HomepageSectionStyle>
+        <SubSectionTitle>{`Thanks!`}</SubSectionTitle>
+        <BodyText>{`Check your inbox for a confirmation email!`}</BodyText>
+      </HomepageSectionStyle>
+    );
+  }
 
   return (
     <HomepageSectionStyle>

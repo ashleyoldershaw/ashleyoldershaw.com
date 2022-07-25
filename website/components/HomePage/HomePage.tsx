@@ -1,3 +1,4 @@
+import { CheckInWidget } from "../CheckInWidget/CheckInWidget";
 import { PageTitleStyle, TextBasedWidth } from "../styling/Display";
 import {
   BodyText,
@@ -28,6 +29,7 @@ export const HomePage = ({ home_page_data, skills_data }) => {
           <SectionTitle>{home_page_data.key_skills_title}</SectionTitle>
           <WhatImGoodAtItems sanity_input={skills_data} />
         </HomepageSectionStyle>
+        <CheckInWidget />
       </TextBasedWidth>
     </>
   );
