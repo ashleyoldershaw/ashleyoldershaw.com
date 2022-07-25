@@ -16,9 +16,16 @@ export async function onRequestGet(context) {
     return new Response("Not found", { status: 404 });
   }
 
-  const { message, email, name } = JSON.parse(
-    await env["Email verification"].get(validationKey)
-  );
+  const record = await env["Email verification"].get(validationKey);
+
+  if (!record) {
+    return new Response(
+      "Message not found, was this message already verified?",
+      { status: 400 }
+    );
+  }
+
+  const { message, email, name } = JSON.parse(record);
 
   const result = await fetch("https://api.sendgrid.com/v3/mail/send", {
     headers: {
