@@ -13,7 +13,7 @@ export async function onRequestGet(context) {
   const validationKey = body.get("message") || "";
 
   if (!validationKey) {
-    return new Response("Not found", { status: 404 });
+    return new Response("No message value found in request!", { status: 400 });
   }
 
   const record = await env["Email verification"].get(validationKey);
