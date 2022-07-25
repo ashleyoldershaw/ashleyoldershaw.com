@@ -17,7 +17,7 @@ export async function onRequestGet(context) {
   }
 
   const { message, email, name } = JSON.parse(
-    await env["Email verification"].get(body.get("message"))
+    await env["Email verification"].get(validationKey)
   );
 
   const result = await fetch("https://api.sendgrid.com/v3/mail/send", {
@@ -42,5 +42,7 @@ export async function onRequestGet(context) {
 
   if (resp) return new Response("Internal Server Error", { status: 500 });
 
-  return new Response("OK", { status: 200 });
+  waitUntil(env["Email verification"].delete(validationKey));
+
+  return new Response("Thanks! Confirmed.", { status: 200 });
 }

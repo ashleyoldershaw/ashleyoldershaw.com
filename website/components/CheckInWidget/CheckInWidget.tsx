@@ -11,13 +11,15 @@ export const CheckInWidget = () => {
   const [checkedIn, setCheckedIn] = useState(false);
 
   const onSubmit = (data) => {
+    setCheckedIn(true);
     axios
       .post("/api/check-in", data)
       .then(() => {
-        setCheckedIn(true);
         reset();
       })
-      .catch(() => {});
+      .catch(() => {
+        setCheckedIn(false);
+      });
   };
 
   if (checkedIn) {
