@@ -24,8 +24,6 @@ export async function onRequestPost(context) {
     }
   );
 
-  console.log(validationKey);
-
   const result = await fetch("https://api.sendgrid.com/v3/mail/send", {
     headers: {
       Authorization: `Bearer ${env.SENDGRID_API_KEY}`,
@@ -36,7 +34,7 @@ export async function onRequestPost(context) {
       personalizations: [
         {
           to: [{ email }],
-          dynamic_template_data: { validationKey },
+          dynamic_template_data: { validationKey, name },
         },
       ],
       from: { email: "ash@ashleyoldershaw.com" },
