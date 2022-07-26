@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import {
   dark_mode_accent,
+  dark_mode_contrast,
   dark_mode_secondary_background,
   light_mode_accent,
+  light_mode_contrast,
   light_mode_secondary_background,
 } from "../Themes";
 
@@ -63,13 +65,15 @@ export const CustomRangeWrapper = styled.div`
   width: 16em;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid red;
   input {
-    border: 1px solid red;
+    @media (prefers-color-scheme: light) {
+      background: ${light_mode_contrast};
+    }
+    @media (prefers-color-scheme: dark) {
+      background: ${dark_mode_contrast};
+    }
   }
   p {
-    border: 1px solid red;
-
     width: 3em;
   }
 `;
