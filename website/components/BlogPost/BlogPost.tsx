@@ -41,6 +41,12 @@ const BlogContent = ({ item, theme }) => {
       return <SubSectionTitle>{item.subsection_title}</SubSectionTitle>;
     case "bullets":
       return <Bullets item={item} />;
+    case "button":
+      return (
+        <SmartLink href={item.link}>
+          <NavButton text={item.text} />
+        </SmartLink>
+      );
     default:
       break;
   }

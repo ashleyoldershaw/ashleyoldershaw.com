@@ -177,6 +177,28 @@ export const blog = {
             },
           },
         },
+        {
+          name: "button",
+          type: "object",
+          icon: () => "B",
+          fields: [
+            { name: "text", type: "string", title: "Button text" },
+            {
+              name: "link",
+              type: "string",
+              title: "Link",
+            },
+          ],
+          preview: {
+            select: { text: "text", link: "link" },
+            prepare({ text, link }) {
+              return {
+                title: `${text}`,
+                subtitle: `${link}`,
+              };
+            },
+          },
+        },
       ],
     },
   ],
