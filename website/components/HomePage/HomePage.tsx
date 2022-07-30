@@ -1,5 +1,5 @@
 import { CheckInWidget } from "../CheckInWidget/CheckInWidget";
-import { PageTitleStyle, TextBasedWidth } from "../styling/Display";
+import { PageTitleSection, TextBasedWidth } from "../styling/Display";
 import {
   BodyText,
   PageSubtitle,
@@ -13,13 +13,13 @@ import { HomepageSectionStyle } from "./HomePage.style";
 export const HomePage = ({ home_page_data, skills_data }) => {
   return (
     <>
-      <PageTitleStyle>
+      <PageTitleSection>
         <PageTitle>{home_page_data.title}</PageTitle>
         <PageSubtitle>{home_page_data.subtitle}</PageSubtitle>
         <TextBasedWidth>
           <BodyText>{home_page_data.about_me}</BodyText>
         </TextBasedWidth>
-      </PageTitleStyle>
+      </PageTitleSection>
       <TextBasedWidth>
         <HomepageSectionStyle>
           <SectionTitle>{home_page_data.what_i_do_title}</SectionTitle>

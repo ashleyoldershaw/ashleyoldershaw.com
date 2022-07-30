@@ -3,7 +3,10 @@ import { useForm } from "react-hook-form";
 import { HomepageSectionStyle } from "../components/HomePage/HomePage.style";
 import { getStaticProps as getLayoutStaticProps } from "../components/layout";
 import { NavButton } from "../components/styling/Buttons/Buttons";
-import { PageTitleStyle, TextBasedWidth } from "../components/styling/Display";
+import {
+  PageTitleSection,
+  TextBasedWidth,
+} from "../components/styling/Display";
 import {
   CustomTextArea,
   CustomTextInput,
@@ -36,10 +39,10 @@ export default function ComponentsPage() {
       <Head>
         <title>{"Component library"}</title>
       </Head>
-      <PageTitleStyle>
+      <PageTitleSection>
         <PageTitle>{`Components!`}</PageTitle>
         <PageSubtitle>{`Reference for component styling`}</PageSubtitle>
-      </PageTitleStyle>
+      </PageTitleSection>
       <TextBasedWidth>
         <HomepageSectionStyle>
           <div>

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { PageTitleStyle, TextBasedWidth } from "../styling/Display";
+import { PageTitleSection, TextBasedWidth } from "../styling/Display";
 import {
   BodyText,
   PageSubtitle,
@@ -31,10 +31,10 @@ export const BlogHomePage = ({ blog_home, blog_posts }) => {
       <Head>
         <title>{blog_home.title}</title>
       </Head>
-      <PageTitleStyle>
+      <PageTitleSection>
         <PageTitle>{blog_home.title}</PageTitle>
         <PageSubtitle>{blog_home.subtitle}</PageSubtitle>
-      </PageTitleStyle>
+      </PageTitleSection>
       <TextBasedWidth>
         <BlogPostList>
           {blog_posts.map((post, i) => (

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { NavButton } from "../styling/Buttons/Buttons";
-import { PageTitleStyle, TextBasedWidth } from "../styling/Display";
+import { PageTitleSection, TextBasedWidth } from "../styling/Display";
 import {
   BodyText,
   Emphasis,
@@ -73,12 +73,12 @@ export const BlogPost = ({ content, meta_info }) => {
       <Head>
         <title>{content.title}</title>
       </Head>
-      <PageTitleStyle>
+      <PageTitleSection>
         <PageTitle>{content.title}</PageTitle>
         <PageSubtitle>{content.subtitle}</PageSubtitle>
-      </PageTitleStyle>
+      </PageTitleSection>
       <TextBasedWidth>
-        <PageTitleStyle>
+        <StyledBlogContent>
           <TimingSection>
             <TextDetail>
               Published: {formatDate(content.publish_date)}
@@ -100,8 +100,6 @@ export const BlogPost = ({ content, meta_info }) => {
               )}{" "}
             words
           </TextDetail>
-        </PageTitleStyle>
-        <StyledBlogContent>
           {content.content.map((item) => (
             <BlogContent key={item._key} item={item} theme={theme} />
           ))}

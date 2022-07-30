@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { urlFor } from "../sanity";
 import { NavButton } from "../styling/Buttons/Buttons";
-import { PageTitleStyle, TextBasedWidth } from "../styling/Display";
+import { PageTitleSection, TextBasedWidth } from "../styling/Display";
 import { CustomTextInput } from "../styling/Inputs/Inputs";
 import { BodyText, PageTitle } from "../styling/TextStyles";
 import { SmartLink } from "../utility/SmartLink";
@@ -168,12 +168,12 @@ export const BirdlePage = ({ birdle, time }) => {
 
   return (
     <>
-      <PageTitleStyle>
+      <PageTitleSection>
         <PageTitle>{birdle.title}</PageTitle>
         <TextBasedWidth>
           <BodyText>{birdle.subtitle}</BodyText>
         </TextBasedWidth>
-      </PageTitleStyle>
+      </PageTitleSection>
 
       <TextBasedWidth>
         <BirdleStyling>

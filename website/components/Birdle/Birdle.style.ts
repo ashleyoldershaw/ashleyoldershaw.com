@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { displays } from "../styling/Display";
+import { borderRadius } from "../styling/Layout";
 import {
   dark_mode_contrast,
   dark_mode_secondary_background,
@@ -8,7 +9,7 @@ import {
 } from "../styling/Themes";
 
 export const BirdleStyling = styled.div`
-  border-radius: 30px;
+  border-radius: ${borderRadius};
   border: 1px solid red;
   @media (prefers-color-scheme: light) {
     border-color: ${light_mode_contrast};

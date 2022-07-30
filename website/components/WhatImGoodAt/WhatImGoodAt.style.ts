@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { horizontalMargin } from "../styling/Layout";
+import { borderRadius, horizontalMargin } from "../styling/Layout";
 import { dark_mode_contrast, light_mode_contrast } from "../styling/Themes";
 
 export const WhatImGoodAtSectionStyle = styled.div`
@@ -18,6 +18,7 @@ export const SkillDiv = styled.div`
     background-color: #ffffff;
   }
   @media (prefers-color-scheme: dark) {
+    background-color: #000000;
     border-color: ${dark_mode_contrast};
   }
   padding: 20px 5px;
@@ -25,7 +26,7 @@ export const SkillDiv = styled.div`
     width: 6.5em;
     text-align: center;
   }
-  border-radius: 30px;
+  border-radius: ${borderRadius};
 `;
 
 export const SkillsetCollection = styled.div`
