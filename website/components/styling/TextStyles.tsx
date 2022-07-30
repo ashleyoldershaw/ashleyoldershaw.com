@@ -11,7 +11,7 @@ export const PageTitle = styled.h1`
   text-align: center;
 
   // large screen size
-  font-size: 8em;
+  font-size: 7em;
 
   @media (max-width: ${displays.laptopL}) {
     font-size: 4em;
@@ -44,7 +44,7 @@ export const PageSubtitle = styled.h2`
   text-align: center;
 
   // large screen size
-  font-size: 4em;
+  font-size: 3em;
   @media (max-width: ${displays.mobileL}) {
     font-size: 1.5em;
   }

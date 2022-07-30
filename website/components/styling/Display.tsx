@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { horizontalMargin } from "./Layout";
 import {
+  dark_mode_contrast,
   dark_mode_secondary_background,
+  light_mode_contrast,
   light_mode_secondary_background,
 } from "./Themes";
 
@@ -25,11 +27,16 @@ const PageTitleStyle = styled.div`
     padding: 0 ${horizontalMargin};
   }
 
+  border-width: 0 1px;
+  border-style: solid;
+
   @media (prefers-color-scheme: light) {
     background-color: ${light_mode_secondary_background};
+    border-color: ${light_mode_contrast};
   }
   @media (prefers-color-scheme: dark) {
     background-color: ${dark_mode_secondary_background};
+    border-color: ${dark_mode_contrast};
   }
 
   min-height: 40vh;
@@ -62,6 +69,16 @@ const TriangleDivider = styled.div`
       fill: ${dark_mode_secondary_background};
     }
   }
+  polyline {
+    fill: none;
+    stroke-width: 0.5px;
+    @media (prefers-color-scheme: light) {
+      stroke: ${light_mode_contrast};
+    }
+    @media (prefers-color-scheme: dark) {
+      stroke: ${dark_mode_contrast};
+    }
+  }
 `;
 
 const PageTitleSectionStyle = styled.div`
@@ -80,7 +97,8 @@ export const PageTitleSection = ({ children }) => {
           viewBox="0 0 1200 120"
           preserveAspectRatio="none"
         >
-          <path d="M1200 0L0 0 598.97 114.72 1200 0z"></path>
+          <path d="M1200 0L0 0 600 100 1200 0z"></path>
+          <polyline points="1200,0 600,100 0,0" />
         </svg>
       </TriangleDivider>
     </PageTitleSectionStyle>
