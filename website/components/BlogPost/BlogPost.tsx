@@ -79,30 +79,36 @@ export const BlogPost = ({ content, meta_info }) => {
       </PageTitleSection>
       <TextBasedWidth>
         <ContentSection>
-          <TimingSection>
-            <TextDetail>
-              Published: {formatDate(content.publish_date)}
-            </TextDetail>
-            {content._updatedAt > content.publish_date && (
+          <div>
+            <TimingSection>
               <TextDetail>
-                Last updated: {formatDate(content._updatedAt)}
+                Published: {formatDate(content.publish_date)}
               </TextDetail>
-            )}
-          </TimingSection>
-          <TextDetail>
-            {sumList(
-              content.content.map((item) => getWordCount(item.text_body))
-            ) +
-              sumList(
-                content.content.map((item) =>
-                  sumList(item.points?.map((point) => getWordCount(point.text)))
-                )
-              )}{" "}
-            words
-          </TextDetail>
-          {content.content.map((item) => (
-            <BlogContent key={item._key} item={item} theme={theme} />
-          ))}
+              {content._updatedAt > content.publish_date && (
+                <TextDetail>
+                  Last updated: {formatDate(content._updatedAt)}
+                </TextDetail>
+              )}
+            </TimingSection>
+            <TextDetail>
+              {sumList(
+                content.content.map((item) => getWordCount(item.text_body))
+              ) +
+                sumList(
+                  content.content.map((item) =>
+                    sumList(
+                      item.points?.map((point) => getWordCount(point.text))
+                    )
+                  )
+                )}{" "}
+              words
+            </TextDetail>
+          </div>
+          <div>
+            {content.content.map((item) => (
+              <BlogContent key={item._key} item={item} theme={theme} />
+            ))}
+          </div>
           <SmartLink href={meta_info.back_to_menu.url}>
             <NavButton text={meta_info.back_to_menu.text} />
           </SmartLink>
