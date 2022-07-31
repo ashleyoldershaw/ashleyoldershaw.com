@@ -114,7 +114,7 @@ export const SubSubSectionTitle = styled.h3`
 
 export const BodyText = styled.p`
   font-family: ${sansFontFamily};
-  font-size: 1.25em;
+  font-size: 1em;
   font-weight: 200;
 
   @media (max-width: ${displays.mobileL}) {
