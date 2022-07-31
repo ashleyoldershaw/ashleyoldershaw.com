@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { horizontalMargin } from "./Layout";
+import { borderRadius, horizontalMargin } from "./Layout";
 import {
   dark_mode_contrast,
   dark_mode_secondary_background,
@@ -49,7 +49,7 @@ const PageTitleStyle = styled.div`
   }
 `;
 
-const TriangleDivider = styled.div`
+const TriangleDividerStyle = styled.div`
   width: 100%;
   overflow: hidden;
   line-height: 0;
@@ -81,6 +81,37 @@ const TriangleDivider = styled.div`
   }
 `;
 
+const TriangleDivider = ({ direction = "down" }) => {
+  const width = 1200;
+  const height = 120;
+  const lines =
+    direction === "down" ? (
+      <>
+        <path
+          d={`M ${width} 0 L 0 0 ${width / 2} ${height} ${width} 0z`}
+        ></path>
+        <polyline points={`${width},0 ${width / 2},${height} 0,0`} />
+      </>
+    ) : (
+      <>
+        <path d={`M 0 ${height} L ${width / 2} ${0} ${width} ${height}`}></path>
+        <polyline points={`${width},${height} ${width / 2},0 0,${height}`} />
+      </>
+    );
+
+  return (
+    <TriangleDividerStyle>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox={`0 0 ${width} ${height}`}
+        preserveAspectRatio="none"
+      >
+        {lines}
+      </svg>
+    </TriangleDividerStyle>
+  );
+};
+
 const PageTitleSectionStyle = styled.div`
   display: flex;
   flex-direction: column;
@@ -91,16 +122,55 @@ export const PageTitleSection = ({ children }) => {
   return (
     <PageTitleSectionStyle>
       <PageTitleStyle>{children}</PageTitleStyle>
-      <TriangleDivider>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path d="M1200 0L0 0 600 100 1200 0z"></path>
-          <polyline points="1200,0 600,100 0,0" />
-        </svg>
-      </TriangleDivider>
+      <TriangleDivider />
     </PageTitleSectionStyle>
+  );
+};
+
+const ContentSectionStyle = styled.div`
+  border-radius: ${borderRadius};
+  border: 1px solid red;
+  border-width: 0 1px;
+  @media (prefers-color-scheme: light) {
+    border-color: ${light_mode_contrast};
+  }
+  @media (prefers-color-scheme: dark) {
+    border-color: ${dark_mode_contrast};
+  }
+
+  @media (prefers-color-scheme: light) {
+    background-color: ${light_mode_secondary_background};
+  }
+  @media (prefers-color-scheme: dark) {
+    background-color: ${dark_mode_secondary_background};
+  }
+
+  margin: 0;
+
+  > * {
+    padding: ${horizontalMargin};
+
+    border-top: 1px solid red;
+    @media (prefers-color-scheme: light) {
+      border-color: ${light_mode_contrast};
+    }
+    @media (prefers-color-scheme: dark) {
+      border-color: ${dark_mode_contrast};
+    }
+  }
+  > *:first-child {
+    border-top: none;
+    padding-top: min(${horizontalMargin}, 1em);
+    padding-bottom: min(${horizontalMargin}, 1em);
+  }
+`;
+
+export const ContentSection = ({ children }) => {
+  return (
+    <div>
+      <TriangleDivider direction="up" />
+      <ContentSectionStyle>{children}</ContentSectionStyle>
+      <TriangleDivider direction="down" />
+    </div>
   );
 };

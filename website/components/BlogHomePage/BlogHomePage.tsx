@@ -1,5 +1,9 @@
 import Head from "next/head";
-import { PageTitleSection, TextBasedWidth } from "../styling/Display";
+import {
+  ContentSection,
+  PageTitleSection,
+  TextBasedWidth,
+} from "../styling/Display";
 import {
   BodyText,
   PageSubtitle,
@@ -9,7 +13,7 @@ import {
 } from "../styling/TextStyles";
 import { formatDate } from "../utility/formatting";
 import { SmartLink } from "../utility/SmartLink";
-import { BlogPostList, BlogpostPreviewStyle } from "./BlogHomePage.style";
+import { BlogpostPreviewStyle } from "./BlogHomePage.style";
 
 export const BlogPostPreview = ({ post }) => {
   return (
@@ -36,11 +40,11 @@ export const BlogHomePage = ({ blog_home, blog_posts }) => {
         <PageSubtitle>{blog_home.subtitle}</PageSubtitle>
       </PageTitleSection>
       <TextBasedWidth>
-        <BlogPostList>
+        <ContentSection>
           {blog_posts.map((post, i) => (
             <BlogPostPreview key={i} post={post} />
           ))}
-        </BlogPostList>
+        </ContentSection>
       </TextBasedWidth>
     </>
   );

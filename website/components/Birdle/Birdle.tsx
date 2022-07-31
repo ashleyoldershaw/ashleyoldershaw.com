@@ -3,16 +3,15 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { urlFor } from "../sanity";
 import { NavButton } from "../styling/Buttons/Buttons";
-import { PageTitleSection, TextBasedWidth } from "../styling/Display";
+import {
+  ContentSection,
+  PageTitleSection,
+  TextBasedWidth,
+} from "../styling/Display";
 import { CustomTextInput } from "../styling/Inputs/Inputs";
 import { BodyText, PageTitle } from "../styling/TextStyles";
 import { SmartLink } from "../utility/SmartLink";
-import {
-  BirdDisplayStyle,
-  BirdGuesserStyle,
-  BirdImage,
-  BirdleStyling,
-} from "./Birdle.style";
+import { BirdDisplayStyle, BirdGuesserStyle, BirdImage } from "./Birdle.style";
 
 const BirdDisplay = ({ bird }) => {
   return (
@@ -176,16 +175,18 @@ export const BirdlePage = ({ birdle, time }) => {
       </PageTitleSection>
 
       <TextBasedWidth>
-        <BirdleStyling>
-          <BirdDisplay bird={todays_bird} />
+        <ContentSection>
+          <div>
+            <BirdDisplay bird={todays_bird} />
 
-          <BirdGuesser
-            options={birdle.birds.map((bird) => bird.name).sort()}
-            answer={todays_bird.name}
-            birdle={birdle}
-            charity={todays_charity}
-          />
-        </BirdleStyling>
+            <BirdGuesser
+              options={birdle.birds.map((bird) => bird.name).sort()}
+              answer={todays_bird.name}
+              birdle={birdle}
+              charity={todays_charity}
+            />
+          </div>
+        </ContentSection>
       </TextBasedWidth>
     </>
   );

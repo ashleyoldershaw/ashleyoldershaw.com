@@ -1,6 +1,10 @@
 import Head from "next/head";
 import { NavButton } from "../styling/Buttons/Buttons";
-import { PageTitleSection, TextBasedWidth } from "../styling/Display";
+import {
+  ContentSection,
+  PageTitleSection,
+  TextBasedWidth,
+} from "../styling/Display";
 import {
   BodyText,
   Emphasis,
@@ -14,11 +18,7 @@ import { useTheme } from "../styling/Themes";
 import { formatDate } from "../utility/formatting";
 import { SmartLink } from "../utility/SmartLink";
 import { BlogImage } from "./BlogImage";
-import {
-  StyledArticle,
-  StyledBlogContent,
-  TimingSection,
-} from "./BlogPost.style";
+import { StyledArticle, TimingSection } from "./BlogPost.style";
 import { Bullets } from "./Bullets/Bullets";
 
 const BlogContent = ({ item, theme }) => {
@@ -78,7 +78,7 @@ export const BlogPost = ({ content, meta_info }) => {
         <PageSubtitle>{content.subtitle}</PageSubtitle>
       </PageTitleSection>
       <TextBasedWidth>
-        <StyledBlogContent>
+        <ContentSection>
           <TimingSection>
             <TextDetail>
               Published: {formatDate(content.publish_date)}
@@ -106,7 +106,7 @@ export const BlogPost = ({ content, meta_info }) => {
           <SmartLink href={meta_info.back_to_menu.url}>
             <NavButton text={meta_info.back_to_menu.text} />
           </SmartLink>
-        </StyledBlogContent>
+        </ContentSection>
       </TextBasedWidth>
     </StyledArticle>
   );

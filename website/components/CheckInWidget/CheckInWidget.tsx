@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { HomepageSectionStyle } from "../HomePage/HomePage.style";
 import { NavButton } from "../styling/Buttons/Buttons";
+import { ContentSection } from "../styling/Display";
 import { CustomTextArea, CustomTextInput } from "../styling/Inputs/Inputs";
-import { BodyText, SubSectionTitle } from "../styling/TextStyles";
+import { BodyText, SectionTitle, SubSectionTitle } from "../styling/TextStyles";
 
 export const CheckInWidget = () => {
   const { register, handleSubmit, formState, reset } = useForm();
@@ -24,16 +24,16 @@ export const CheckInWidget = () => {
 
   if (checkedIn) {
     return (
-      <HomepageSectionStyle>
+      <ContentSection>
         <SubSectionTitle>{`Thanks!`}</SubSectionTitle>
         <BodyText>{`Check your inbox for a confirmation email!`}</BodyText>
-      </HomepageSectionStyle>
+      </ContentSection>
     );
   }
 
   return (
-    <HomepageSectionStyle>
-      <SubSectionTitle>Say hi!</SubSectionTitle>
+    <ContentSection>
+      <SectionTitle>Say hi!</SectionTitle>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <BodyText>Pop in your name and email and leave a message!</BodyText>
@@ -65,6 +65,6 @@ export const CheckInWidget = () => {
         </div>
         <NavButton text="Submit" type="submit" />
       </form>
-    </HomepageSectionStyle>
+    </ContentSection>
   );
 };

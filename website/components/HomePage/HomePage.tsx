@@ -1,5 +1,9 @@
 import { CheckInWidget } from "../CheckInWidget/CheckInWidget";
-import { PageTitleSection, TextBasedWidth } from "../styling/Display";
+import {
+  ContentSection,
+  PageTitleSection,
+  TextBasedWidth,
+} from "../styling/Display";
 import {
   BodyText,
   PageSubtitle,
@@ -8,7 +12,6 @@ import {
 } from "../styling/TextStyles";
 import { WhatIDoSection } from "../WhatIDo/WhatIDo";
 import { WhatImGoodAtItems } from "../WhatImGoodAt/WhatImGoodAt";
-import { HomepageSectionStyle } from "./HomePage.style";
 
 export const HomePage = ({ home_page_data, skills_data }) => {
   return (
@@ -21,14 +24,14 @@ export const HomePage = ({ home_page_data, skills_data }) => {
         </TextBasedWidth>
       </PageTitleSection>
       <TextBasedWidth>
-        <HomepageSectionStyle>
+        <ContentSection>
           <SectionTitle>{home_page_data.what_i_do_title}</SectionTitle>
           <WhatIDoSection sanity_input={home_page_data.what_i_do} />
-        </HomepageSectionStyle>
-        <HomepageSectionStyle>
+        </ContentSection>
+        <ContentSection>
           <SectionTitle>{home_page_data.key_skills_title}</SectionTitle>
           <WhatImGoodAtItems sanity_input={skills_data} />
-        </HomepageSectionStyle>
+        </ContentSection>
         <CheckInWidget />
       </TextBasedWidth>
     </>

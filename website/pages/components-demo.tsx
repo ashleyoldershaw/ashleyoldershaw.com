@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { useForm } from "react-hook-form";
-import { HomepageSectionStyle } from "../components/HomePage/HomePage.style";
 import { getStaticProps as getLayoutStaticProps } from "../components/layout";
 import { NavButton } from "../components/styling/Buttons/Buttons";
 import {
+  ContentSection,
   PageTitleSection,
   TextBasedWidth,
 } from "../components/styling/Display";
@@ -44,7 +44,7 @@ export default function ComponentsPage() {
         <PageSubtitle>{`Reference for component styling`}</PageSubtitle>
       </PageTitleSection>
       <TextBasedWidth>
-        <HomepageSectionStyle>
+        <ContentSection>
           <div>
             <PageTitle>PageTitle</PageTitle>
           </div>
@@ -90,7 +90,7 @@ export default function ComponentsPage() {
               name="CustomRange"
             />
           </div>
-        </HomepageSectionStyle>
+        </ContentSection>
       </TextBasedWidth>
     </main>
   );

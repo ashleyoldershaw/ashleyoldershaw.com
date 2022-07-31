@@ -70,6 +70,8 @@ export const SectionTitle = styled.h2`
     text-align: center;
     font-size: 2em;
   }
+
+  margin: 0;
 `;
 
 export const SubSectionTitle = styled.h3`
