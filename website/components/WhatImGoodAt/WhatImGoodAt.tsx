@@ -11,12 +11,14 @@ import {
 } from "./WhatImGoodAt.style";
 
 export const SkillDiv = ({ children }) => {
+  const arrow_width = 120;
+  const arrow_height = arrow_width * 0.28868;
   return (
     <div>
       <TriangleDivider
         direction="up"
-        width={120}
-        height={24}
+        width={arrow_width}
+        height={arrow_height}
         stroke_width={0.75}
         fill_light="#ffffff"
         fill_dark="#000000"
@@ -24,8 +26,8 @@ export const SkillDiv = ({ children }) => {
       <SkillDivStyle>{children}</SkillDivStyle>
       <TriangleDivider
         direction="down"
-        width={120}
-        height={24}
+        width={arrow_width}
+        height={arrow_height}
         stroke_width={0.75}
         fill_light="#ffffff"
         fill_dark="#000000"

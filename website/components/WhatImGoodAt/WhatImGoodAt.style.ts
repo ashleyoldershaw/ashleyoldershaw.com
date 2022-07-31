@@ -14,6 +14,8 @@ export const SkillDivStyle = styled.div`
   align-items: center;
   border-style: solid;
   border-width: 0 1px;
+  min-height: 130px;
+  justify-content: space-around;
   @media (prefers-color-scheme: light) {
     border-color: ${light_mode_contrast};
     background-color: #ffffff;
@@ -22,7 +24,7 @@ export const SkillDivStyle = styled.div`
     background-color: #000000;
     border-color: ${dark_mode_contrast};
   }
-  padding: 20px 5px;
+  padding: 0 5px;
   p {
     width: 6.5em;
     text-align: center;

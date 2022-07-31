@@ -89,15 +89,13 @@ export const TriangleDivider = ({
   const lines =
     direction === "down" ? (
       <>
-        <path
-          d={`M ${width} 0 L 0 0 ${width / 2} ${height} ${width} 0z`}
-        ></path>
-        <polyline points={`${width},0 ${width / 2},${height} 0,0`} />
+        <path d={`M ${width} 0 L 0 0 ${width / 2} ${height - 1} ${width} 0z`} />
+        <polyline points={`${width},0 ${width / 2},${height - 1} 0,0`} />
       </>
     ) : (
       <>
-        <path d={`M 0 ${height} L ${width / 2} ${0} ${width} ${height}`}></path>
-        <polyline points={`${width},${height} ${width / 2},0 0,${height}`} />
+        <path d={`M 1 ${height} L ${width / 2} 1 ${width} ${height}`} />
+        <polyline points={`${width},${height} ${width / 2},1 0,${height}`} />
       </>
     );
 
@@ -128,7 +126,7 @@ export const PageTitleSection = ({ children }) => {
   return (
     <PageTitleSectionStyle>
       <PageTitleStyle>{children}</PageTitleStyle>
-      <TriangleDivider />
+      <TriangleDivider stroke_width={1} />
     </PageTitleSectionStyle>
   );
 };
