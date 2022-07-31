@@ -7,12 +7,13 @@ export const WhatImGoodAtSectionStyle = styled.div`
   flex-direction: column;
 `;
 
-export const SkillDiv = styled.div`
+export const SkillDivStyle = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  border: solid 1px red;
+  border-style: solid;
+  border-width: 0 1px;
   @media (prefers-color-scheme: light) {
     border-color: ${light_mode_contrast};
     background-color: #ffffff;
