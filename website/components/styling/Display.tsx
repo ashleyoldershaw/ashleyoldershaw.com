@@ -50,28 +50,25 @@ const PageTitleStyle = styled.div`
 `;
 
 const TriangleDividerStyle = styled.div`
-  width: 100%;
   overflow: hidden;
   line-height: 0;
 
   svg {
     position: relative;
     display: block;
-    width: calc(100% + 1.3px);
-    height: 10em;
   }
 
   path {
     @media (prefers-color-scheme: light) {
-      fill: ${light_mode_secondary_background};
+      fill: ${(props) => props.fill_light};
     }
     @media (prefers-color-scheme: dark) {
-      fill: ${dark_mode_secondary_background};
+      fill: ${(props) => props.fill_dark};
     }
   }
   polyline {
     fill: none;
-    stroke-width: 0.5px;
+    stroke-width: ${(props) => props.stroke_width}px;
     @media (prefers-color-scheme: light) {
       stroke: ${light_mode_contrast};
     }
@@ -81,9 +78,14 @@ const TriangleDividerStyle = styled.div`
   }
 `;
 
-const TriangleDivider = ({ direction = "down" }) => {
-  const width = 1200;
-  const height = 120;
+export const TriangleDivider = ({
+  direction = "down",
+  width = 1200,
+  height = 140,
+  stroke_width = 0.5,
+  fill_light = light_mode_secondary_background,
+  fill_dark = dark_mode_secondary_background,
+}) => {
   const lines =
     direction === "down" ? (
       <>
@@ -100,7 +102,11 @@ const TriangleDivider = ({ direction = "down" }) => {
     );
 
   return (
-    <TriangleDividerStyle>
+    <TriangleDividerStyle
+      stroke_width={stroke_width}
+      fill_light={fill_light}
+      fill_dark={fill_dark}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox={`0 0 ${width} ${height}`}
@@ -168,9 +174,9 @@ const ContentSectionStyle = styled.div`
 export const ContentSection = ({ children }) => {
   return (
     <div>
-      <TriangleDivider direction="up" />
+      <TriangleDivider direction="up" stroke_width={1} />
       <ContentSectionStyle>{children}</ContentSectionStyle>
-      <TriangleDivider direction="down" />
+      <TriangleDivider direction="down" stroke_width={1} />
     </div>
   );
 };
