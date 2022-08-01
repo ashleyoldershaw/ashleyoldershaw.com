@@ -1,10 +1,28 @@
 import styled from "styled-components";
 import { horizontalMargin } from "./styling/Layout";
 import { TextDetail } from "./styling/TextStyles";
+import {
+  dark_mode_contrast,
+  dark_mode_secondary_background,
+  light_mode_contrast,
+  light_mode_secondary_background,
+} from "./styling/Themes";
 
 const FooterStyle = styled.div`
   margin-top: auto;
-  padding: 20px ${horizontalMargin} 0 ${horizontalMargin};
+  padding: 10px ${horizontalMargin} 10px ${horizontalMargin};
+  margin-top: 10px;
+  border-style: solid;
+  border-width: 1px 0 0 0;
+
+  @media (prefers-color-scheme: light) {
+    border-color: ${light_mode_contrast};
+    background-color: ${light_mode_secondary_background};
+  }
+  @media (prefers-color-scheme: dark) {
+    border-color: ${dark_mode_contrast};
+    background-color: ${dark_mode_secondary_background};
+  }
 `;
 
 export const Footer = () => {

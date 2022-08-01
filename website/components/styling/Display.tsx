@@ -86,18 +86,31 @@ export const TriangleDivider = ({
   fill_light = light_mode_secondary_background,
   fill_dark = dark_mode_secondary_background,
 }) => {
-  const lines =
-    direction === "down" ? (
-      <>
-        <path d={`M ${width} 0 L 0 0 ${width / 2} ${height - 1} ${width} 0z`} />
-        <polyline points={`${width},0 ${width / 2},${height - 1} 0,0`} />
-      </>
-    ) : (
-      <>
-        <path d={`M 1 ${height} L ${width / 2} 1 ${width} ${height}`} />
-        <polyline points={`${width},${height} ${width / 2},1 0,${height}`} />
-      </>
-    );
+  let lines;
+  switch (direction) {
+    case "down":
+      lines = (
+        <>
+          <path
+            d={`M ${width} 0 L 0 0 ${width / 2} ${height - 1} ${width} 0z`}
+          />
+          <polyline points={`${width},0 ${width / 2},${height - 1} 0,0`} />
+        </>
+      );
+      break;
+    case "up":
+      lines = (
+        <>
+          <path d={`M 1 ${height} L ${width / 2} 1 ${width} ${height}`} />
+          <polyline points={`${width},${height} ${width / 2},1 0,${height}`} />
+        </>
+      );
+      break;
+
+    default:
+      lines = null;
+      break;
+  }
 
   return (
     <TriangleDividerStyle
