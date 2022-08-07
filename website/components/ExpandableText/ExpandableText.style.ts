@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { displays } from "../styling/Display";
-import { borderRadius } from "../styling/Layout";
+import { borderRadius, borderWidth } from "../styling/Layout";
 import {
   dark_mode_background,
   dark_mode_contrast,
@@ -24,7 +24,7 @@ export const ExpandableTextStyle = styled.div`
     margin: 3%;
   }
   > div {
-    border-top: 1px solid red;
+    border-top: ${borderWidth}px solid red;
     flex-direction: column;
     @media (prefers-color-scheme: light) {
       border-color: ${light_mode_contrast};
@@ -57,13 +57,13 @@ export const ExpandableTextStyle = styled.div`
     color: ${dark_mode_text};
   }
   border-style: solid;
-  border-width: 1px;
+  border-width: ${borderWidth}px;
   border-radius: ${borderRadius};
   transition: all 0.4s ease;
 `;
 
 export const ExpandButton = styled.button`
-  border-width: 1px;
+  border-width: ${borderWidth}px;
 
   @media (prefers-color-scheme: light) {
     border-color: ${light_mode_accent};
@@ -82,7 +82,7 @@ export const ExpandButton = styled.button`
   height: 25px;
   transition: all 0.4s ease;
   border-style: solid;
-  border-width: 1px;
+  border-width: ${borderWidth}px;
   display: flex;
   justify-content: center;
   align-items: center;

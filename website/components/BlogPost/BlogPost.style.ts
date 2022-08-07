@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borderRadius } from "../styling/Layout";
+import { borderRadius, borderWidth } from "../styling/Layout";
 import { BodyText } from "../styling/TextStyles";
 import {
   dark_mode_contrast,
@@ -29,7 +29,7 @@ export const StyledArticle = styled.article`
 
 export const StyledBlogContent = styled.div`
   border-radius: ${borderRadius};
-  border: 1px solid red;
+  border: ${borderWidth}px solid red;
   display: flex;
   flex-direction: column;
   gap: 1em;

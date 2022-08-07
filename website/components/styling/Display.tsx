@@ -1,5 +1,6 @@
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { borderRadius, horizontalMargin } from "./Layout";
+import { borderRadius, borderWidth, horizontalMargin } from "./Layout";
 import {
   dark_mode_contrast,
   dark_mode_secondary_background,
@@ -27,7 +28,7 @@ const PageTitleStyle = styled.div`
     padding: 0 ${horizontalMargin};
   }
 
-  border-width: 0 1px;
+  border-width: 0 ${borderWidth}px;
   border-style: solid;
 
   @media (prefers-color-scheme: light) {
@@ -68,7 +69,7 @@ const TriangleDividerStyle = styled.div`
   }
   polyline {
     fill: none;
-    stroke-width: ${(props) => props.stroke_width}px;
+    stroke-width: ${borderWidth}px;
     @media (prefers-color-scheme: light) {
       stroke: ${light_mode_contrast};
     }
@@ -80,29 +81,58 @@ const TriangleDividerStyle = styled.div`
 
 export const TriangleDivider = ({
   direction = "down",
-  width = 1200,
   height = 140,
-  stroke_width = 0.5,
   fill_light = light_mode_secondary_background,
   fill_dark = dark_mode_secondary_background,
+  ratio = 0,
 }) => {
   let lines;
+
+  const [width, setWidth] = useState(150);
+
+  const triangleHeight = Math.floor(ratio ? width * ratio : height);
+
+  const totalHeight = triangleHeight + borderWidth;
+
+  const ref = useRef(null);
+  useEffect(() => {
+    setWidth(ref.current ? ref.current.offsetWidth : 0);
+  }, [ref]);
+
   switch (direction) {
     case "down":
       lines = (
         <>
           <path
-            d={`M ${width} 0 L 0 0 ${width / 2} ${height - 1} ${width} 0z`}
+            d={`M ${width} 0 L 0 0 ${width / 2} ${triangleHeight} ${width} 0z`}
           />
-          <polyline points={`${width},0 ${width / 2},${height - 1} 0,0`} />
+          <polyline
+            points={`${width - borderWidth},${borderWidth / 2} ${width},${
+              borderWidth / 2
+            } ${width / 2},${triangleHeight} ${0},${borderWidth / 2} 0,${
+              borderWidth / 2
+            } ${borderWidth},${borderWidth / 2}`}
+          />
         </>
       );
       break;
     case "up":
       lines = (
         <>
-          <path d={`M 1 ${height} L ${width / 2} 1 ${width} ${height}`} />
-          <polyline points={`${width},${height} ${width / 2},1 0,${height}`} />
+          <path
+            d={`M 0 ${totalHeight} L ${
+              width / 2
+            } ${borderWidth} ${width} ${totalHeight}`}
+          />
+          <polyline
+            points={`${width - borderWidth},${
+              totalHeight - borderWidth / 2
+            } ${width},${totalHeight - borderWidth / 2} ${
+              width / 2
+            },${borderWidth} ${0},${
+              totalHeight - borderWidth / 2
+            } ${borderWidth},${totalHeight - borderWidth / 2}`}
+          />
         </>
       );
       break;
@@ -114,13 +144,13 @@ export const TriangleDivider = ({
 
   return (
     <TriangleDividerStyle
-      stroke_width={stroke_width}
+      ref={ref}
       fill_light={fill_light}
       fill_dark={fill_dark}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox={`0 0 ${width} ${height}`}
+        viewBox={`0 0 ${width} ${totalHeight}`}
         preserveAspectRatio="none"
       >
         {lines}
@@ -139,15 +169,15 @@ export const PageTitleSection = ({ children }) => {
   return (
     <PageTitleSectionStyle>
       <PageTitleStyle>{children}</PageTitleStyle>
-      <TriangleDivider stroke_width={1} />
+      <TriangleDivider />
     </PageTitleSectionStyle>
   );
 };
 
 const ContentSectionStyle = styled.div`
   border-radius: ${borderRadius};
-  border: 1px solid red;
-  border-width: 0 1px;
+  border: ${borderWidth}px solid red;
+  border-width: 0 ${borderWidth}px;
   @media (prefers-color-scheme: light) {
     border-color: ${light_mode_contrast};
   }
@@ -162,12 +192,11 @@ const ContentSectionStyle = styled.div`
     background-color: ${dark_mode_secondary_background};
   }
 
-  margin: 0;
-
   > * {
+    margin: 0;
     padding: ${horizontalMargin};
 
-    border-top: 1px solid red;
+    border-top: ${borderWidth}px solid red;
     @media (prefers-color-scheme: light) {
       border-color: ${light_mode_contrast};
     }
@@ -182,12 +211,16 @@ const ContentSectionStyle = styled.div`
   }
 `;
 
+const ContentSectionWrapper = styled.div`
+  margin: 1em 0;
+`;
+
 export const ContentSection = ({ children }) => {
   return (
-    <div>
-      <TriangleDivider direction="up" stroke_width={1} />
+    <ContentSectionWrapper>
+      <TriangleDivider direction="up" />
       <ContentSectionStyle>{children}</ContentSectionStyle>
-      <TriangleDivider direction="down" stroke_width={1} />
-    </div>
+      <TriangleDivider direction="down" />
+    </ContentSectionWrapper>
   );
 };

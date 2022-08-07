@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { displays } from "../styling/Display";
-import { borderRadius } from "../styling/Layout";
+import { borderRadius, borderWidth } from "../styling/Layout";
 import {
   dark_mode_contrast,
   dark_mode_secondary_background,
@@ -10,7 +10,7 @@ import {
 
 export const BirdleStyling = styled.div`
   border-radius: ${borderRadius};
-  border: 1px solid red;
+  border: ${borderWidth}px solid red;
   @media (prefers-color-scheme: light) {
     border-color: ${light_mode_contrast};
     background-color: ${light_mode_secondary_background};
@@ -82,7 +82,7 @@ export const BirdImage = styled.img`
   max-width: 80%;
   max-height: 50vh;
 
-  border: 1px solid red;
+  border: ${borderWidth}px solid red;
 
   @media (prefers-color-scheme: light) {
     border-color: ${light_mode_contrast};

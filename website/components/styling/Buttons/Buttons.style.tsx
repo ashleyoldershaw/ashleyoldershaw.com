@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borderRadius } from "../Layout";
+import { borderRadius, borderWidth } from "../Layout";
 import {
   dark_mode_accent,
   dark_mode_contrast,
@@ -23,7 +23,7 @@ export const StyledNavButton = styled.button`
     color: ${dark_mode_text};
   }
   border-style: solid;
-  border-width: 1px;
+  border-width: ${borderWidth}px;
 
   border-radius: ${borderRadius};
 

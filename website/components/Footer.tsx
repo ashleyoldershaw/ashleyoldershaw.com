@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { horizontalMargin } from "./styling/Layout";
+import { borderWidth, horizontalMargin } from "./styling/Layout";
 import { TextDetail } from "./styling/TextStyles";
 import {
   dark_mode_contrast,
@@ -13,7 +13,7 @@ const FooterStyle = styled.div`
   padding: 10px ${horizontalMargin} 10px ${horizontalMargin};
   margin-top: 10px;
   border-style: solid;
-  border-width: 1px 0 0 0;
+  border-width: ${borderWidth}px 0 0 0;
 
   @media (prefers-color-scheme: light) {
     border-color: ${light_mode_contrast};

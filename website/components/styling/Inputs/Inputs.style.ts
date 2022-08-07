@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borderRadius } from "../Layout";
+import { borderRadius, borderWidth } from "../Layout";
 import { sansFontFamily } from "../TextStyles";
 import {
   dark_mode_accent,
@@ -20,7 +20,7 @@ const TextInputStyle = `
 
   background-color: unset;
   border-style: solid;
-  border-width: 1px;
+  border-width: ${borderWidth}px;
   border-radius: ${borderRadius};
 
   margin: 10px;

@@ -6,33 +6,30 @@ import { useTheme } from "../styling/Themes";
 import { OptionalSmartLink } from "../utility/SmartLink";
 import {
   SkillDivStyle,
+  SkillDivWrapperStyle,
   SkillsetCollection,
   WhatImGoodAtSectionStyle,
 } from "./WhatImGoodAt.style";
 
 export const SkillDiv = ({ children }) => {
-  const arrow_width = 120;
-  const arrow_height = arrow_width * 0.28868;
+  // hexagonal dimensions, height of isoscoles triangle of a 3 adjacent regular hexagon vertices
+  const ratio = Math.sqrt(3) / 6;
   return (
-    <div>
+    <SkillDivWrapperStyle>
       <TriangleDivider
         direction="up"
-        width={arrow_width}
-        height={arrow_height}
-        stroke_width={0.75}
         fill_light="#ffffff"
         fill_dark="#000000"
+        ratio={ratio}
       />
       <SkillDivStyle>{children}</SkillDivStyle>
       <TriangleDivider
         direction="down"
-        width={arrow_width}
-        height={arrow_height}
-        stroke_width={0.75}
         fill_light="#ffffff"
         fill_dark="#000000"
+        ratio={ratio}
       />
-    </div>
+    </SkillDivWrapperStyle>
   );
 };
 

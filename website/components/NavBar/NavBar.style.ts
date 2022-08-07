@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { displays } from "../styling/Display";
-import { horizontalMargin } from "../styling/Layout";
+import { borderWidth, horizontalMargin } from "../styling/Layout";
 import {
   dark_mode_contrast,
   dark_mode_secondary_background,
@@ -22,7 +22,7 @@ export const NavBarStyle = styled.div`
     padding: 0;
     margin: 0;
   }
-  border-width: 1px;
+  border-width: ${borderWidth}px;
   border-style: none none solid none;
 
   @media (min-width: ${displays.desktop}) {

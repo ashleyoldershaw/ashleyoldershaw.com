@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borderRadius, horizontalMargin } from "../styling/Layout";
+import { borderRadius, borderWidth, horizontalMargin } from "../styling/Layout";
 import { dark_mode_contrast, light_mode_contrast } from "../styling/Themes";
 
 export const WhatImGoodAtSectionStyle = styled.div`
@@ -13,7 +13,7 @@ export const SkillDivStyle = styled.div`
   flex-wrap: wrap;
   align-items: center;
   border-style: solid;
-  border-width: 0 1px;
+  border-width: 0 ${borderWidth}px;
   min-height: 130px;
   justify-content: space-around;
   @media (prefers-color-scheme: light) {
@@ -30,6 +30,13 @@ export const SkillDivStyle = styled.div`
     text-align: center;
   }
   border-radius: ${borderRadius};
+`;
+
+export const SkillDivWrapperStyle = styled.div`
+  :hover {
+    transform: scale(1.1);
+  }
+  transition-duration: 0.25s;
 `;
 
 export const SkillsetCollection = styled.div`
