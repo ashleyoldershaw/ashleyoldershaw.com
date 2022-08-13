@@ -47,6 +47,9 @@ const MyApp = ({ Component, pageProps, auth }) => {
     console.log(`You prefer ${colourTheme} mode! Good choice :)`);
   }, [colourTheme]);
 
+  if (Object.keys(pageProps).length === 0) return null;
+  if (!ready) return null;
+
   const { light: light_mode, dark: dark_mode } = pageProps.layout_props.themes;
   const themeProps =
     colourTheme === "light"
@@ -68,9 +71,6 @@ const MyApp = ({ Component, pageProps, auth }) => {
         };
 
   const theme = { ...themeProps, type: colourTheme };
-
-  if (Object.keys(pageProps).length === 0) return null;
-  if (!ready) return null;
 
   return (
     <ThemeProvider theme={theme}>
