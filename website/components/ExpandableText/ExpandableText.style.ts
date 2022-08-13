@@ -1,16 +1,6 @@
 import styled from "styled-components";
 import { displays } from "../styling/Display";
 import { borderRadius, borderWidth } from "../styling/Layout";
-import {
-  dark_mode_background,
-  dark_mode_contrast,
-  dark_mode_secondary_background,
-  dark_mode_text,
-  light_mode_accent,
-  light_mode_contrast,
-  light_mode_secondary_background,
-  light_mode_text,
-} from "../styling/Themes";
 
 export const ExpandableTextStyle = styled.div`
   display: flex;
@@ -19,19 +9,13 @@ export const ExpandableTextStyle = styled.div`
     display: flex;
   }
 
-  margin: 25px 25px 25px 25px;
+  margin: 25px;
   @media (max-width: ${displays.mobileL}) {
     margin: 3%;
   }
   > div {
-    border-top: ${borderWidth}px solid red;
+    border-top: ${borderWidth}px solid ${(props) => props.theme.contrast};
     flex-direction: column;
-    @media (prefers-color-scheme: light) {
-      border-color: ${light_mode_contrast};
-    }
-    @media (prefers-color-scheme: dark) {
-      border-color: ${dark_mode_contrast};
-    }
     p {
       padding-right: 25px;
     }
@@ -46,18 +30,9 @@ export const ExpandableTextStyle = styled.div`
 
   justify-content: center;
 
-  @media (prefers-color-scheme: light) {
-    border-color: ${light_mode_contrast};
-    color: ${light_mode_text};
-    background-color: ${light_mode_secondary_background};
-  }
-  @media (prefers-color-scheme: dark) {
-    border-color: ${dark_mode_contrast};
-    background-color: ${dark_mode_secondary_background};
-    color: ${dark_mode_text};
-  }
-  border-style: solid;
-  border-width: ${borderWidth}px;
+  color: ${(props) => props.theme.text};
+  background-color: ${(props) => props.theme.secondary_background};
+  border: ${borderWidth}px solid ${(props) => props.theme.contrast};
   border-radius: ${borderRadius};
   transition: all 0.4s ease;
 `;
@@ -65,24 +40,15 @@ export const ExpandableTextStyle = styled.div`
 export const ExpandButton = styled.button`
   border-width: ${borderWidth}px;
 
-  @media (prefers-color-scheme: light) {
-    border-color: ${light_mode_accent};
-    background-color: ${light_mode_secondary_background};
-    color: ${light_mode_text};
-  }
-  @media (prefers-color-scheme: dark) {
-    border-color: ${dark_mode_contrast};
-    background-color: ${dark_mode_background};
-    color: ${dark_mode_text};
-  }
+  color: ${(props) => props.theme.text};
+  background-color: ${(props) => props.theme.secondary_background};
   border-radius: ${borderRadius};
   align-self: center;
   margin: 25px;
   width: 25px;
   height: 25px;
   transition: all 0.4s ease;
-  border-style: solid;
-  border-width: ${borderWidth}px;
+  border: ${borderWidth}px solid ${(props) => props.theme.accent};
   display: flex;
   justify-content: center;
   align-items: center;

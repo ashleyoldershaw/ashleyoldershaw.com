@@ -11,10 +11,3 @@ export const dark_mode_accent = "#D9B310";
 export const dark_mode_text = "#E7DFDD";
 export const dark_mode_contrast = "#328CC1";
 export const dark_mode_secondary_background = "#1D2731";
-
-export const ThemeContext = createContext(null);
-
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  return context;
-};

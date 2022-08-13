@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import { borderRadius, borderWidth } from "../styling/Layout";
 import { BodyText } from "../styling/TextStyles";
-import {
-  dark_mode_contrast,
-  dark_mode_secondary_background,
-  light_mode_contrast,
-  light_mode_secondary_background,
-} from "../styling/Themes";
 
 export const StyledBlogImageWrapper = styled.div`
   span {
@@ -29,18 +23,11 @@ export const StyledArticle = styled.article`
 
 export const StyledBlogContent = styled.div`
   border-radius: ${borderRadius};
-  border: ${borderWidth}px solid red;
+  border: ${borderWidth}px solid ${(props) => props.theme.contrast};
+  background-color: ${(props) => props.theme.secondary_background};
   display: flex;
   flex-direction: column;
   gap: 1em;
-  @media (prefers-color-scheme: light) {
-    border-color: ${light_mode_contrast};
-    background-color: ${light_mode_secondary_background};
-  }
-  @media (prefers-color-scheme: dark) {
-    background-color: ${dark_mode_secondary_background};
-    border-color: ${dark_mode_contrast};
-  }
   padding: 0 1em;
 `;
 
