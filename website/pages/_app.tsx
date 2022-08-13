@@ -7,18 +7,6 @@ import { urlFor } from "../components/sanity";
 import { displays } from "../components/styling/Display";
 import { horizontalMargin } from "../components/styling/Layout";
 
-import {
-  dark_mode_accent,
-  dark_mode_background,
-  dark_mode_contrast,
-  dark_mode_secondary_background,
-  dark_mode_text,
-  light_mode_accent,
-  light_mode_background,
-  light_mode_contrast,
-  light_mode_secondary_background,
-  light_mode_text,
-} from "../components/styling/Themes";
 import "./app.css";
 
 const AppStyle = styled.div`
@@ -59,22 +47,23 @@ const MyApp = ({ Component, pageProps, auth }) => {
     console.log(`You prefer ${colourTheme} mode! Good choice :)`);
   }, [colourTheme]);
 
+  const { light: light_mode, dark: dark_mode } = pageProps.layout_props.themes;
   const themeProps =
     colourTheme === "light"
       ? {
-          background: light_mode_background,
-          secondary_background: light_mode_secondary_background,
-          accent: light_mode_accent,
-          contrast: light_mode_contrast,
-          text: light_mode_text,
+          background: light_mode.background.hex,
+          secondary_background: light_mode.secondary_background.hex,
+          accent: light_mode.accent.hex,
+          contrast: light_mode.contrast.hex,
+          text: light_mode.text.hex,
           full: "#ffffff",
         }
       : {
-          background: dark_mode_background,
-          secondary_background: dark_mode_secondary_background,
-          accent: dark_mode_accent,
-          contrast: dark_mode_contrast,
-          text: dark_mode_text,
+          background: dark_mode.background.hex,
+          secondary_background: dark_mode.secondary_background.hex,
+          accent: dark_mode.accent.hex,
+          contrast: dark_mode.contrast.hex,
+          text: dark_mode.text.hex,
           full: "#000000",
         };
 
