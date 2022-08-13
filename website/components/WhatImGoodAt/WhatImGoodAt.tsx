@@ -45,7 +45,7 @@ export const WhatImGoodAtItems = ({ sanity_input }) => {
                 width={80}
                 height={80}
                 src={urlFor(
-                  theme === "dark"
+                  theme.type === "dark"
                     ? section.dark_thumbnail || section.thumbnail
                     : section.thumbnail
                 ).url()}
