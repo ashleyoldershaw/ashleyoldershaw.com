@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { borderRadius, borderWidth } from "../Layout";
+import { BodyText } from "../TextStyles";
 
 export const StyledNavButton = styled.button`
   border: ${borderWidth}px solid ${(props) => props.theme.contrast};
@@ -7,7 +8,12 @@ export const StyledNavButton = styled.button`
 
   border-radius: ${borderRadius};
 
-  margin: 10px;
+  margin: 0.75em;
+
+  ${BodyText} {
+    color: ${(props) => props.theme.text};
+    font-size: 1.25em;
+  }
 
   :hover {
     text-decoration: underline;
