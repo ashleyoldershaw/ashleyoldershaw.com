@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useForm } from "react-hook-form";
 import { getStaticProps as getLayoutStaticProps } from "../components/layout";
-import { NavButton } from "../components/styling/Buttons/Buttons";
+import { CustomButton } from "../components/styling/Buttons/Buttons";
 import {
   ContentSection,
   PageTitleSection,
@@ -81,7 +81,7 @@ export default function ComponentsPage() {
             ></CustomTextArea>
           </div>
           <div>
-            <NavButton text="NavButton" />
+            <CustomButton text="NavButton" />
           </div>
           <div>
             <CustomRange

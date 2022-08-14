@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { borderRadius, borderWidth } from "../Layout";
 import { BodyText } from "../TextStyles";
 
-export const StyledNavButton = styled.button`
+export const StyledCustomButton = styled.button`
   border: ${borderWidth}px solid ${(props) => props.theme.contrast};
   background-color: ${(props) => props.theme.secondary_background};
 

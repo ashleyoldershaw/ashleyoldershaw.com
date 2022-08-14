@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { NavButton } from "../styling/Buttons/Buttons";
+import { CustomButton } from "../styling/Buttons/Buttons";
 import {
   ContentSection,
   PageTitleSection,
@@ -47,7 +47,7 @@ const BlogContent = ({ item }) => {
     case "button":
       return (
         <SmartLink href={item.link}>
-          <NavButton text={item.text} />
+          <CustomButton text={item.text} />
         </SmartLink>
       );
     default:
@@ -109,7 +109,7 @@ export const BlogPost = ({ content, meta_info }) => (
           ))}
         </div>
         <SmartLink href={meta_info.back_to_menu.url}>
-          <NavButton text={meta_info.back_to_menu.text} />
+          <CustomButton text={meta_info.back_to_menu.text} />
         </SmartLink>
       </ContentSection>
     </TextBasedWidth>

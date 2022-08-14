@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { urlFor } from "../sanity";
-import { NavButton } from "../styling/Buttons/Buttons";
+import { CustomButton } from "../styling/Buttons/Buttons";
 import {
   ContentSection,
   PageTitleSection,
@@ -93,11 +93,11 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
 
   const charity_button = (
     <SmartLink href={charity.url}>
-      <NavButton text={`${birdle.charity_prelude} ${charity.name}`} />
+      <CustomButton text={`${birdle.charity_prelude} ${charity.name}`} />
     </SmartLink>
   );
   const share_button = (
-    <NavButton
+    <CustomButton
       text={shareClicked ? "Copied to clipboard" : birdle.share_button}
       onClick={() => {
         setShareClicked(true);
@@ -150,7 +150,7 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
           validation={{ required: true, maxLength: 80 }}
           name="guess"
         />
-        <NavButton text={birdle.button_text} type="submit"></NavButton>
+        <CustomButton text={birdle.button_text} type="submit"></CustomButton>
       </BirdGuesserStyle>
     </form>
   );
