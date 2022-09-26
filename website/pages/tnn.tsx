@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { getStaticProps as getLayoutStaticProps } from "../components/layout";
-import { NavButton } from "../components/styling/Buttons/Buttons";
+import { CustomButton } from "../components/styling/Buttons/Buttons";
 import {
   ContentSection,
   PageTitleSection,
@@ -101,10 +101,10 @@ export default function TnnSpeakers() {
                 name="topic"
                 validation={{}}
               />
-              <NavButton text="Add speaker" onClick={addTopic} />
+              <CustomButton text="Add speaker" onClick={addTopic} />
 
-              <NavButton text="Add subtopic" onClick={addSubTopic} />
-              <NavButton text="Next speaker" onClick={nextTopic} />
+              <CustomButton text="Add subtopic" onClick={addSubTopic} />
+              <CustomButton text="Next speaker" onClick={nextTopic} />
             </div>
           </form>
           <TopicView topics={topics} subTopics={subTopics} />
