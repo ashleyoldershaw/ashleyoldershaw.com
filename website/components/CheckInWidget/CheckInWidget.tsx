@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { NavButton } from "../styling/Buttons/Buttons";
+import { CustomButton } from "../styling/Buttons/Buttons";
 import { ContentSection } from "../styling/Display";
 import { CustomTextArea, CustomTextInput } from "../styling/Inputs/Inputs";
 import { BodyText, SectionTitle, SubSectionTitle } from "../styling/TextStyles";
@@ -63,7 +63,7 @@ export const CheckInWidget = () => {
             name="message"
           />
         </div>
-        <NavButton text="Submit" type="submit" />
+        <CustomButton text="Submit" type="submit" />
       </form>
     </ContentSection>
   );

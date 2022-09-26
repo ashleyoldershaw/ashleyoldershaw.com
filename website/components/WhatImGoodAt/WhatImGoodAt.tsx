@@ -1,8 +1,8 @@
 import Image from "next/image";
+import { useTheme } from "styled-components";
 import { urlFor } from "../sanity";
 import { TriangleDivider } from "../styling/Display";
 import { BodyText, SubSubSectionTitle } from "../styling/TextStyles";
-import { useTheme } from "../styling/Themes";
 import { OptionalSmartLink } from "../utility/SmartLink";
 import {
   SkillDivStyle,
@@ -14,20 +14,15 @@ import {
 export const SkillDiv = ({ children }) => {
   // hexagonal dimensions, height of isoscoles triangle of a 3 adjacent regular hexagon vertices
   const ratio = Math.sqrt(3) / 6;
+  const theme = useTheme();
   return (
     <SkillDivWrapperStyle>
-      <TriangleDivider
-        direction="up"
-        fill_light="#ffffff"
-        fill_dark="#000000"
-        ratio={ratio}
-      />
+      <TriangleDivider direction="up" ratio={ratio} fill_colour={theme.full} />
       <SkillDivStyle>{children}</SkillDivStyle>
       <TriangleDivider
         direction="down"
-        fill_light="#ffffff"
-        fill_dark="#000000"
         ratio={ratio}
+        fill_colour={theme.full}
       />
     </SkillDivWrapperStyle>
   );
@@ -50,7 +45,7 @@ export const WhatImGoodAtItems = ({ sanity_input }) => {
                 width={80}
                 height={80}
                 src={urlFor(
-                  theme === "dark"
+                  theme.type === "dark"
                     ? section.dark_thumbnail || section.thumbnail
                     : section.thumbnail
                 ).url()}

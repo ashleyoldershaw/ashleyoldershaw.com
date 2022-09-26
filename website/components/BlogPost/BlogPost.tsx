@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { NavButton } from "../styling/Buttons/Buttons";
+import { CustomButton } from "../styling/Buttons/Buttons";
 import {
   ContentSection,
   PageTitleSection,
@@ -14,14 +14,15 @@ import {
   SubSectionTitle,
   TextDetail,
 } from "../styling/TextStyles";
-import { useTheme } from "../styling/Themes";
 import { formatDate } from "../utility/formatting";
 import { SmartLink } from "../utility/SmartLink";
 import { BlogImage } from "./BlogImage";
 import { StyledArticle, TimingSection } from "./BlogPost.style";
 import { Bullets } from "./Bullets/Bullets";
+import { useTheme } from "styled-components";
 
-const BlogContent = ({ item, theme }) => {
+const BlogContent = ({ item }) => {
+  const theme = useTheme();
   switch (item._type) {
     case "text_body":
       return <BodyText>{item.text_body}</BodyText>;
@@ -30,7 +31,9 @@ const BlogContent = ({ item, theme }) => {
     case "image_component":
       return (
         <BlogImage
-          image={theme === "dark" ? item.dark_image || item.image : item.image}
+          image={
+            theme.type === "dark" ? item.dark_image || item.image : item.image
+          }
           alt={item.alt_text}
           caption={item.caption}
         />
@@ -44,7 +47,7 @@ const BlogContent = ({ item, theme }) => {
     case "button":
       return (
         <SmartLink href={item.link}>
-          <NavButton text={item.text} />
+          <CustomButton text={item.text} />
         </SmartLink>
       );
     default:
@@ -66,54 +69,49 @@ const sumList = (input) => {
   );
 };
 
-export const BlogPost = ({ content, meta_info }) => {
-  const theme = useTheme();
-  return (
-    <StyledArticle>
-      <Head>
-        <title>{content.title}</title>
-      </Head>
-      <PageTitleSection>
-        <PageTitle>{content.title}</PageTitle>
-        <PageSubtitle>{content.subtitle}</PageSubtitle>
-      </PageTitleSection>
-      <TextBasedWidth>
-        <ContentSection>
-          <div>
-            <TimingSection>
-              <TextDetail>
-                Published: {formatDate(content.publish_date)}
-              </TextDetail>
-              {content._updatedAt > content.publish_date && (
-                <TextDetail>
-                  Last updated: {formatDate(content._updatedAt)}
-                </TextDetail>
-              )}
-            </TimingSection>
+export const BlogPost = ({ content, meta_info }) => (
+  <StyledArticle>
+    <Head>
+      <title>{content.title}</title>
+    </Head>
+    <PageTitleSection>
+      <PageTitle>{content.title}</PageTitle>
+      <PageSubtitle>{content.subtitle}</PageSubtitle>
+    </PageTitleSection>
+    <TextBasedWidth>
+      <ContentSection>
+        <div>
+          <TimingSection>
             <TextDetail>
-              {sumList(
-                content.content.map((item) => getWordCount(item.text_body))
-              ) +
-                sumList(
-                  content.content.map((item) =>
-                    sumList(
-                      item.points?.map((point) => getWordCount(point.text))
-                    )
-                  )
-                )}{" "}
-              words
+              Published: {formatDate(content.publish_date)}
             </TextDetail>
-          </div>
-          <div>
-            {content.content.map((item) => (
-              <BlogContent key={item._key} item={item} theme={theme} />
-            ))}
-          </div>
-          <SmartLink href={meta_info.back_to_menu.url}>
-            <NavButton text={meta_info.back_to_menu.text} />
-          </SmartLink>
-        </ContentSection>
-      </TextBasedWidth>
-    </StyledArticle>
-  );
-};
+            {content._updatedAt > content.publish_date && (
+              <TextDetail>
+                Last updated: {formatDate(content._updatedAt)}
+              </TextDetail>
+            )}
+          </TimingSection>
+          <TextDetail>
+            {sumList(
+              content.content.map((item) => getWordCount(item.text_body))
+            ) +
+              sumList(
+                content.content.map((item) =>
+                  sumList(item.points?.map((point) => getWordCount(point.text)))
+                )
+              )}{" "}
+            words
+          </TextDetail>
+        </div>
+        <div>
+          {content.content.map((item) => (
+            <BlogContent key={item._key} item={item} />
+          ))}
+        </div>
+        <SmartLink href={meta_info.back_to_menu.url}>
+          <CustomButton text={meta_info.back_to_menu.text} />
+        </SmartLink>
+      </ContentSection>
+    </TextBasedWidth>
+  </StyledArticle>
+);

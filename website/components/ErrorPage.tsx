@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { NavButton } from "./styling/Buttons/Buttons";
+import { CustomButton } from "./styling/Buttons/Buttons";
 import { BodyText, PageSubtitle, PageTitle } from "./styling/TextStyles";
 
 export const ErrorPage = ({ info }) => {
@@ -9,7 +9,7 @@ export const ErrorPage = ({ info }) => {
       <PageTitle>{info.title}</PageTitle>
       <PageSubtitle>{info.subtitle}</PageSubtitle>
       <BodyText>{info.extra_info}</BodyText>
-      <NavButton onClick={() => push("/")} text={"Head back"} />
+      <CustomButton onClick={() => push("/")} text={"Head back"} />
     </>
   );
 };

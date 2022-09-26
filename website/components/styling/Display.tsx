@@ -1,12 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { borderRadius, borderWidth, horizontalMargin } from "./Layout";
-import {
-  dark_mode_contrast,
-  dark_mode_secondary_background,
-  light_mode_contrast,
-  light_mode_secondary_background,
-} from "./Themes";
 
 export const displays = {
   mobileS: "320px",
@@ -28,17 +22,10 @@ const PageTitleStyle = styled.div`
     padding: 0 ${horizontalMargin};
   }
 
+  border: ${borderWidth}px solid ${(props) => props.theme.contrast};
   border-width: 0 ${borderWidth}px;
-  border-style: solid;
 
-  @media (prefers-color-scheme: light) {
-    background-color: ${light_mode_secondary_background};
-    border-color: ${light_mode_contrast};
-  }
-  @media (prefers-color-scheme: dark) {
-    background-color: ${dark_mode_secondary_background};
-    border-color: ${dark_mode_contrast};
-  }
+  background-color: ${(props) => props.theme.secondary_background};
 
   min-height: 40vh;
   padding: 0 ${horizontalMargin};
@@ -60,33 +47,24 @@ const TriangleDividerStyle = styled.div`
   }
 
   path {
-    @media (prefers-color-scheme: light) {
-      fill: ${(props) => props.fill_light};
-    }
-    @media (prefers-color-scheme: dark) {
-      fill: ${(props) => props.fill_dark};
-    }
+    fill: ${(props) => props.fill_colour};
   }
   polyline {
     fill: none;
     stroke-width: ${borderWidth}px;
-    @media (prefers-color-scheme: light) {
-      stroke: ${light_mode_contrast};
-    }
-    @media (prefers-color-scheme: dark) {
-      stroke: ${dark_mode_contrast};
-    }
+    stroke: ${(props) => props.theme.contrast};
   }
 `;
 
 export const TriangleDivider = ({
   direction = "down",
   height = 140,
-  fill_light = light_mode_secondary_background,
-  fill_dark = dark_mode_secondary_background,
+  fill_colour = "",
   ratio = 0,
 }) => {
   let lines;
+
+  const theme = useTheme();
 
   const [width, setWidth] = useState(150);
 
@@ -145,8 +123,7 @@ export const TriangleDivider = ({
   return (
     <TriangleDividerStyle
       ref={ref}
-      fill_light={fill_light}
-      fill_dark={fill_dark}
+      fill_colour={fill_colour || theme.secondary_background}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -176,33 +153,16 @@ export const PageTitleSection = ({ children }) => {
 
 const ContentSectionStyle = styled.div`
   border-radius: ${borderRadius};
-  border: ${borderWidth}px solid red;
+  border: ${borderWidth}px solid ${(props) => props.theme.contrast};
   border-width: 0 ${borderWidth}px;
-  @media (prefers-color-scheme: light) {
-    border-color: ${light_mode_contrast};
-  }
-  @media (prefers-color-scheme: dark) {
-    border-color: ${dark_mode_contrast};
-  }
 
-  @media (prefers-color-scheme: light) {
-    background-color: ${light_mode_secondary_background};
-  }
-  @media (prefers-color-scheme: dark) {
-    background-color: ${dark_mode_secondary_background};
-  }
+  background-color: ${(props) => props.theme.secondary_background};
 
   > * {
     margin: 0;
     padding: ${horizontalMargin};
 
-    border-top: ${borderWidth}px solid red;
-    @media (prefers-color-scheme: light) {
-      border-color: ${light_mode_contrast};
-    }
-    @media (prefers-color-scheme: dark) {
-      border-color: ${dark_mode_contrast};
-    }
+    border-top: ${borderWidth}px solid ${(props) => props.theme.contrast};
   }
   > *:first-child {
     border-top: none;

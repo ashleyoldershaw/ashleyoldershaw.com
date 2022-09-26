@@ -1,44 +1,56 @@
 import styled from "styled-components";
 import { borderRadius, borderWidth } from "../Layout";
-import {
-  dark_mode_accent,
-  dark_mode_contrast,
-  dark_mode_secondary_background,
-  dark_mode_text,
-  light_mode_accent,
-  light_mode_contrast,
-  light_mode_secondary_background,
-  light_mode_text,
-} from "../Themes";
+import { BodyText } from "../TextStyles";
 
-export const StyledNavButton = styled.button`
-  @media (prefers-color-scheme: light) {
-    border-color: ${light_mode_contrast};
-    background-color: ${light_mode_secondary_background};
-    color: ${light_mode_text};
-  }
-  @media (prefers-color-scheme: dark) {
-    border-color: ${dark_mode_contrast};
-    background-color: ${dark_mode_secondary_background};
-    color: ${dark_mode_text};
-  }
-  border-style: solid;
-  border-width: ${borderWidth}px;
+export const StyledCustomButton = styled.button`
+  border: ${borderWidth}px solid ${(props) => props.theme.contrast};
+  background-color: ${(props) => props.theme.secondary_background};
 
   border-radius: ${borderRadius};
 
-  margin: 10px;
+  margin: 0.75em;
+
+  ${BodyText} {
+    color: ${(props) => props.theme.text};
+    font-size: 1.25em;
+  }
 
   :hover {
     text-decoration: underline;
   }
 
   :focus {
-    @media (prefers-color-scheme: light) {
-      border-color: ${light_mode_accent};
-    }
-    @media (prefers-color-scheme: dark) {
-      border-color: ${dark_mode_accent};
-    }
+    border-color: ${(props) => props.theme.accent};
   }
+`;
+
+export const ToggleButtonBack = styled.div`
+  height: 1em;
+  width: 2.5em;
+  border: ${borderWidth}px solid ${(props) => props.theme.contrast};
+  transition: all 0.2s;
+  display: flex;
+`;
+
+export const ToggleButtonFront = styled.div`
+  height: 1em;
+  width: 1em;
+  background-color: ${(props) => props.theme.contrast};
+`;
+
+export const OnBackground = styled.div`
+  height: 1em;
+  width: ${(props) => (props.toggled ? 1.5 : 0)}em;
+  background-color: ${(props) => props.theme.accent};
+
+  transition: all 0.2s;
+`;
+
+export const OffBackground = styled.div`
+  height: 1em;
+  width: ${(props) => (props.toggled ? 0 : 1.5)}em;
+  background-color: ${(props) => props.theme.secondary_background};
+
+  transition: all 0.2s;
+  transform: scale(${(props) => (props.toggled ? 0 : 1)}, 1);
 `;

@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import { displays } from "../styling/Display";
 import { borderWidth, horizontalMargin } from "../styling/Layout";
-import {
-  dark_mode_contrast,
-  dark_mode_secondary_background,
-  light_mode_contrast,
-  light_mode_secondary_background,
-} from "../styling/Themes";
 
 export const NavBarStyle = styled.div`
   display: flex;
@@ -24,7 +18,8 @@ export const NavBarStyle = styled.div`
   }
   border-width: ${borderWidth}px;
   border-style: none none solid none;
-
+  border-color: ${(props) => props.theme.contrast};
+  background-color: ${(props) => props.theme.secondary_background};
   @media (min-width: ${displays.desktop}) {
     padding: 2em ${horizontalMargin};
 
@@ -49,15 +44,6 @@ export const NavBarStyle = styled.div`
         margin: 0;
       }
     }
-  }
-
-  @media (prefers-color-scheme: light) {
-    border-color: ${light_mode_contrast};
-    background-color: ${light_mode_secondary_background};
-  }
-  @media (prefers-color-scheme: dark) {
-    border-color: ${dark_mode_contrast};
-    background-color: ${dark_mode_secondary_background};
   }
 
   z-index: 1;

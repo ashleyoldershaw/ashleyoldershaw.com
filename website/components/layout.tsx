@@ -7,6 +7,7 @@ export async function getStaticProps() {
       favicons: await sanity.fetch(
         `*[_type=='home_page'][0]{favicon_light, favicon_dark}`
       ),
+      themes: await sanity.fetch(`*[_type=='theme'][0]`),
     },
   };
 }

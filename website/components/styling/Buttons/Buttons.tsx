@@ -1,10 +1,37 @@
+import { useState } from "react";
 import { BodyText } from "../TextStyles";
-import { StyledNavButton } from "./Buttons.style";
+import {
+  OffBackground,
+  OnBackground,
+  StyledCustomButton,
+  ToggleButtonBack,
+  ToggleButtonFront,
+} from "./Buttons.style";
 
-export const NavButton = ({ text, onClick = () => {}, type = "button" }) => {
+export const CustomButton = ({ text, onClick = () => {}, type = "button" }) => {
   return (
-    <StyledNavButton onClick={onClick} type={type}>
+    <StyledCustomButton onClick={onClick} type={type}>
       <BodyText style={{ margin: "15px" }}>{text}</BodyText>
-    </StyledNavButton>
+    </StyledCustomButton>
+  );
+};
+
+export const ToggleButton = ({ onLabel, offLabel }) => {
+  const [toggled, setToggled] = useState<boolean>(false);
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "0.5em" }}>
+      {offLabel}
+      <ToggleButtonBack
+        toggled={toggled}
+        onClick={() => {
+          setToggled((t) => !t);
+        }}
+      >
+        <OnBackground toggled={toggled} />
+        <ToggleButtonFront toggled={toggled} />
+        <OffBackground toggled={toggled} />
+      </ToggleButtonBack>
+      {onLabel}
+    </div>
   );
 };

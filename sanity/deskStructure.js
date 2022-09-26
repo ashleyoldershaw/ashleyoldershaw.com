@@ -6,6 +6,9 @@ export default () =>
     .title("Content")
     .items([
       S.listItem()
+        .title("Themes")
+        .child(S.editor().schemaType("theme").documentId("theme")),
+      S.listItem()
         .title("Home page")
         .child(S.editor().schemaType("home_page").documentId("home_page")),
       S.listItem()
@@ -42,6 +45,8 @@ export default () =>
             "blog_home",
             "blog_meta",
             "skills",
+            "theme",
+            "colour_theme",
           ].includes(listItem.getId())
       ),
       S.divider(),
