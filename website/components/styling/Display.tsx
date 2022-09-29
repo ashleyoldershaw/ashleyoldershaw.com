@@ -175,11 +175,11 @@ const ContentSectionWrapper = styled.div`
   margin: 1em 0;
 `;
 
-export const ContentSection = ({ children }) => {
+export const ContentSection = ({ children, style }) => {
   return (
     <ContentSectionWrapper>
       <TriangleDivider direction="up" />
-      <ContentSectionStyle>{children}</ContentSectionStyle>
+      <ContentSectionStyle style={style}>{children}</ContentSectionStyle>
       <TriangleDivider direction="down" />
     </ContentSectionWrapper>
   );

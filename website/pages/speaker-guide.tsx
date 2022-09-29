@@ -53,9 +53,9 @@ const TopicView = ({ topics, subTopics }) => {
   );
 };
 
-export default function TnnSpeakers() {
-  const [topics, setTopics] = useState([]);
-  const [subTopics, setSubTopics] = useState([]);
+export default function SpeakerGuide() {
+  const [topics, setTopics] = useState<Array<string>>([]);
+  const [subTopics, setSubTopics] = useState<Array<string>>([]);
 
   const { register, getValues, reset, handleSubmit } = useForm();
 
@@ -85,16 +85,25 @@ export default function TnnSpeakers() {
   return (
     <main>
       <Head>
-        <title>{"TNN Speaker guide!"}</title>
+        <title>{"Speaker guide!"}</title>
       </Head>
       <PageTitleSection>
-        <PageTitle>{`TNN Speaker guide!`}</PageTitle>
-        <PageSubtitle>{`Use this to keep track of who's up next.`}</PageSubtitle>
+        <PageTitle>{`Speaker guide!`}</PageTitle>
+        <PageSubtitle>{`Use this to keep track of who's up next during a discussion.`}</PageSubtitle>
+        <BodyText>
+          {`When you want to add someone to speak, just type their name in the box and hit "add speaker". When you're ready for the next topic, click "Next topic". If someone wants to add to a topic, pop their name in the box and click "add subtopic" subtopics will be cleared out before the next topic comes up.`}
+        </BodyText>
       </PageTitleSection>
       <TextBasedWidth>
-        <ContentSection>
+        <ContentSection style={{ minHeight: "45em" }}>
           <form onSubmit={handleSubmit(() => {})}>
-            <div style={{ display: "flex" }}>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+              }}
+            >
               <CustomTextInput
                 placeholder="Name"
                 register={register}
@@ -104,7 +113,7 @@ export default function TnnSpeakers() {
               <CustomButton text="Add speaker" onClick={addTopic} />
 
               <CustomButton text="Add subtopic" onClick={addSubTopic} />
-              <CustomButton text="Next speaker" onClick={nextTopic} />
+              <CustomButton text="Next topic" onClick={nextTopic} />
             </div>
           </form>
           <TopicView topics={topics} subTopics={subTopics} />
