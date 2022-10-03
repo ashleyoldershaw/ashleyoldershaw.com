@@ -175,7 +175,7 @@ const ContentSectionWrapper = styled.div`
   margin: 1em 0;
 `;
 
-export const ContentSection = ({ children, style }) => {
+export const ContentSection = ({ children, style = {} }) => {
   return (
     <ContentSectionWrapper>
       <TriangleDivider direction="up" />
