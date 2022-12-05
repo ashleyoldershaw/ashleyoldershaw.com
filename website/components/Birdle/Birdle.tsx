@@ -96,17 +96,21 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
     </SmartLink>
   );
 
+  const share_button = (
+    <ClipboardButton
+      successfulCopyText={"Copied to clipboard"}
+      defaultText={birdle.share_button}
+      copiedText={getShareMessage(guesses)}
+    />
+  );
+
   const dedication = <BodyText>{birdle.dedication}</BodyText>;
 
   if (won) {
     return (
       <BirdGuesserStyle>
         <BodyText>{birdle.win_message}</BodyText>
-        <ClipboardButton
-          successfulCopyText={"Copied to clipboard"}
-          defaultText={birdle.share_button}
-          copiedText={getShareMessage(guesses)}
-        />
+        {share_button}
         {charity_button}
         {dedication}
       </BirdGuesserStyle>
