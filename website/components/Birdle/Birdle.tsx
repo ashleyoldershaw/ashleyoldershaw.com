@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { urlFor } from "../sanity";
-import { CustomButton } from "../styling/Buttons/Buttons";
+import { ClipboardButton, CustomButton } from "../styling/Buttons/Buttons";
 import {
   ContentSection,
   PageTitleSection,
@@ -65,7 +65,6 @@ export const hasWon = (guess, answer) => {
 const BirdGuesser = ({ options, answer, birdle, charity }) => {
   const [guesses, setGuesses] = useState(1);
   const [won, setWon] = useState(false);
-  const [shareClicked, setShareClicked] = useState(false);
   const [helperMessage, setHelperMessage] = useState(null);
   const [badGuessMessage, setBadGuessMessage] = useState(null);
   const [shake, setShake] = useState(false);
@@ -96,15 +95,6 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
       <CustomButton text={`${birdle.charity_prelude} ${charity.name}`} />
     </SmartLink>
   );
-  const share_button = (
-    <CustomButton
-      text={shareClicked ? "Copied to clipboard" : birdle.share_button}
-      onClick={() => {
-        setShareClicked(true);
-        navigator.clipboard.writeText(getShareMessage(guesses));
-      }}
-    />
-  );
 
   const dedication = <BodyText>{birdle.dedication}</BodyText>;
 
@@ -112,7 +102,11 @@ const BirdGuesser = ({ options, answer, birdle, charity }) => {
     return (
       <BirdGuesserStyle>
         <BodyText>{birdle.win_message}</BodyText>
-        {share_button}
+        <ClipboardButton
+          successfulCopyText={"Copied to clipboard"}
+          defaultText={birdle.share_button}
+          copiedText={getShareMessage(guesses)}
+        />
         {charity_button}
         {dedication}
       </BirdGuesserStyle>

@@ -2,7 +2,10 @@ import Head from "next/head";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { getStaticProps as getLayoutStaticProps } from "../components/layout";
-import { CustomButton } from "../components/styling/Buttons/Buttons";
+import {
+  ClipboardButton,
+  CustomButton,
+} from "../components/styling/Buttons/Buttons";
 import {
   ContentSection,
   PageTitleSection,
@@ -25,6 +28,17 @@ export async function getStaticProps() {
 }
 
 // this is a one off page so not going to spend much time making it into nice components
+
+const formatNameList = (names: Array<string>): string => {
+  if (names.length === 0) return "Nobody up next!";
+  if (names.length === 1) return `${names[0]} up next!`;
+  return (
+    "Next is " +
+    names.slice(0, names.length - 1).join(", ") +
+    ", then " +
+    names.at(-1)
+  );
+};
 
 const TopicView = ({ topics, subTopics }) => {
   if (topics.length === 0) return <></>;
@@ -110,10 +124,22 @@ export default function SpeakerGuide() {
                 name="topic"
                 validation={{}}
               />
-              <CustomButton text="Add speaker" onClick={addTopic} />
 
-              <CustomButton text="Add subtopic" onClick={addSubTopic} />
-              <CustomButton text="Next topic" onClick={nextTopic} />
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <CustomButton text="Add speaker" onClick={addTopic} />
+                <CustomButton text="Add subtopic" onClick={addSubTopic} />
+                <CustomButton text="Next topic" onClick={nextTopic} />
+              </div>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <ClipboardButton
+                  defaultText="Copy speaker lineup"
+                  copiedText={formatNameList(topics)}
+                />
+                <ClipboardButton
+                  defaultText="Copy subtopic lineup"
+                  copiedText={formatNameList(subTopics)}
+                />
+              </div>
             </div>
           </form>
           <TopicView topics={topics} subTopics={subTopics} />
