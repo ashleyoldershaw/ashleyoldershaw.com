@@ -24,13 +24,7 @@ export const CustomButton = ({
   );
 };
 
-export const ToggleButton = ({
-  onLabel,
-  offLabel,
-}: {
-  onLabel: string;
-  offLabel: string;
-}) => {
+export const ToggleButton = ({ onLabel, offLabel }) => {
   const [toggled, setToggled] = useState<boolean>(false);
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "0.5em" }}>
