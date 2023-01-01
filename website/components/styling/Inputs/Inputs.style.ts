@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { borderRadius, borderWidth } from "../Layout";
-import { sansFontFamily } from "../TextStyles";
+import { bodyFontFamily } from "../TextStyles";
 
 const TextInputStyle = (props) => `
-  font-family: ${sansFontFamily};
+  font-family: ${bodyFontFamily};
   font-size: 1.5em;
+  font-weight: 200;
   padding-left:  0.5em;
   padding-right:  0.5em;
 

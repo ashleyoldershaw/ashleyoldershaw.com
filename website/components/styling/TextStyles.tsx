@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { displays } from "./Display";
 
-const titleFontFamily = `'Merriweather', serif`;
-export const sansFontFamily = `'Merriweather Sans', sans-serif`;
+const titleFontFamily = `'Jost', serif`;
+export const bodyFontFamily = `'Jost', sans-serif`;
 
 export const PageTitle = styled.h1`
   font-family: ${titleFontFamily};
-  font-weight: 100;
+  font-weight: 200;
   text-align: center;
 
   // large screen size
@@ -33,7 +33,7 @@ export const PageTitle = styled.h1`
 
 export const PageSubtitle = styled.h2`
   font-family: ${titleFontFamily};
-  font-weight: 100;
+  font-weight: 200;
   text-align: center;
 
   // large screen size
@@ -50,7 +50,7 @@ export const PageSubtitle = styled.h2`
 export const SectionTitle = styled.h2`
   font-family: ${titleFontFamily};
   font-size: 2.5em;
-  font-weight: 100;
+  font-weight: 200;
 
   color: ${(props) => props.theme.accent};
 
@@ -63,7 +63,7 @@ export const SectionTitle = styled.h2`
 export const SubSectionTitle = styled.h3`
   font-family: ${titleFontFamily};
   font-size: 2em;
-  font-weight: 100;
+  font-weight: 200;
 
   color: ${(props) => props.theme.accent};
 
@@ -76,7 +76,7 @@ export const SubSectionTitle = styled.h3`
 export const SubSubSectionTitle = styled.h3`
   font-family: ${titleFontFamily};
   font-size: 1.75em;
-  font-weight: 100;
+  font-weight: 200;
 
   color: ${(props) => props.theme.accent};
 
@@ -90,8 +90,8 @@ export const SubSubSectionTitle = styled.h3`
 `;
 
 export const BodyText = styled.p`
-  font-family: ${sansFontFamily};
-  font-size: 1em;
+  font-family: ${bodyFontFamily};
+  font-size: 1.25em;
   font-weight: 200;
 
   @media (max-width: ${displays.mobileL}) {
@@ -102,8 +102,8 @@ export const BodyText = styled.p`
 
 export const TextDetail = styled.p`
   font-family: ${titleFontFamily};
-  font-size: 0.75em;
-  font-weight: 400;
+  font-size: 1em;
+  font-weight: 300;
 
   @media (max-width: ${displays.mobileL}) {
     text-align: center;
@@ -113,7 +113,7 @@ export const TextDetail = styled.p`
 export const Emphasis = styled.p`
   font-family: ${titleFontFamily};
   font-size: 2em;
-  font-weight: 400;
+  font-weight: 300;
   text-align: center;
   font-style: italic;
   @media (max-width: ${displays.mobileL}) {
