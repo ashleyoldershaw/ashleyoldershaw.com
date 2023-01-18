@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://www.ashleyoldershaw.com/sitemap.xml
