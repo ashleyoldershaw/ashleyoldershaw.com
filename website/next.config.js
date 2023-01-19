@@ -5,4 +5,12 @@ module.exports = {
     path: "",
   },
   compiler: { styledComponents: true },
+  async rewrites() {
+    return [
+      {
+        source: "/sitemap.xml",
+        destination: "/api/sitemap",
+      },
+    ];
+  },
 };

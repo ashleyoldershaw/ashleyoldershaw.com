@@ -1,5 +1,15 @@
 import { DateTime } from "luxon";
-import { sanity } from "../components/sanity";
+import { NextApiRequest, NextApiResponse } from "next";
+import { sanity } from "../../components/sanity";
+
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  getInfo().then((sitemap) => {
+    res.setHeader("Content-Type", "text/xml");
+    res.write(sitemap);
+    res.end();
+  });
+}
+
 const BASE_URL = "https://www.ashleyoldershaw.com";
 
 const getDate = (input_string) => DateTime.fromISO(input_string).toISODate();
@@ -31,11 +41,7 @@ function generateSiteMap({ pages, blogPosts }) {
  `;
 }
 
-function SiteMap() {
-  // getServerSideProps will do the heavy lifting
-}
-
-export async function getServerSideProps({ res }) {
+const getInfo = async () => {
   const blogPosts: Array<{ lastmod: string; slug: string }> =
     await sanity.fetch(
       `*[_type=='blog' && publish_date <= now() && defined(slug.current)][]{'lastmod': _updatedAt,'slug': slug.current}`
@@ -68,16 +74,5 @@ export async function getServerSideProps({ res }) {
   ];
 
   // We generate the XML sitemap with the posts data
-  const sitemap = generateSiteMap({ pages, blogPosts });
-
-  res.setHeader("Content-Type", "text/xml");
-  // we send the XML to the browser
-  res.write(sitemap);
-  res.end();
-
-  return {
-    props: {},
-  };
-}
-
-export default SiteMap;
+  return generateSiteMap({ pages, blogPosts });
+};
