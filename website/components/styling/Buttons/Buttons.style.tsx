@@ -24,12 +24,21 @@ export const StyledCustomButton = styled.button`
   }
 `;
 
+export const ToggleButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-direction: row !important;
+`;
+
 export const ToggleButtonBack = styled.div`
   height: 1em;
   width: 2.5em;
   border: ${borderWidth}px solid ${(props) => props.theme.contrast};
   transition: all 0.2s;
   display: flex;
+  flex-direction: row !important;
+  gap: 0 !important;
 `;
 
 export const ToggleButtonFront = styled.div`
@@ -44,13 +53,4 @@ export const OnBackground = styled.div`
   background-color: ${(props) => props.theme.accent};
 
   transition: all 0.2s;
-`;
-
-export const OffBackground = styled.div`
-  height: 1em;
-  width: ${(props) => (props.toggled ? 0 : 1.5)}em;
-  background-color: ${(props) => props.theme.secondary_background};
-
-  transition: all 0.2s;
-  transform: scale(${(props) => (props.toggled ? 0 : 1)}, 1);
 `;

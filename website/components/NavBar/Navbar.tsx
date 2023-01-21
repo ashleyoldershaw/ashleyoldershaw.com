@@ -1,8 +1,9 @@
-import { BodyText, SectionTitle } from "../styling/TextStyles";
+import { ToggleButton } from "../styling/Buttons/Buttons";
+import { BodyText, SectionTitle, TextDetail } from "../styling/TextStyles";
 import { SmartLink } from "../utility/SmartLink";
-import { NavBarLinks, NavBarStyle } from "./NavBar.style";
+import { NavBarLinks, NavBarStyle, ThemeSelector } from "./NavBar.style";
 
-export const NavBar = ({ layout_props: { nav_bar } }) => {
+export const NavBar = ({ layout_props: { nav_bar }, setTheme }) => {
   return (
     <NavBarStyle>
       <SmartLink href="/">
@@ -15,6 +16,15 @@ export const NavBar = ({ layout_props: { nav_bar } }) => {
           </SmartLink>
         ))}
       </NavBarLinks>
+      <ThemeSelector>
+        <ToggleButton
+          onToggled={(toggled) => {
+            setTheme(toggled ? "dark" : "light");
+          }}
+          onLabel={<TextDetail>Dark</TextDetail>}
+          offLabel={<TextDetail>Light</TextDetail>}
+        />
+      </ThemeSelector>
     </NavBarStyle>
   );
 };
