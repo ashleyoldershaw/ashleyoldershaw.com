@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { urlFor } from "../sanity";
 import { BodyText, SubSubSectionTitle } from "../styling/TextStyles";
 import { TitleStyle, WhatIDoStyle } from "./WhatIDo.style";
