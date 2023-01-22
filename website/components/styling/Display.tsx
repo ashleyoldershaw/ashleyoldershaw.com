@@ -66,7 +66,7 @@ export const TriangleDivider = ({
 
   const theme = useTheme();
 
-  const [width, setWidth] = useState(150);
+  const [width, setWidth] = useState(1000);
 
   const triangleHeight = Math.floor(ratio ? width * ratio : height);
 
@@ -146,7 +146,7 @@ export const PageTitleSection = ({ children }) => {
   return (
     <PageTitleSectionStyle>
       <PageTitleStyle>{children}</PageTitleStyle>
-      <TriangleDivider />
+      <TriangleDivider ratio={0.15} />
     </PageTitleSectionStyle>
   );
 };
@@ -178,9 +178,9 @@ const ContentSectionWrapper = styled.div`
 export const ContentSection = ({ children, style = {} }) => {
   return (
     <ContentSectionWrapper>
-      <TriangleDivider direction="up" />
+      <TriangleDivider direction="up" ratio={0.15} />
       <ContentSectionStyle style={style}>{children}</ContentSectionStyle>
-      <TriangleDivider direction="down" />
+      <TriangleDivider direction="down" ratio={0.15} />
     </ContentSectionWrapper>
   );
 };
