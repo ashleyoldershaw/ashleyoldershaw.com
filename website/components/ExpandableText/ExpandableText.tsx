@@ -13,7 +13,7 @@ export const ExpandableText = ({ info }) => {
       const [toggleClicked, setToggleClicked] = useState(false); // eslint-disable-line -- it works and I'm leaving it
 
       return (
-        <div key={i}>
+        <div>
           <div>
             <ExpandButton onClick={() => setToggleClicked(!toggleClicked)}>
               {toggleClicked ? "-" : "+"}

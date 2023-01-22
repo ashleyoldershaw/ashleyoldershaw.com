@@ -90,7 +90,6 @@ export default function ComponentsPage() {
             <ToggleButton
               onLabel={<BodyText>On</BodyText>}
               offLabel={<BodyText>Off</BodyText>}
-              onToggled={() => {}}
             />
           </div>
           <div>

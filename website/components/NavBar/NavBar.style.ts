@@ -61,11 +61,3 @@ export const NavBarLinks = styled.div`
     margin: 0 10px;
   }
 `;
-
-export const ThemeSelector = styled.div`
-  @media (max-width: ${displays.mobileL}) {
-    position: absolute;
-
-    right: 10px;
-  }
-`;

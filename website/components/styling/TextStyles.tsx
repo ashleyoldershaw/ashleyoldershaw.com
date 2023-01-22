@@ -1,11 +1,8 @@
-import { Jost } from "@next/font/google";
 import styled from "styled-components";
 import { displays } from "./Display";
 
-const jost = Jost({ subsets: ["latin"] });
-
-const titleFontFamily = jost.style.fontFamily;
-export const bodyFontFamily = jost.style.fontFamily;
+const titleFontFamily = `'Jost', serif`;
+export const bodyFontFamily = `'Jost', sans-serif`;
 
 export const PageTitle = styled.h1`
   font-family: ${titleFontFamily};
@@ -99,6 +96,7 @@ export const BodyText = styled.p`
 
   @media (max-width: ${displays.mobileL}) {
     text-align: center;
+    font-size: 1em;
   }
 `;
 

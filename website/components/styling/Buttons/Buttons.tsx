@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { BodyText } from "../TextStyles";
 import {
+  OffBackground,
   OnBackground,
   StyledCustomButton,
   ToggleButtonBack,
   ToggleButtonFront,
-  ToggleButtonWrapper,
 } from "./Buttons.style";
 
 export const CustomButton = ({
@@ -24,25 +24,23 @@ export const CustomButton = ({
   );
 };
 
-export const ToggleButton = ({ onLabel, offLabel, onToggled }) => {
+export const ToggleButton = ({ onLabel, offLabel }) => {
   const [toggled, setToggled] = useState<boolean>(false);
   return (
-    <ToggleButtonWrapper>
+    <div style={{ display: "flex", alignItems: "center", gap: "0.5em" }}>
       {offLabel}
       <ToggleButtonBack
         toggled={toggled}
         onClick={() => {
-          setToggled((t) => {
-            onToggled(!t);
-            return !t;
-          });
+          setToggled((t) => !t);
         }}
       >
         <OnBackground toggled={toggled} />
         <ToggleButtonFront toggled={toggled} />
+        <OffBackground toggled={toggled} />
       </ToggleButtonBack>
       {onLabel}
-    </ToggleButtonWrapper>
+    </div>
   );
 };
 

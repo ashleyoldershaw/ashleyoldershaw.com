@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useTheme } from "styled-components";
 import { urlFor } from "../sanity";
 import { TriangleDivider } from "../styling/Display";
