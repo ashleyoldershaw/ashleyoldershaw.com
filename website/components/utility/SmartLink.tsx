@@ -11,7 +11,9 @@ export const SmartLink = ({ href, children }) => {
   if (href.startsWith("/")) {
     return (
       <LinkStyle>
-        <Link href={href}>{children}</Link>
+        <Link href={href} legacyBehavior>
+          {children}
+        </Link>
       </LinkStyle>
     );
   }
