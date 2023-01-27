@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import { displays } from "./Display";
+import { Jost } from "@next/font/google";
 
-const titleFontFamily = `'Jost', serif`;
-export const bodyFontFamily = `'Jost', sans-serif`;
+const jost = Jost({ subsets: ["latin"] });
+
+const titleFontFamily = jost.style.fontFamily;
+export const bodyFontFamily = jost.style.fontFamily;
 
 export const PageTitle = styled.h1`
   font-family: ${titleFontFamily};
