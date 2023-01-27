@@ -13,6 +13,7 @@ const AppStyle = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  transition: 0.5s all;
 
   background: ${(props) => props.theme.background};
   color: ${(props) => props.theme.text};
@@ -27,20 +28,34 @@ const BodyStyle = styled.div`
   }
 `;
 
-const MyApp = ({ Component, pageProps, auth }) => {
-  const [mq, setMq] = useState(null);
-  const [ready, setReady] = useState(false);
-  useEffect(() => {
-    setMq(window.matchMedia("(prefers-color-scheme: dark)"));
-    setReady(true);
-  }, []);
+const getTheme = (colourTheme, light_mode, dark_mode) => {
+  switch (colourTheme) {
+    case "light":
+      return {
+        background: light_mode.background.hex,
+        secondary_background: light_mode.secondary_background.hex,
+        accent: light_mode.accent.hex,
+        contrast: light_mode.contrast.hex,
+        text: light_mode.text.hex,
+        full: "#ffffff",
+      };
+    case "dark":
+      return {
+        background: dark_mode.background.hex,
+        secondary_background: dark_mode.secondary_background.hex,
+        accent: dark_mode.accent.hex,
+        contrast: dark_mode.contrast.hex,
+        text: dark_mode.text.hex,
+        full: "#000000",
+      };
 
-  const [colourTheme, setTheme] = useState(null);
-  useEffect(() => {
-    // this will become useful later on
-    if (!mq) return;
-    setTheme(mq.matches ? "dark" : "light");
-  }, [mq]);
+    default:
+      return {};
+  }
+};
+
+const MyApp = ({ Component, pageProps }) => {
+  const [colourTheme, setTheme] = useState("light");
 
   useEffect(() => {
     if (!colourTheme) return;
@@ -48,27 +63,9 @@ const MyApp = ({ Component, pageProps, auth }) => {
   }, [colourTheme]);
 
   if (Object.keys(pageProps).length === 0) return null;
-  if (!ready) return null;
 
   const { light: light_mode, dark: dark_mode } = pageProps.layout_props.themes;
-  const themeProps =
-    colourTheme === "light"
-      ? {
-          background: light_mode.background.hex,
-          secondary_background: light_mode.secondary_background.hex,
-          accent: light_mode.accent.hex,
-          contrast: light_mode.contrast.hex,
-          text: light_mode.text.hex,
-          full: "#ffffff",
-        }
-      : {
-          background: dark_mode.background.hex,
-          secondary_background: dark_mode.secondary_background.hex,
-          accent: dark_mode.accent.hex,
-          contrast: dark_mode.contrast.hex,
-          text: dark_mode.text.hex,
-          full: "#000000",
-        };
+  const themeProps = getTheme(colourTheme, light_mode, dark_mode);
 
   const theme = { ...themeProps, type: colourTheme };
 
@@ -115,7 +112,7 @@ const MyApp = ({ Component, pageProps, auth }) => {
           )}
         </Head>
 
-        <NavBar {...pageProps} />
+        <NavBar {...pageProps} setTheme={setTheme} />
         <BodyStyle>
           <Component {...pageProps} />
         </BodyStyle>

@@ -1,16 +1,17 @@
 {
   "private": true,
   "dependencies": {
-    "@next/font": "^13.1.5",
+    "@next/font": "^13.1.4",
     "@sanity/client": "^3.3.2",
     "@sanity/image-url": "^1.0.1",
     "@sendgrid/mail": "^7.7.0",
     "axios": "^0.27.2",
-    "next": "^13.1.5",
+    "luxon": "^3.2.1",
+    "next": "^13.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.28.1",
-    "serve": "^14.2.0",
+    "serve": "14.1.2",
     "styled-components": "^5.3.3",
     "uuid": "^8.3.2"
   },

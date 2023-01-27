@@ -1,6 +1,6 @@
+import { Jost } from "@next/font/google";
 import styled from "styled-components";
 import { displays } from "./Display";
-import { Jost } from "@next/font/google";
 
 const jost = Jost({ subsets: ["latin"] });
 
@@ -99,7 +99,6 @@ export const BodyText = styled.p`
 
   @media (max-width: ${displays.mobileL}) {
     text-align: center;
-    font-size: 1em;
   }
 `;
 

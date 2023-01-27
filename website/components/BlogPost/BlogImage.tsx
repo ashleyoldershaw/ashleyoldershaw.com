@@ -8,15 +8,19 @@ const getBlogImageDimensions = (url) => {
   return { height, width };
 };
 
-export const BlogImage = ({ image, alt, caption }) => (
-  <StyledBlogImageWrapper>
-    <Image
-      {...getBlogImageDimensions(urlFor(image).url())}
-      src={urlFor(image).url()}
-      objectFit="contain"
-      alt={alt}
-      className="next-image"
-    />
-    {caption && <TextDetail>{caption}</TextDetail>}
-  </StyledBlogImageWrapper>
-);
+export const BlogImage = ({ image, alt, caption }) => {
+  const { height, width } = getBlogImageDimensions(urlFor(image).url());
+  return (
+    <StyledBlogImageWrapper>
+      <Image
+        height={height}
+        width={width}
+        src={urlFor(image).url()}
+        objectFit="contain"
+        alt={alt}
+        className="next-image"
+      />
+      {caption && <TextDetail>{caption}</TextDetail>}
+    </StyledBlogImageWrapper>
+  );
+};
