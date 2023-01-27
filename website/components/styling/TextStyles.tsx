@@ -2,7 +2,7 @@ import { Jost } from "@next/font/google";
 import styled from "styled-components";
 import { displays } from "./Display";
 
-const jost = Jost({ subsets: ["latin"] });
+const jost = Jost({ subsets: ["latin"], display: "swap" });
 
 const titleFontFamily = jost.style.fontFamily;
 export const bodyFontFamily = jost.style.fontFamily;
