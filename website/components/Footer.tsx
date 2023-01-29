@@ -5,7 +5,7 @@ import { TextDetail } from "./styling/TextStyles";
 const FooterStyle = styled.div`
   margin-top: auto;
   padding: 10px ${horizontalMargin} 10px ${horizontalMargin};
-  margin-top: 10px;
+  margin-top: auto;
   border-style: solid;
   border-width: ${borderWidth}px 0 0 0;
 
