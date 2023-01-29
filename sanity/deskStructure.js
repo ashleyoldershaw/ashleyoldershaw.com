@@ -1,36 +1,39 @@
-import S from "@sanity/desk-tool/structure-builder";
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 
-export default () =>
+export const deskStructure = (S, context) =>
   S.list()
     .title("Content")
     .items([
       S.listItem()
         .title("Themes")
-        .child(S.editor().schemaType("theme").documentId("theme")),
+        .child(S.document().schemaType("theme").documentId("theme")),
       S.listItem()
         .title("Home page")
-        .child(S.editor().schemaType("home_page").documentId("home_page")),
+        .child(S.document().schemaType("home_page").documentId("home_page")),
       S.listItem()
         .title("Navigation bar")
-        .child(S.editor().schemaType("nav_bar").documentId("nav_bar")),
+        .child(S.document().schemaType("nav_bar").documentId("nav_bar")),
       S.listItem()
         .title("Career page")
-        .child(S.editor().schemaType("career_page").documentId("career_page")),
+        .child(
+          S.document().schemaType("career_page").documentId("career_page")
+        ),
       S.listItem()
         .title("Blog home page")
-        .child(S.editor().schemaType("blog_home").documentId("blog_home")),
+        .child(S.document().schemaType("blog_home").documentId("blog_home")),
       S.listItem()
         .title("Blog meta")
-        .child(S.editor().schemaType("blog_meta").documentId("blog_meta")),
+        .child(S.document().schemaType("blog_meta").documentId("blog_meta")),
       S.listItem()
         .title("Birdle")
-        .child(S.editor().schemaType("birdle").documentId("birdle")),
+        .child(S.document().schemaType("birdle").documentId("birdle")),
       S.divider(),
       // List out the rest of the document types, but filter out the config type
       orderableDocumentListDeskItem({
         type: "skills",
         title: "Skills",
+        S,
+        context,
       }),
       ...S.documentTypeListItems().filter(
         (listItem) =>
@@ -52,8 +55,8 @@ export default () =>
       S.divider(),
       S.listItem()
         .title("Page not found")
-        .child(S.editor().schemaType("error_404").documentId("error_404")),
+        .child(S.document().schemaType("error_404").documentId("error_404")),
       S.listItem()
         .title("Internal server error")
-        .child(S.editor().schemaType("error_500").documentId("error_500")),
+        .child(S.document().schemaType("error_500").documentId("error_500")),
     ]);

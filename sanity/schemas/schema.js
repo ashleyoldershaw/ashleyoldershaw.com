@@ -1,5 +1,3 @@
-import schemaTypes from "all:part:@sanity/base/schema-type";
-import createSchema from "part:@sanity/base/schema-creator";
 import { birdle } from "./birdle";
 import { blog_home } from "./blog_home";
 import { blog_meta } from "./blog_meta";
@@ -14,21 +12,18 @@ import { blog } from "./types/blog_post";
 import { colour_theme } from "./types/colour_theme";
 import { expandable_text } from "./types/expandable_text";
 
-export default createSchema({
-  name: "default",
-  types: schemaTypes.concat([
-    home_page,
-    career_page,
-    expandable_text,
-    nav_bar,
-    themes,
-    colour_theme,
-    error_404,
-    error_500,
-    skills,
-    birdle,
-    blog,
-    blog_home,
-    blog_meta,
-  ]),
-});
+export const schemaTypes = [
+  home_page,
+  career_page,
+  expandable_text,
+  nav_bar,
+  themes,
+  colour_theme,
+  error_404,
+  error_500,
+  skills,
+  birdle,
+  blog,
+  blog_home,
+  blog_meta,
+];
