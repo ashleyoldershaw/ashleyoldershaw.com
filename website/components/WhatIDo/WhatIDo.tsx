@@ -8,8 +8,7 @@ const WhatIDoTile = ({ section, key }) => (
     <TitleStyle>
       <Image
         {...useGetImageProps(section.thumbnail)}
-        width={100}
-        height={100}
+        style={{ height: "auto", width: "100px" }}
         alt={section.alt}
       />
     </TitleStyle>
@@ -21,6 +20,4 @@ const WhatIDoTile = ({ section, key }) => (
 );
 
 export const WhatIDoSection = ({ sanity_input }) =>
-  sanity_input.map((section, i) => {
-    <WhatIDoTile section={section} key={i} />;
-  });
+  sanity_input.map((section, i) => <WhatIDoTile section={section} key={i} />);

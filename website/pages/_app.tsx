@@ -62,42 +62,25 @@ const MyApp = ({ Component, pageProps }) => {
     console.log(`You prefer ${colourTheme} mode! Good choice :)`);
   }, [colourTheme]);
 
-  const light_url = useGetImageProps(
-    pageProps.layout_props.favicons.favicon_light
-  ).src;
-  const dark_url = useGetImageProps(
-    pageProps.layout_props.favicons.favicon_dark
-  ).src;
-
-  if (Object.keys(pageProps).length === 0) return null;
-
-  const { light: light_mode, dark: dark_mode } = pageProps.layout_props.themes;
+  const { light: light_mode, dark: dark_mode } = pageProps.layout_props?.themes;
   const themeProps = getTheme(colourTheme, light_mode, dark_mode);
 
   const theme = { ...themeProps, type: colourTheme };
+  const favicon_url = useGetImageProps(
+    theme.type === "light"
+      ? pageProps.layout_props?.favicons?.favicon_light
+      : pageProps.layout_props?.favicons?.favicon_dark
+  ).src;
+
+  if (Object.keys(pageProps).length === 0) return null;
 
   return (
     <ThemeProvider theme={theme}>
       <AppStyle>
         <Head>
           <title>Ash Oldershaw</title>
-          {theme.type === "light" && (
-            <>
-              <link
-                rel="icon"
-                type="image/svg"
-                sizes="32x32"
-                href={light_url}
-              />
-              <link rel="shortcut icon" href={light_url} />
-            </>
-          )}
-          {theme.type === "dark" && (
-            <>
-              <link rel="icon" type="image/svg" sizes="32x32" href={dark_url} />
-              <link rel="shortcut icon" href={dark_url} />
-            </>
-          )}
+          <link rel="icon" type="image/svg" sizes="32x32" href={favicon_url} />
+          <link rel="shortcut icon" href={favicon_url} />
         </Head>
 
         <NavBar {...pageProps} setTheme={setTheme} />
