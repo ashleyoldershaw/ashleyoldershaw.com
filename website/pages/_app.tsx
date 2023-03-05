@@ -62,17 +62,18 @@ const MyApp = ({ Component, pageProps }) => {
     console.log(`You prefer ${colourTheme} mode! Good choice :)`);
   }, [colourTheme]);
 
-  const favicon_url = useGetImageProps(
+  const favicon_props = useGetImageProps(
     colourTheme === "light"
       ? pageProps.layout_props?.favicons?.favicon_light
       : pageProps.layout_props?.favicons?.favicon_dark
-  ).src;
+  );
 
   if (Object.keys(pageProps).length === 0) return null;
 
   const { light: light_mode, dark: dark_mode } = pageProps.layout_props?.themes;
   const themeProps = getTheme(colourTheme, light_mode, dark_mode);
   const theme = { ...themeProps, type: colourTheme };
+  const favicon_url = favicon_props.src;
 
   return (
     <ThemeProvider theme={theme}>
