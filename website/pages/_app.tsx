@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
@@ -6,7 +7,6 @@ import { NavBar } from "../components/NavBar/Navbar";
 import { urlFor } from "../components/sanity";
 import { displays } from "../components/styling/Display";
 import { horizontalMargin } from "../components/styling/Layout";
-
 import "./app.css";
 
 const AppStyle = styled.div`
@@ -117,6 +117,7 @@ const MyApp = ({ Component, pageProps }) => {
           <Component {...pageProps} />
         </BodyStyle>
         <Footer />
+        <Analytics />
       </AppStyle>
     </ThemeProvider>
   );
