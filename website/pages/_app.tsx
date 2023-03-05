@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { Footer } from "../components/Footer";
 import { NavBar } from "../components/NavBar/Navbar";
-import { urlFor } from "../components/sanity";
+import { useGetImageProps } from "../components/sanity";
 import { displays } from "../components/styling/Display";
 import { horizontalMargin } from "../components/styling/Layout";
 import "./app.css";
@@ -62,6 +62,13 @@ const MyApp = ({ Component, pageProps }) => {
     console.log(`You prefer ${colourTheme} mode! Good choice :)`);
   }, [colourTheme]);
 
+  const light_url = useGetImageProps(
+    pageProps.layout_props.favicons.favicon_light
+  ).src;
+  const dark_url = useGetImageProps(
+    pageProps.layout_props.favicons.favicon_dark
+  ).src;
+
   if (Object.keys(pageProps).length === 0) return null;
 
   const { light: light_mode, dark: dark_mode } = pageProps.layout_props.themes;
@@ -80,34 +87,15 @@ const MyApp = ({ Component, pageProps }) => {
                 rel="icon"
                 type="image/svg"
                 sizes="32x32"
-                href={urlFor(
-                  pageProps.layout_props.favicons.favicon_light
-                ).url()}
+                href={light_url}
               />
-              <link
-                rel="shortcut icon"
-                href={urlFor(
-                  pageProps.layout_props.favicons.favicon_light
-                ).url()}
-              />
+              <link rel="shortcut icon" href={light_url} />
             </>
           )}
           {theme.type === "dark" && (
             <>
-              <link
-                rel="icon"
-                type="image/svg"
-                sizes="32x32"
-                href={urlFor(
-                  pageProps.layout_props.favicons.favicon_dark
-                ).url()}
-              />
-              <link
-                rel="shortcut icon"
-                href={urlFor(
-                  pageProps.layout_props.favicons.favicon_dark
-                ).url()}
-              />
+              <link rel="icon" type="image/svg" sizes="32x32" href={dark_url} />
+              <link rel="shortcut icon" href={dark_url} />
             </>
           )}
         </Head>

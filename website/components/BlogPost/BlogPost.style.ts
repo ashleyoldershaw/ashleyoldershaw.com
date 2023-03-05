@@ -3,10 +3,11 @@ import { borderRadius, borderWidth } from "../styling/Layout";
 import { BodyText } from "../styling/TextStyles";
 
 export const StyledBlogImageWrapper = styled.div`
-  span {
-    width: 100% !important;
-    max-height: 75vh;
+  img {
+    max-width: 100% !important;
+    height: auto;
   }
+
   display: flex;
   align-items: center;
   margin: 30px 0px;

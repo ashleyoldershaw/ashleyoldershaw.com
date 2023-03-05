@@ -1,3 +1,4 @@
+import { groq } from "next-sanity";
 import Head from "next/head";
 import { ExpandableText } from "../components/ExpandableText/ExpandableText";
 import { getStaticProps as getLayoutStaticProps } from "../components/layout";
@@ -15,7 +16,7 @@ import {
 export async function getStaticProps() {
   return {
     props: {
-      career_page: await sanity.fetch(`*[_type=='career_page'][0]`),
+      career_page: await sanity.fetch(groq`*[_type=='career_page'][0]`),
       ...(await getLayoutStaticProps()),
     },
   };

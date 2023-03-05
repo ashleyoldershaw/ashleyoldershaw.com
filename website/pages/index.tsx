@@ -1,3 +1,4 @@
+import { groq } from "next-sanity";
 import { HomePage } from "../components/HomePage/HomePage";
 import { getStaticProps as getLayoutStaticProps } from "../components/layout";
 import { sanity } from "../components/sanity";
@@ -5,9 +6,9 @@ import { sanity } from "../components/sanity";
 export async function getStaticProps() {
   return {
     props: {
-      home_page: await sanity.fetch(`*[_type=='home_page'][0]`),
+      home_page: await sanity.fetch(groq`*[_type=='home_page'][0]`),
       skills: await sanity.fetch(
-        `*[_type=='skills']|order(orderRank){category, info[hide != true], subtitle}`
+        groq`*[_type=='skills']|order(orderRank){category, info[hide != true], subtitle}`
       ),
       ...(await getLayoutStaticProps()),
     },

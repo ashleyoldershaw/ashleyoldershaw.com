@@ -1,5 +1,5 @@
-const sanityClient = require("@sanity/client");
-import imageUrlBuilder from "@sanity/image-url";
+import sanityClient, { SanityImageAssetDocument } from "@sanity/client";
+import { useNextSanityImage } from "next-sanity-image";
 
 export const sanity = sanityClient({
   projectId: "ophqtfel",
@@ -8,8 +8,5 @@ export const sanity = sanityClient({
   useCdn: true,
 });
 
-const builder = imageUrlBuilder(sanity);
-
-export const urlFor = (source) => {
-  return builder.image(source);
-};
+export const useGetImageProps = (image: SanityImageAssetDocument) =>
+  useNextSanityImage(sanity, image);

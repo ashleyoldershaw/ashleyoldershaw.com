@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useTheme } from "styled-components";
 import { CustomButton } from "../styling/Buttons/Buttons";
 import {
   ContentSection,
@@ -19,7 +20,6 @@ import { SmartLink } from "../utility/SmartLink";
 import { BlogImage } from "./BlogImage";
 import { StyledArticle, TimingSection } from "./BlogPost.style";
 import { Bullets } from "./Bullets/Bullets";
-import { useTheme } from "styled-components";
 
 const BlogContent = ({ item }) => {
   const theme = useTheme();

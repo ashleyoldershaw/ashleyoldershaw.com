@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { urlFor } from "../sanity";
+import { useGetImageProps } from "../sanity";
 import { ClipboardButton, CustomButton } from "../styling/Buttons/Buttons";
 import {
   ContentSection,
@@ -14,9 +14,10 @@ import { SmartLink } from "../utility/SmartLink";
 import { BirdDisplayStyle, BirdGuesserStyle, BirdImage } from "./Birdle.style";
 
 const BirdDisplay = ({ bird }) => {
+  const props = useGetImageProps(bird.image);
   return (
     <BirdDisplayStyle>
-      <BirdImage src={urlFor(bird.image).url()} alt={"Sorry, no clues!"} />
+      <BirdImage {...props} alt={"Sorry, no clues!"} />
     </BirdDisplayStyle>
   );
 };

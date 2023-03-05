@@ -1,6 +1,6 @@
 import Image from "next/legacy/image";
 import { useTheme } from "styled-components";
-import { urlFor } from "../sanity";
+import { useGetImageProps } from "../sanity";
 import { TriangleDivider } from "../styling/Display";
 import { BodyText, SubSubSectionTitle } from "../styling/TextStyles";
 import { OptionalSmartLink } from "../utility/SmartLink";
@@ -28,9 +28,26 @@ export const SkillDiv = ({ children }) => {
   );
 };
 
-export const WhatImGoodAtItems = ({ sanity_input }) => {
-  const theme = useTheme();
+const WhatImGoodAtTile = ({ key, section }) => (
+  <SkillDiv key={key}>
+    <OptionalSmartLink href={section.url}>
+      <Image
+        {...useGetImageProps(
+          useTheme().type === "dark"
+            ? section.dark_thumbnail || section.thumbnail
+            : section.thumbnail
+        )}
+        width={80}
+        height={80}
+        objectFit="contain"
+        alt={section.alt}
+      />
+    </OptionalSmartLink>
+    <BodyText style={{ margin: 0 }}>{section.title}</BodyText>
+  </SkillDiv>
+);
 
+export const WhatImGoodAtItems = ({ sanity_input }) => {
   return sanity_input.map((skillset, i) => (
     <WhatImGoodAtSectionStyle key={i}>
       <div>
@@ -38,23 +55,8 @@ export const WhatImGoodAtItems = ({ sanity_input }) => {
         <BodyText>{skillset.subtitle}</BodyText>
       </div>
       <SkillsetCollection>
-        {skillset.info.map((section, i) => (
-          <SkillDiv key={i}>
-            <OptionalSmartLink href={section.url}>
-              <Image
-                width={80}
-                height={80}
-                src={urlFor(
-                  theme.type === "dark"
-                    ? section.dark_thumbnail || section.thumbnail
-                    : section.thumbnail
-                ).url()}
-                objectFit="contain"
-                alt={section.alt}
-              />
-            </OptionalSmartLink>
-            <BodyText style={{ margin: 0 }}>{section.title}</BodyText>
-          </SkillDiv>
+        {skillset.info.map((section, j) => (
+          <WhatImGoodAtTile key={j} section={section} />
         ))}
       </SkillsetCollection>
     </WhatImGoodAtSectionStyle>

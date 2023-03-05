@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styled from "styled-components";
 import { displays } from "../styling/Display";
 import { borderRadius, borderWidth } from "../styling/Layout";
@@ -65,15 +66,14 @@ export const BirdGuesserStyle = styled.div`
   }
 `;
 
-export const BirdImage = styled.img`
-  max-width: 80%;
-  max-height: 50vh;
-
+export const BirdImage = styled(Image)`
   border: ${borderWidth}px solid ${(props) => props.theme.contrast};
 
+  max-width: 80%;
   @media (max-width: ${displays.mobileL}) {
     max-width: 100%;
   }
+  height: auto;
 `;
 
 export const BirdDisplayStyle = styled.div`

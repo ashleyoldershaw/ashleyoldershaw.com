@@ -1,3 +1,4 @@
+import { groq } from "next-sanity";
 import { BlogHomePage } from "../../components/BlogHomePage/BlogHomePage";
 import { getStaticProps as getLayoutStaticProps } from "../../components/layout";
 import { sanity } from "../../components/sanity";
@@ -5,9 +6,9 @@ import { sanity } from "../../components/sanity";
 export async function getStaticProps() {
   return {
     props: {
-      blog_home: await sanity.fetch(`*[_type=='blog_home'][0]`),
+      blog_home: await sanity.fetch(groq`*[_type=='blog_home'][0]`),
       blog_posts: await sanity.fetch(
-        `*[_type=='blog'${
+        groq`*[_type=='blog'${
           process.env.NODE_ENV === "development"
             ? ""
             : " && publish_date <= now()"

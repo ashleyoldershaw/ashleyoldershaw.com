@@ -1,4 +1,5 @@
 import { DateTime } from "luxon";
+import { groq } from "next-sanity";
 import { sanity } from "../components/sanity";
 
 const BASE_URL = "https://www.ashleyoldershaw.com";
@@ -39,14 +40,14 @@ function SiteMap() {
 export async function getServerSideProps({ res }) {
   const blogPosts: Array<{ lastmod: string; slug: string }> =
     await sanity.fetch(
-      `*[_type=='blog' && publish_date <= now() && defined(slug.current)][]{'lastmod': _updatedAt,'slug': slug.current}`
+      groq`*[_type=='blog' && publish_date <= now() && defined(slug.current)][]{'lastmod': _updatedAt,'slug': slug.current}`
     );
 
   const homePageUpdate = await sanity.fetch(
-    `*[_type=='home_page'][0]._updatedAt`
+    groq`*[_type=='home_page'][0]._updatedAt`
   );
   const skillsPageUpdate = await sanity.fetch(
-    `*[_type=='home_page'][0]._updatedAt`
+    groq`*[_type=='home_page'][0]._updatedAt`
   );
   const pages = [
     {
@@ -56,7 +57,7 @@ export async function getServerSideProps({ res }) {
     },
     {
       slug: "/career",
-      lastmod: await sanity.fetch(`*[_type=='career_page'][0]._updatedAt`),
+      lastmod: await sanity.fetch(groq`*[_type=='career_page'][0]._updatedAt`),
     },
     { slug: "/speaker-guide" },
     { slug: "/games/birdle" },
