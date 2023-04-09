@@ -125,6 +125,47 @@ export const blog = {
               type: "string",
               title: "Alt text",
             },
+            {
+              name: "credit",
+              type: "array",
+              of: [
+                {
+                  name: "with_permission",
+                  type: "object",
+                  fields: [
+                    {
+                      name: "author",
+                      title: "Author",
+                      type: "string",
+                      description:
+                        "The author of the work, this is normally the name of the person who made the image",
+                      validation: (Rule) => Rule.required(),
+                    },
+                    {
+                      name: "title",
+                      title: "Title",
+                      type: "string",
+                      description: "The name of the work.",
+                    },
+                    {
+                      name: "year",
+                      title: "Year",
+                      type: "number",
+                      description: "The year the work was made.",
+                      validation: (Rule) => Rule.required(),
+                    },
+                    {
+                      name: "url",
+                      title: "URL",
+                      type: "url",
+                      description:
+                        "A link to the work or the author, necessary where possible, unless it's your own work.",
+                    },
+                  ],
+                },
+              ],
+              validation: (Rule) => Rule.required().min(1).max(1),
+            },
           ],
           preview: {
             select: { title: "alt_text", thumbnail: "image" },

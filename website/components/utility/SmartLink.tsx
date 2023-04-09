@@ -7,10 +7,10 @@ const LinkStyle = styled.div`
   }
 `;
 
-export const SmartLink = ({ href, children }) => {
+export const SmartLink = ({ href, children, display = "block" }) => {
   if (href.startsWith("/")) {
     return (
-      <LinkStyle>
+      <LinkStyle style={{ display }}>
         <Link href={href} legacyBehavior>
           {children}
         </Link>
@@ -26,8 +26,12 @@ export const SmartLink = ({ href, children }) => {
   );
 };
 
-export const OptionalSmartLink = ({ href, children }) => {
+export const OptionalSmartLink = ({ href, children, display = "block" }) => {
   if (href) {
-    return <SmartLink href={href}>{children}</SmartLink>;
+    return (
+      <SmartLink href={href} display={display}>
+        {children}
+      </SmartLink>
+    );
   } else return children;
 };

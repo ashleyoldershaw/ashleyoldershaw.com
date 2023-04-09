@@ -36,6 +36,7 @@ const BlogContent = ({ item }) => {
           }
           alt={item.alt_text}
           caption={item.caption}
+          credit={item.credit}
         />
       );
     case "section_title":
