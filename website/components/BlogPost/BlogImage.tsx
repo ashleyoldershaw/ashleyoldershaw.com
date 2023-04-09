@@ -28,6 +28,5 @@ export const BlogImage = ({ image, alt, caption, credit }) => (
     <Image {...useGetImageProps(image)} alt={alt} className="next-image" />
     {credit && credit.length == 1 && <ImageCredit credit={credit} />}
     {caption && <TextDetail>{caption}</TextDetail>}
-    {console.log(credit)}
   </StyledBlogImageWrapper>
 );
