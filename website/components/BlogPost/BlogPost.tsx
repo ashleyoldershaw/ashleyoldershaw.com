@@ -17,7 +17,7 @@ import {
 } from "../styling/TextStyles";
 import { formatDate } from "../utility/formatting";
 import { SmartLink } from "../utility/SmartLink";
-import { BlogImage } from "./BlogImage";
+import { BlogImage } from "./BlogImage/BlogImage";
 import { StyledArticle, TimingSection } from "./BlogPost.style";
 import { Bullets } from "./Bullets/Bullets";
 
@@ -109,9 +109,11 @@ export const BlogPost = ({ content, meta_info }) => (
             <BlogContent key={item._key} item={item} />
           ))}
         </div>
-        <SmartLink href={meta_info.back_to_menu.url}>
-          <CustomButton text={meta_info.back_to_menu.text} />
-        </SmartLink>
+        <div>
+          <SmartLink href={meta_info.back_to_menu.url}>
+            <CustomButton text={meta_info.back_to_menu.text} />
+          </SmartLink>
+        </div>
       </ContentSection>
     </TextBasedWidth>
   </StyledArticle>

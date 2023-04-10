@@ -1,7 +1,7 @@
 import Link from "next/link";
+import { Fragment } from "react";
 import styled from "styled-components";
-
-const LinkStyle = styled.div`
+const LinkStyle = styled(Fragment)`
   :hover {
     cursor: pointer;
   }
