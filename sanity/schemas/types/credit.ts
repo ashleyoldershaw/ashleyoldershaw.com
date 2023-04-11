@@ -4,14 +4,30 @@ enum LicenceTypes {
   CREATIVE_COMMONS = "creative_commons",
 }
 
+enum CcConditions {
+  SHARE_ALIKE = "share_alike",
+  NON_COMMERCIAL = "non_commercial",
+  NO_DERIVATIVES = "no_derivatives",
+}
+
 const isCreativeCommons = (parent) =>
   parent.licence !== LicenceTypes.CREATIVE_COMMONS;
 
 const ccFields = [
-  { name: "share_alike", title: "Share Alike", type: "boolean" },
-  { name: "non_commercial", title: "Non-Commercial", type: "boolean" },
-  { name: "no_derivatives", title: "No derivatives", type: "boolean" },
+  { name: CcConditions.SHARE_ALIKE, title: "Share Alike", type: "boolean" },
+  {
+    name: CcConditions.NON_COMMERCIAL,
+    title: "Non-Commercial",
+    type: "boolean",
+  },
+  {
+    name: CcConditions.NO_DERIVATIVES,
+    title: "No derivatives",
+    type: "boolean",
+  },
 ];
+
+const ccValid = () => {};
 
 export const creditFields = [
   {
@@ -49,6 +65,15 @@ export const creditFields = [
       collapsible: false,
     },
     hidden: ({ parent }) => isCreativeCommons(parent),
+    validation: (Rule) =>
+      Rule.custom(
+        ({
+          [CcConditions.NO_DERIVATIVES]: nd = false,
+          [CcConditions.SHARE_ALIKE]: sa = false,
+        } = {}) =>
+          !(nd && sa) ||
+          `Creative Commons licence can't be no derivatives and share alike at the same time!`
+      ),
   },
   {
     name: "author",
