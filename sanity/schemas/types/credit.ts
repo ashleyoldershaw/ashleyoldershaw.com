@@ -27,8 +27,6 @@ const ccFields = [
   },
 ];
 
-const ccValid = () => {};
-
 export const creditFields = [
   {
     name: "licence",
