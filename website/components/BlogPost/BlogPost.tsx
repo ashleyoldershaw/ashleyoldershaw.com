@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useTheme } from "styled-components";
-import { CustomButton } from "../styling/Buttons/Buttons";
+import { CustomButton, LinkButton } from "../styling/Buttons/Buttons";
 import {
   ContentSection,
   PageTitleSection,
@@ -110,9 +110,10 @@ export const BlogPost = ({ content, meta_info }) => (
           ))}
         </div>
         <div>
-          <SmartLink href={meta_info.back_to_menu.url}>
-            <CustomButton text={meta_info.back_to_menu.text} />
-          </SmartLink>
+          <LinkButton
+            url={meta_info.back_to_menu.url}
+            text={meta_info.back_to_menu.text}
+          />
         </div>
       </ContentSection>
     </TextBasedWidth>

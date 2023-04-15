@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SmartLink } from "../../utility/SmartLink";
 import { BodyText } from "../TextStyles";
 import {
   OnBackground,
@@ -8,21 +9,40 @@ import {
   ToggleButtonWrapper,
 } from "./Buttons.style";
 
+interface ButtonProps {
+  text: string;
+  onClick?: () => unknown;
+  type?: "button" | "reset" | "submit";
+}
+
 export const CustomButton = ({
   text,
   onClick = () => {},
   type = "button",
-}: {
-  text: string;
-  onClick?: () => unknown;
-  type?: string;
-}) => {
+}: ButtonProps) => {
   return (
     <StyledCustomButton onClick={onClick} type={type}>
       <BodyText style={{ margin: "15px" }}>{text}</BodyText>
     </StyledCustomButton>
   );
 };
+
+interface LinkButtonProps extends ButtonProps {
+  url: string;
+}
+
+export const LinkButton = ({
+  url,
+  text,
+  onClick = () => {},
+  type = "button",
+}: LinkButtonProps) => (
+  <SmartLink href={url}>
+    <div>
+      <CustomButton onClick={onClick} text={text} type={type} />
+    </div>
+  </SmartLink>
+);
 
 export const ToggleButton = ({ onLabel, offLabel, onToggled }) => {
   const [toggled, setToggled] = useState<boolean>(false);

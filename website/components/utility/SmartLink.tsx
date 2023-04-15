@@ -1,37 +1,32 @@
 import Link from "next/link";
-import { Fragment } from "react";
 import styled from "styled-components";
-const LinkStyle = styled(Fragment)`
+
+const StyledLink = styled.span`
   :hover {
     cursor: pointer;
   }
 `;
 
-export const SmartLink = ({ href, children, display = "block" }) => {
+export const SmartLink = ({ href, children }) => {
   if (href.startsWith("/")) {
     return (
-      <LinkStyle style={{ display }}>
+      <StyledLink>
         <Link href={href} legacyBehavior>
           {children}
         </Link>
-      </LinkStyle>
+      </StyledLink>
     );
   }
   return (
-    <LinkStyle>
-      <a href={href} target="_blank" rel="noreferrer">
-        {children}
-      </a>
-    </LinkStyle>
+    <StyledLink as="a" href={href} target="_blank" rel="noreferrer">
+      {children}
+    </StyledLink>
   );
 };
 
-export const OptionalSmartLink = ({ href, children, display = "block" }) => {
+export const OptionalSmartLink = ({ href, children }) => {
   if (href) {
-    return (
-      <SmartLink href={href} display={display}>
-        {children}
-      </SmartLink>
-    );
-  } else return children;
+    return <SmartLink href={href}>{children}</SmartLink>;
+  }
+  return children;
 };

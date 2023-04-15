@@ -31,7 +31,11 @@ export const ToggleButtonWrapper = styled.div`
   flex-direction: row !important;
 `;
 
-export const ToggleButtonBack = styled.div`
+interface ToggleableProps {
+  toggled: boolean;
+}
+
+export const ToggleButtonBack = styled.div<ToggleableProps>`
   height: 1em;
   width: 2.5em;
   border: ${borderWidth}px solid ${(props) => props.theme.contrast};
@@ -41,13 +45,13 @@ export const ToggleButtonBack = styled.div`
   gap: 0 !important;
 `;
 
-export const ToggleButtonFront = styled.div`
+export const ToggleButtonFront = styled.div<ToggleableProps>`
   height: 1em;
   width: 1em;
   background-color: ${(props) => props.theme.contrast};
 `;
 
-export const OnBackground = styled.div`
+export const OnBackground = styled.div<ToggleableProps>`
   height: 1em;
   width: ${(props) => (props.toggled ? 1.5 : 0)}em;
   background-color: ${(props) => props.theme.accent};

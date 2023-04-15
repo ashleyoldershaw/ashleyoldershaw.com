@@ -17,15 +17,17 @@ import { BlogpostPreviewStyle } from "./BlogHomePage.style";
 
 export const BlogPostPreview = ({ post }) => {
   return (
-    <SmartLink href={`/blog/${post.slug}`}>
-      <BlogpostPreviewStyle>
-        <SubSubSectionTitle>{post.title}</SubSubSectionTitle>
-        <BodyText>{post.subtitle}</BodyText>
-        <TextDetail>
-          {post.created ? formatDate(post.created) : "Unpublished"}
-        </TextDetail>
-      </BlogpostPreviewStyle>
-    </SmartLink>
+    <div>
+      <SmartLink href={`/blog/${post.slug}`}>
+        <BlogpostPreviewStyle>
+          <SubSubSectionTitle>{post.title}</SubSubSectionTitle>
+          <BodyText>{post.subtitle}</BodyText>
+          <TextDetail>
+            {post.created ? formatDate(post.created) : "Unpublished"}
+          </TextDetail>
+        </BlogpostPreviewStyle>
+      </SmartLink>
+    </div>
   );
 };
 
