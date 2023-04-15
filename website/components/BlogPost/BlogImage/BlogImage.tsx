@@ -12,9 +12,7 @@ export const ImageCredit = ({ credit }) => {
     return (
       <TextDetail>
         Image credit:{" "}
-        <OptionalSmartLink href={credit.url} display="inline">
-          {credit.author}
-        </OptionalSmartLink>
+        <OptionalSmartLink href={credit.url}>{credit.author}</OptionalSmartLink>
         , {`"${credit.title}"`}
         {", "}
         {credit.year}
