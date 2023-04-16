@@ -48,9 +48,6 @@ const getTheme = (colourTheme, light_mode, dark_mode) => {
         text: dark_mode.text.hex,
         full: "#000000",
       };
-
-    default:
-      return {};
   }
 };
 

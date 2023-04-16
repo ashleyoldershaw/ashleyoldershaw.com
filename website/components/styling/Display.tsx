@@ -37,7 +37,7 @@ const PageTitleStyle = styled.div`
   }
 `;
 
-const TriangleDividerStyle = styled.div`
+const TriangleDividerStyle = styled("div")<{ fill_colour: string }>`
   overflow: hidden;
   line-height: 0;
 
@@ -123,7 +123,7 @@ export const TriangleDivider = ({
   return (
     <TriangleDividerStyle
       ref={ref}
-      fill_colour={fill_colour || theme.secondary_background}
+      fill_colour={theme.full || theme.secondary_background}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
