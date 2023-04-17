@@ -123,7 +123,7 @@ export const TriangleDivider = ({
   return (
     <TriangleDividerStyle
       ref={ref}
-      fill_colour={theme.full || theme.secondary_background}
+      fill_colour={fill_colour || theme.secondary_background}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
