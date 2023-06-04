@@ -44,5 +44,5 @@ export default async function handler(
 
   await kv.getdel(validationKey);
 
-  return response.status(200).send(await result.text);
+  return response.status(200).send("Thanks! Confirmed.");
 }
