@@ -4,9 +4,7 @@ export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse
 ) {
-  const { searchParams: body } = new URL(request.url);
-
-  const validationKey = body.get("message") || "";
+  const validationKey = request.query.message || "";
 
   if (!validationKey) {
     return response.status(400).send("No message value found in request!");
