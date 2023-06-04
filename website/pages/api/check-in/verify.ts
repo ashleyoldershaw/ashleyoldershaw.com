@@ -15,10 +15,9 @@ export default async function handler(
   const record = await kv.get<string>(`check-in/${validationKey}`);
 
   if (!record) {
-    return new Response(
-      "Message not found, was this message already verified?",
-      { status: 400 }
-    );
+    return response
+      .status(400)
+      .send("Message not found, was this message already verified?");
   }
 
   const { message, email, name } = JSON.parse(record);
@@ -43,9 +42,9 @@ export default async function handler(
 
   const resp = await result.text();
 
-  if (resp) return new Response("Internal Server Error", { status: 500 });
+  if (resp) return response.status(500).send("Internal Server Error");
 
   await kv.getdel(validationKey);
 
-  return new Response("Thanks! Confirmed.", { status: 200 });
+  return response.status(200).send("Thanks! Confirmed.");
 }
