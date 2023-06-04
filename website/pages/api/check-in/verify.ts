@@ -4,7 +4,7 @@ export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse
 ) {
-  const validationKey = request.query.message || "";
+  const validationKey = (request.query.message || "") as string;
 
   if (!validationKey) {
     return response.status(400).send("No message value found in request!");
