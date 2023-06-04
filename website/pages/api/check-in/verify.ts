@@ -38,9 +38,7 @@ export default async function handler(
     }),
   });
 
-  const resp = await result.text();
-
-  if (resp) return response.status(500).send("Internal Server Error");
+  if (!result.ok) return response.status(500).send("Internal Server Error");
 
   await kv.getdel(validationKey);
 
