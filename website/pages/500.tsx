@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 import { ErrorPage } from "../components/ErrorPage";
-import { getStaticProps as getLayoutStaticProps } from "../components/layout";
+import { getLayoutStaticProps } from "../components/layout";
 import { sanity } from "../components/sanity";
 
 export async function getStaticProps() {

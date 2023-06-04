@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 import { BlogPost } from "../../components/BlogPost/BlogPost";
-import { getStaticProps as getLayoutStaticProps } from "../../components/layout";
+import { getLayoutStaticProps } from "../../components/layout";
 import { sanity } from "../../components/sanity";
 
 const Article = ({ blog_post, meta_info }) => {

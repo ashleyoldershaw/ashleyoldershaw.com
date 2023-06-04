@@ -1,22 +1,18 @@
-export async function onRequestGet(context) {
-  const {
-    request, // same as existing Worker API
-    env, // same as existing Worker API
-    params, // if filename includes [id] or [[path]]
-    waitUntil, // same as ctx.waitUntil in existing Worker API
-    next, // used for middleware or to fetch assets
-    data, // arbitrary space for passing data between middlewares
-    query,
-  } = context;
+import { kv } from "@vercel/kv";
+import { NextApiRequest, NextApiResponse } from "next";
+export default async function handler(
+  request: NextApiRequest,
+  response: NextApiResponse
+) {
   const { searchParams: body } = new URL(request.url);
 
   const validationKey = body.get("message") || "";
 
   if (!validationKey) {
-    return new Response("No message value found in request!", { status: 400 });
+    return response.status(400).send("No message value found in request!");
   }
 
-  const record = await env["Email verification"].get(validationKey);
+  const record = await kv.get<string>(`check-in/${validationKey}`);
 
   if (!record) {
     return new Response(
@@ -29,19 +25,19 @@ export async function onRequestGet(context) {
 
   const result = await fetch("https://api.sendgrid.com/v3/mail/send", {
     headers: {
-      Authorization: `Bearer ${env.SENDGRID_API_KEY}`,
+      Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
       "Content-Type": "application/json",
     },
     method: "POST",
     body: JSON.stringify({
       personalizations: [
         {
-          to: [{ email: env.FORWARDING_EMAIL_ADDRESS }],
+          to: [{ email: process.env.FORWARDING_EMAIL_ADDRESS }],
           dynamic_template_data: { message, email, name },
         },
       ],
       from: { email: "ash@ashleyoldershaw.com" },
-      template_id: env.MESSAGE_RECIEVED_TEMPLATE_ID,
+      template_id: process.env.MESSAGE_RECIEVED_TEMPLATE_ID,
     }),
   });
 
@@ -49,7 +45,7 @@ export async function onRequestGet(context) {
 
   if (resp) return new Response("Internal Server Error", { status: 500 });
 
-  waitUntil(env["Email verification"].delete(validationKey));
+  await kv.getdel(validationKey);
 
   return new Response("Thanks! Confirmed.", { status: 200 });
 }

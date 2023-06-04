@@ -1,4 +1,4 @@
-import { Jost } from "@next/font/google";
+import { Jost } from "next/font/google";
 import styled from "styled-components";
 import { displays } from "./Display";
 

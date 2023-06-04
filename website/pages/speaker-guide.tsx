@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { getStaticProps as getLayoutStaticProps } from "../components/layout";
+import { getLayoutStaticProps } from "../components/layout";
 import {
   ClipboardButton,
   CustomButton,

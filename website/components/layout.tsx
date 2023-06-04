@@ -1,7 +1,7 @@
 import { groq } from "next-sanity";
 import { sanity } from "./sanity";
 
-export async function getStaticProps() {
+export async function getLayoutStaticProps() {
   return {
     layout_props: {
       nav_bar: await sanity.fetch(groq`*[_type=='nav_bar'][0]`),

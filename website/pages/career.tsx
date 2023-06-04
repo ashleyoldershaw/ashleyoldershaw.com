@@ -1,7 +1,7 @@
 import { groq } from "next-sanity";
 import Head from "next/head";
 import { ExpandableText } from "../components/ExpandableText/ExpandableText";
-import { getStaticProps as getLayoutStaticProps } from "../components/layout";
+import { getLayoutStaticProps } from "../components/layout";
 import { sanity } from "../components/sanity";
 import {
   PageTitleSection,
