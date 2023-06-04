@@ -10,7 +10,9 @@ export default async function handler(
     return response.status(400).send("No message value found in request!");
   }
 
-  const record = await kv.get<string>(`check-in/${validationKey}`);
+  const record = await kv.get<{ message: string; email: string; name: string }>(
+    `check-in/${validationKey}`
+  );
 
   if (!record) {
     return response
@@ -18,7 +20,7 @@ export default async function handler(
       .send("Message not found, was this message already verified?");
   }
 
-  const { message, email, name } = JSON.parse(record);
+  const { message, email, name } = record;
 
   const result = await fetch("https://api.sendgrid.com/v3/mail/send", {
     headers: {
